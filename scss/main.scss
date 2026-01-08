@@ -1,21 +1,24 @@
 @use 'layout';
+@use 'palette' as *;
 @use 'media' as *;
 
-html, body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
+  color: $red-6;
+  a {
+    &:link, &:focus, &:active, &:visited {
+      color: $red-1_5;
+      text-decoration: underline;
+    }
+  }
+
   header {
     #header-ribbon {
 
       .ribbon.red {
-        background: red;
+        background: $red-2;
       }
       .ribbon.black {
-        background: black;
+        background: $red-6;
       }
       .ribbon.red, .ribbon.black {
       }
@@ -24,9 +27,9 @@ body {
       ul {
         li {
           a {
-
             &:link, &:focus, &:active, &:visited {
-
+              color: $red-2;
+              text-decoration: none;
             }
           }
         }

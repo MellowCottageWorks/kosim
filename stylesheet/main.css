@@ -38,21 +38,67 @@ body header nav {
 body header nav ul {
   display: flex;
   flex-flow: row nowrap;
-  gap: 2rem;
   list-style: none;
+  margin: 1em;
   padding: 0;
 }
-html, body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+body header nav ul li a {
+  display: block;
+  padding: 1em;
 }
-
+body header nav ul li a:link, body header nav ul li a:focus, body header nav ul li a:active, body header nav ul li a:visited {
+  color: #804040;
+}
+/* colorbox.io Config
+[
+  {
+    "properties": {
+      "steps": 7,
+      "hue": {
+        "start": 0,
+        "end": 0,
+        "curve": "easeOutQuad"
+      },
+      "saturation": {
+        "start": 0.08,
+        "end": 1,
+        "rate": 1.7,
+        "curve": "easeOutQuad"
+      },
+      "brightness": {
+        "start": 1,
+        "end": 0.08,
+        "curve": "linear"
+      }
+    },
+    "options": {
+      "minorSteps": [
+        0,
+        1
+      ],
+      "name": "Tomato Red",
+      "lockHex": "",
+      "rotation": "clockwise"
+    }
+  }
+]
+ */
+body {
+  color: #140000;
+}
+body a:link, body a:focus, body a:active, body a:visited {
+  color: #c42121;
+  text-decoration: underline;
+}
 body header #header-ribbon .ribbon.red {
-  background: red;
+  background: #b10000;
 }
 body header #header-ribbon .ribbon.black {
-  background: black;
+  background: #140000;
+}
+body header nav ul li a:link, body header nav ul li a:focus, body header nav ul li a:active, body header nav ul li a:visited {
+  color: #b10000;
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=main.css.map */
