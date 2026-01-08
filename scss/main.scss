@@ -1,5 +1,5 @@
 @use 'layout';
-@use 'media';
+@use 'media' as *;
 
 html, body {
   margin: 0;
@@ -9,6 +9,17 @@ html, body {
 
 body {
   header {
+    #header-ribbon {
+
+      .ribbon.red {
+        background: red;
+      }
+      .ribbon.black {
+        background: black;
+      }
+      .ribbon.red, .ribbon.black {
+      }
+    }
     nav {
       ul {
         li {

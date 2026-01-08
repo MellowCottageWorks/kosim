@@ -4,6 +4,37 @@ html, body {
   box-sizing: border-box;
 }
 
+body header #header-ribbon {
+  position: absolute;
+  left: 47.5%;
+  display: flex;
+  flex-flow: column nowrap;
+  rotate: 45deg;
+  width: 100vw;
+  height: 7.5em;
+  gap: 0.5em;
+}
+body header #header-ribbon .ribbon.red {
+  flex: 2.4em;
+}
+body header #header-ribbon .ribbon.black {
+  flex: 2 0.8em;
+}
+body header #header-ribbon .ribbon.red, body header #header-ribbon .ribbon.black {
+  min-height: 0.4em;
+}
+@media screen and (max-width: 768px), print {
+  body header #header-ribbon {
+    left: 0;
+    height: 3.2em;
+    gap: 0;
+    rotate: 0deg;
+  }
+}
+body header nav {
+  position: relative;
+  z-index: 1;
+}
 body header nav ul {
   display: flex;
   flex-flow: row nowrap;
@@ -15,6 +46,13 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body header #header-ribbon .ribbon.red {
+  background: red;
+}
+body header #header-ribbon .ribbon.black {
+  background: black;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -8,7 +8,40 @@ html, body {
 
 body {
   header {
+    #header-ribbon {
+      $gap: .5em;
+      $ribbon-height: 3.5 * 2 + $gap;
+
+      position: absolute;
+      left: 47.5%;
+      display: flex;
+      flex-flow: column nowrap;
+      rotate: 45deg;
+      width: 100vw;
+      height: $ribbon-height;
+      gap: $gap;
+
+      .ribbon.red {
+        flex: 2.4em;
+      }
+      .ribbon.black {
+        flex: 2 .8em;
+      }
+      .ribbon.red, .ribbon.black {
+        min-height: .4em;
+      }
+
+      @include for-portrait {
+        left: 0;
+        height: 3.2em;
+        gap: 0;
+        rotate: 0deg;
+      }
+    }
     nav {
+      position: relative;
+      z-index: 1;
+
       ul {
         display: flex;
         flex-flow: row nowrap;
