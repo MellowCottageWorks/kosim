@@ -9,9 +9,19 @@ body {
       color: $red-1_5;
       text-decoration: underline;
     }
+    &:focus {
+      color: $red-1;
+    }
   }
 
   header {
+    background: linear-gradient(
+        0deg,
+        transparent 0%,
+        white 30%,
+        white 100%
+    );
+
     #header-ribbon {
 
       .ribbon.red {
@@ -28,7 +38,7 @@ body {
         li {
           a {
             &:link, &:focus, &:active, &:visited {
-              color: $red-2;
+              color: $red-4;
               text-decoration: none;
             }
           }
@@ -40,7 +50,9 @@ body {
   main {
     article {
       &#hero {
-        h1 {}
+        h1 {
+          margin: 0 0;
+        }
         #h1-sub {}
         h2 {}
         button.CTA {}

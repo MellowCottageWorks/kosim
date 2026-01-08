@@ -4,6 +4,11 @@ html, body {
   box-sizing: border-box;
 }
 
+body header {
+  position: sticky;
+  top: 0;
+  left: 0;
+}
 body header #header-ribbon {
   position: absolute;
   left: 47.5%;
@@ -13,6 +18,7 @@ body header #header-ribbon {
   width: 100vw;
   height: 7.5em;
   gap: 0.5em;
+  z-index: 1;
 }
 body header #header-ribbon .ribbon.red {
   flex: 2.4em;
@@ -32,19 +38,19 @@ body header #header-ribbon .ribbon.red, body header #header-ribbon .ribbon.black
   }
 }
 body header nav {
-  position: relative;
-  z-index: 1;
+  z-index: 0;
+  width: 100vw;
 }
 body header nav ul {
   display: flex;
   flex-flow: row nowrap;
   list-style: none;
-  margin: 1em;
+  margin: 0 1em 1em;
   padding: 0;
 }
 body header nav ul li a {
   display: block;
-  padding: 1em;
+  padding: 2em 1em;
 }
 body header nav ul li a:link, body header nav ul li a:focus, body header nav ul li a:active, body header nav ul li a:visited {
   color: #804040;
@@ -90,6 +96,12 @@ body a:link, body a:focus, body a:active, body a:visited {
   color: #c42121;
   text-decoration: underline;
 }
+body a:focus {
+  color: #d85252;
+}
+body header {
+  background: linear-gradient(0deg, transparent 0%, white 30%, white 100%);
+}
 body header #header-ribbon .ribbon.red {
   background: #b10000;
 }
@@ -97,8 +109,11 @@ body header #header-ribbon .ribbon.black {
   background: #140000;
 }
 body header nav ul li a:link, body header nav ul li a:focus, body header nav ul li a:active, body header nav ul li a:visited {
-  color: #b10000;
+  color: #630000;
   text-decoration: none;
+}
+body main article#hero h1 {
+  margin: 0 0;
 }
 
 /*# sourceMappingURL=main.css.map */
