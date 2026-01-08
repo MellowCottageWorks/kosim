@@ -1,0 +1,14 @@
+$portrait-width: 768px;
+$portrait-min-width: 574px;
+
+@mixin for-width($size) {
+  @media screen and (max-width: $size), print { @content; }
+}
+
+@mixin for-portrait {
+  @include for-width($portrait-width) { @content; }
+}
+
+@mixin for-portrait-smaller {
+  @include for-width($portrait-min-width) { @content; }
+}

@@ -1,0 +1,15 @@
+# Jekyll Configuration
+
+# Exclude desktop.ini files (Windows/Google Drive system files)
+exclude:
+  - desktop.ini
+  - "**/desktop.ini"
+  - .idea/
+  - .jekyll-cache/
+  - node_modules/
+  - vendor/
+
+# Keep files with dotfiles by default
+keep_files:
+  - .git
+  - .nojekyll

@@ -1,0 +1,21 @@
+- name: hero
+  name-ko: 고심
+  filename: hero.md
+- name: why-we-started
+  name-ko: 설립이유
+  filename: started.md
+- name: core-strengths
+  name-ko: 핵심능력
+  filename: strengths.md
+- name: process
+  name-ko: 제조·생산 공정
+  filename: process.md
+- name: featured-product
+  name-ko: 대표제품
+  filename: products.md
+- name: values-and-direction
+  name-ko: 가치·방향성
+  filename: values.md
+- name: contact
+  name-ko: 문의
+  filename: contact.html
