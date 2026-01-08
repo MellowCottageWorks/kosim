@@ -1,0 +1,44 @@
+$red-0:   #ffdcdc;
+$red-0_5: #eb9292;
+$red-1:   #d85252; // 3:1 F DOWN, 4.5:1 0 UP
+$red-1_5: #c42121; // 4.5:1 F DOWN, 3:1 0 UP
+$red-2:   #b10000;
+$red-3:   #8a0000;
+$red-4:   #630000;
+$red-5:   #3b0000;
+$red-6:   #140000;
+
+/* colorbox.io Config
+[
+  {
+    "properties": {
+      "steps": 7,
+      "hue": {
+        "start": 0,
+        "end": 0,
+        "curve": "easeOutQuad"
+      },
+      "saturation": {
+        "start": 0.08,
+        "end": 1,
+        "rate": 1.7,
+        "curve": "easeOutQuad"
+      },
+      "brightness": {
+        "start": 1,
+        "end": 0.08,
+        "curve": "linear"
+      }
+    },
+    "options": {
+      "minorSteps": [
+        0,
+        1
+      ],
+      "name": "Tomato Red",
+      "lockHex": "",
+      "rotation": "clockwise"
+    }
+  }
+]
+ */
