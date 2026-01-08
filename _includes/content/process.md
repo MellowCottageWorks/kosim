@@ -2,21 +2,26 @@
 
 <div id="process-steps">
     <div class="process-step">
-        토마토 수급
+        <img src="https://dummyimage.com/64/808080/fff.png">
+        <p>토마토 수급</p>
     </div>
     <div class="process-step">
-        세척
+        <img src="https://dummyimage.com/64/808080/fff.png">
+        <p>세척</p>
     </div>
     <div class="process-step">
-        가공
+        <img src="https://dummyimage.com/64/808080/fff.png">
+        <p>가공</p>
     </div>
     <div class="process-step">
-        포장
+        <img src="https://dummyimage.com/64/808080/fff.png">
+        <p>포장</p>
     </div>
     <div class="process-step">
-        출고
+        <img src="https://dummyimage.com/64/808080/fff.png">
+        <p>출고</p>
     </div>
-    <caption>
-        모든 공정은 HACCP 안전·위생 기준에 따라 관리됩니다.
-    </caption>
 </div>
+<p>
+    모든 공정은 HACCP 안전·위생 기준에 따라 관리됩니다.
+</p>
