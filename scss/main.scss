@@ -2,15 +2,18 @@
 @use 'palette' as *;
 @use 'media' as *;
 
+$background-color: black;
+
 body {
-  color: $red-6;
+  background: $background-color;
+  color: whitesmoke;
   a {
     &:link, &:focus, &:active, &:visited {
-      color: $red-1_5;
+      color: $red-0;
       text-decoration: underline;
     }
     &:focus {
-      color: $red-1;
+      color: $red-0_5;
     }
   }
 
@@ -18,8 +21,8 @@ body {
     background: linear-gradient(
         0deg,
         transparent 0%,
-        white 30%,
-        white 100%
+        $background-color 30%,
+        $background-color 100%
     );
 
     #header-ribbon {
@@ -27,10 +30,10 @@ body {
       .ribbon.red {
         background: $red-2;
       }
-      .ribbon.black {
-        background: $red-6;
+      .ribbon.bright {
+        background: $red-1;
       }
-      .ribbon.red, .ribbon.black {
+      .ribbon.red, .ribbon.bright {
       }
     }
     nav {
@@ -38,7 +41,7 @@ body {
         li {
           a {
             &:link, &:focus, &:active, &:visited {
-              color: $red-4;
+              color: $red-0;
               text-decoration: none;
             }
           }
@@ -49,39 +52,51 @@ body {
 
   main {
     button.CTA {
-      background-color: $red-2;
+      background-color: $red-1;
       color: white;
-      border: 2px solid $red-4;
+      border: 2px solid $red-2;
 
       &:active {
-        background-color: $red-1;
-        border-color: $red-2;
+        background-color: $red-2;
+        border-color: $red-4;
       }
     }
 
     article {
       &#hero {
-        background-image: linear-gradient(
-          90deg,
-          transparent 0%,
-          rgba(255, 255, 255, .2) 33%,
-          rgba(255, 255, 255, .8) 50%,
-          white 70%
-        ),
-        url(../image/exterior.jpg);
-        background-size: cover;
+        $tomato-overlay-text-color: rgba(0,0,0,.7);
 
+        background: no-repeat url(../image/tomato.png);
+        background-position: center;
+        background-size: contain;
+        background-origin: padding-box;
+        color: white;
 
         h1 {
         }
         #h1-sub {}
-        h2 {}
-        button.CTA {}
+        strong {}
+        h1, p, #h1-sub {
+          text-shadow: 0 0 1em $tomato-overlay-text-color;
+        }
+        button.CTA {
+        }
       }
 
       &#why-we-started {
+        background-image: linear-gradient(
+            -90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.2) 33%,
+            rgba(255, 255, 255, 0.8) 50%,
+            white 70%), url(../image/hygiene.jpg);
+        background-position: left, bottom right;
+        background-size: 100%, 50%;
+        background-repeat: no-repeat;
 
-        blockquote {}
+        blockquote {
+          background-color: $background-color;
+        }
       }
 
       &#core-strengths {

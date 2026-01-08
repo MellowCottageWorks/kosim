@@ -23,10 +23,10 @@ body header #header-ribbon {
 body header #header-ribbon .ribbon.red {
   flex: 2.4em;
 }
-body header #header-ribbon .ribbon.black {
+body header #header-ribbon .ribbon.bright {
   flex: 2 0.8em;
 }
-body header #header-ribbon .ribbon.red, body header #header-ribbon .ribbon.black {
+body header #header-ribbon .ribbon.red, body header #header-ribbon .ribbon.bright {
   min-height: 0.4em;
 }
 @media screen and (max-width: 768px), print {
@@ -62,16 +62,39 @@ body main article[id]:last-child {
   margin-bottom: 1em;
 }
 body main article#hero {
-  padding: 6em 3em 3em 0;
-  text-align: right;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  text-align: center;
+  padding: 11em 3em 0;
 }
 body main article#hero h1 {
   margin: 0;
+}
+body main article#hero strong {
+  font-size: 8em;
 }
 body main article#hero button.CTA {
   margin: 2em 1em;
   padding: 1em;
   font-size: 1.2em;
+}
+body main article#why-we-started h2, body main article#why-we-started p {
+  word-break: keep-all;
+  position: relative;
+  text-align: right;
+  width: 25rem;
+  left: 5rem;
+}
+body main article#why-we-started blockquote {
+  position: relative;
+  right: 50%;
+  text-align: right;
+  width: 100%;
+  border: 0.2em solid lightgray;
+  margin: 1em 0;
+  padding: 0.8em;
+  box-shadow: 0.5em 0.5em 0 lightgray;
 }
 body main article#contact form button.CTA {
   margin: 1em 0.5em;
@@ -113,40 +136,56 @@ body main article#contact form button.CTA {
 ]
  */
 body {
-  color: #140000;
+  background: black;
+  color: whitesmoke;
 }
 body a:link, body a:focus, body a:active, body a:visited {
-  color: #c42121;
+  color: #ffdcdc;
   text-decoration: underline;
 }
 body a:focus {
-  color: #d85252;
+  color: #eb9292;
 }
 body header {
-  background: linear-gradient(0deg, transparent 0%, white 30%, white 100%);
+  background: linear-gradient(0deg, transparent 0%, black 30%, black 100%);
 }
 body header #header-ribbon .ribbon.red {
   background: #b10000;
 }
-body header #header-ribbon .ribbon.black {
-  background: #140000;
+body header #header-ribbon .ribbon.bright {
+  background: #d85252;
 }
 body header nav ul li a:link, body header nav ul li a:focus, body header nav ul li a:active, body header nav ul li a:visited {
-  color: #630000;
+  color: #ffdcdc;
   text-decoration: none;
 }
 body main button.CTA {
-  background-color: #b10000;
+  background-color: #d85252;
   color: white;
-  border: 2px solid #630000;
+  border: 2px solid #b10000;
 }
 body main button.CTA:active {
-  background-color: #d85252;
-  border-color: #b10000;
+  background-color: #b10000;
+  border-color: #630000;
 }
 body main article#hero {
-  background-image: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 33%, rgba(255, 255, 255, 0.8) 50%, white 70%), url(../image/exterior.jpg);
-  background-size: cover;
+  background: no-repeat url(../image/tomato.png);
+  background-position: center;
+  background-size: contain;
+  background-origin: padding-box;
+  color: white;
+}
+body main article#hero h1, body main article#hero p, body main article#hero #h1-sub {
+  text-shadow: 0 0 1em rgba(0, 0, 0, 0.7);
+}
+body main article#why-we-started {
+  background-image: linear-gradient(-90deg, transparent 0%, rgba(255, 255, 255, 0.2) 33%, rgba(255, 255, 255, 0.8) 50%, white 70%), url(../image/hygiene.jpg);
+  background-position: left, bottom right;
+  background-size: 100%, 50%;
+  background-repeat: no-repeat;
+}
+body main article#why-we-started blockquote {
+  background-color: black;
 }
 
 /*# sourceMappingURL=main.css.map */

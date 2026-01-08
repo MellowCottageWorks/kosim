@@ -29,10 +29,10 @@ body {
       .ribbon.red {
         flex: 2.4em;
       }
-      .ribbon.black {
+      .ribbon.bright {
         flex: 2 .8em;
       }
-      .ribbon.red, .ribbon.black {
+      .ribbon.red, .ribbon.bright {
         min-height: .4em;
       }
 
@@ -77,13 +77,19 @@ body {
         }
       }
       &#hero {
-        padding: 6em 3em 3em 0;
-        text-align: right;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        text-align: center;
+        padding: 11em 3em 0;
+
         h1 {
           margin: 0;
         }
+        strong {
+          font-size: 8em;
+        }
         #h1-sub {}
-        h2 {}
         button.CTA {
           margin: 2em 1em;
           padding: 1em;
@@ -92,8 +98,27 @@ body {
       }
 
       &#why-we-started {
-
-        blockquote {}
+        $width: 25rem;
+        h2, p {
+          word-break: keep-all;
+          position: relative;
+          text-align: right;
+          width: $width;
+          left: $width * .2;
+        }
+        h2 {}
+        p {
+        }
+        blockquote {
+          position: relative;
+          right: 50%;
+          text-align: right;
+          width: 100%;
+          border: .2em solid lightgray;
+          margin: 1em 0;
+          padding: .8em;
+          box-shadow: .5em .5em 0 lightgray;
+        }
       }
 
       &#core-strengths {
