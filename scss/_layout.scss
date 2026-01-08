@@ -70,11 +70,25 @@ body {
 
   main {
     article {
+      &[id] {
+        margin-bottom: 3em;
+        &:last-child {
+          margin-bottom: 1em;
+        }
+      }
       &#hero {
-        h1 {}
+        padding: 6em 3em 3em 0;
+        text-align: right;
+        h1 {
+          margin: 0;
+        }
         #h1-sub {}
         h2 {}
-        button.CTA {}
+        button.CTA {
+          margin: 2em 1em;
+          padding: 1em;
+          font-size: 1.2em;
+        }
       }
 
       &#why-we-started {
@@ -127,6 +141,11 @@ body {
 
         form {
 
+          button.CTA {
+            margin: 1em .5em;
+            padding: .5em;
+            font-size: 1em;
+          }
         }
       }
     }

@@ -55,6 +55,29 @@ body header nav ul li a {
 body header nav ul li a:link, body header nav ul li a:focus, body header nav ul li a:active, body header nav ul li a:visited {
   color: #804040;
 }
+body main article[id] {
+  margin-bottom: 3em;
+}
+body main article[id]:last-child {
+  margin-bottom: 1em;
+}
+body main article#hero {
+  padding: 6em 3em 3em 0;
+  text-align: right;
+}
+body main article#hero h1 {
+  margin: 0;
+}
+body main article#hero button.CTA {
+  margin: 2em 1em;
+  padding: 1em;
+  font-size: 1.2em;
+}
+body main article#contact form button.CTA {
+  margin: 1em 0.5em;
+  padding: 0.5em;
+  font-size: 1em;
+}
 /* colorbox.io Config
 [
   {
@@ -112,8 +135,18 @@ body header nav ul li a:link, body header nav ul li a:focus, body header nav ul 
   color: #630000;
   text-decoration: none;
 }
-body main article#hero h1 {
-  margin: 0 0;
+body main button.CTA {
+  background-color: #b10000;
+  color: white;
+  border: 2px solid #630000;
+}
+body main button.CTA:active {
+  background-color: #d85252;
+  border-color: #b10000;
+}
+body main article#hero {
+  background-image: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 33%, rgba(255, 255, 255, 0.8) 50%, white 70%), url(../image/exterior.jpg);
+  background-size: cover;
 }
 
 /*# sourceMappingURL=main.css.map */
