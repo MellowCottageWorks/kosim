@@ -28,21 +28,49 @@ body {
 
         p:first-child {
           position: absolute;
+          top: 0;
           width: 100%;
+          height: 100%;
+          margin: auto;
           text-align: center;
           z-index: -1;
+          display: flex;
+          justify-content: center;
 
           img {
             height: 80vh;
+            padding-bottom: 10vh;
+            align-self: center;
+
+            @include for-portrait {
+              width: 80vw;
+              height: auto;
+            }
           }
         }
-        h1 {
+
+        & > div {
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: end;
+          align-items: center;
+          width: 100vw;
+          height: 100vh;
+
+          h1 {
+            font-weight: normal;
+            font-size: 2.5em;
+            margin-bottom: -2rem;
+          }
+          strong {
+            font-size: 20em;
+            line-height: 20rem;
+          }
+          #h1-sub {
+            font-size: 2em;
+          }
         }
-        strong {
-          font-size: 8em;
-        }
-        #h1-sub {
-        }
+
         button.CTA {
           margin: 2em 1em;
           padding: 1em;

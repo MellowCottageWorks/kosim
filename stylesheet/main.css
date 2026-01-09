@@ -17,15 +17,45 @@ body main article#hero {
 }
 body main article#hero p:first-child {
   position: absolute;
+  top: 0;
   width: 100%;
+  height: 100%;
+  margin: auto;
   text-align: center;
   z-index: -1;
+  display: flex;
+  justify-content: center;
 }
 body main article#hero p:first-child img {
   height: 80vh;
+  padding-bottom: 10vh;
+  align-self: center;
 }
-body main article#hero strong {
-  font-size: 8em;
+@media screen and (max-width: 768px), print {
+  body main article#hero p:first-child img {
+    width: 80vw;
+    height: auto;
+  }
+}
+body main article#hero > div {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: end;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+body main article#hero > div h1 {
+  font-weight: normal;
+  font-size: 2.5em;
+  margin-bottom: -2rem;
+}
+body main article#hero > div strong {
+  font-size: 20em;
+  line-height: 20rem;
+}
+body main article#hero > div #h1-sub {
+  font-size: 2em;
 }
 body main article#hero button.CTA {
   margin: 2em 1em;
@@ -74,6 +104,7 @@ body main article#contact form button.CTA {
 body {
   background: black;
   color: whitesmoke;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
 }
 body a:link, body a:focus, body a:active, body a:visited {
   color: #ffdcdc;
