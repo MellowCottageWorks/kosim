@@ -103,6 +103,55 @@ body main article#why-we-started div p {
 body main article#why-we-started div p:last-of-type {
   margin-bottom: 0;
 }
+body main article#core-strengths h2 {
+  text-align: center;
+  padding: 2rem;
+}
+body main article#core-strengths .strengths {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  gap: 2rem;
+}
+body main article#core-strengths .strengths div.strength-card {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  flex: 0 1 15rem;
+}
+body main article#core-strengths .strengths div.strength-card h3 {
+  margin-bottom: 0.5rem;
+}
+body main article#core-strengths .strengths div.strength-card span {
+  line-height: 1.5rem;
+}
+body main article#core-strengths ul {
+  list-style: none;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 1em;
+}
+body main article#core-strengths ul li {
+  width: 50vw;
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+body main article#core-strengths ul li div strong {
+  font-size: 1.2rem;
+  line-height: 2em;
+}
+body main article#core-strengths ul li div p {
+  line-height: 1.5em;
+}
+body main article#core-strengths ul li div:first-child {
+  width: 5rem;
+  text-align: center;
+  font-size: 3em;
+  padding: 0.5rem;
+}
 body main article#contact form button.CTA {
   margin: 1em 0.5em;
   padding: 0.5em;
@@ -169,6 +218,12 @@ body main article#why-we-started p > img.right {
 }
 body main article#why-we-started div {
   background-color: rgba(0, 0, 0, 0.5);
+}
+body main article#core-strengths .strengths .strength-card {
+  background-color: rgba(127, 127, 127, 0.3);
+}
+body main article#core-strengths ul li {
+  background-color: rgba(127, 127, 127, 0.2);
 }
 
 /*# sourceMappingURL=main.css.map */
