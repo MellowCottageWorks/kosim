@@ -80,10 +80,50 @@ body {
 
       &#why-we-started {
 
-        h2, p {
+        h2 {
+          display: none;
         }
-        h2 {}
-        p {
+        & > p {
+          position: relative;
+
+          &:first-of-type {
+            top: 22vh;
+            left: 60vw;
+          }
+          &:nth-of-type(2) {
+            top: 8vh;
+            left: 4vw;
+          }
+          & > img.right, & > img.left {
+            position: absolute;
+          }
+
+          & > img.right {
+            width: 30%;
+          }
+
+          & > img.left {
+            width: 40%;
+          }
+        }
+        div {
+          position: relative;
+          top: 17vh;
+          left: 20vw;
+          width: 58vw;
+          z-index: 2;
+          line-height: 3rem;
+          text-align: center;
+          font-size: 1.6em;
+          padding: 2rem 0;
+          border-radius: 2rem;
+
+          p {
+            margin-bottom: 2em;
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+          }
         }
       }
 

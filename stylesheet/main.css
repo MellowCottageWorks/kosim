@@ -62,6 +62,47 @@ body main article#hero button.CTA {
   padding: 1em;
   font-size: 1.2em;
 }
+body main article#why-we-started h2 {
+  display: none;
+}
+body main article#why-we-started > p {
+  position: relative;
+}
+body main article#why-we-started > p:first-of-type {
+  top: 22vh;
+  left: 60vw;
+}
+body main article#why-we-started > p:nth-of-type(2) {
+  top: 8vh;
+  left: 4vw;
+}
+body main article#why-we-started > p > img.right, body main article#why-we-started > p > img.left {
+  position: absolute;
+}
+body main article#why-we-started > p > img.right {
+  width: 30%;
+}
+body main article#why-we-started > p > img.left {
+  width: 40%;
+}
+body main article#why-we-started div {
+  position: relative;
+  top: 17vh;
+  left: 20vw;
+  width: 58vw;
+  z-index: 2;
+  line-height: 3rem;
+  text-align: center;
+  font-size: 1.6em;
+  padding: 2rem 0;
+  border-radius: 2rem;
+}
+body main article#why-we-started div p {
+  margin-bottom: 2em;
+}
+body main article#why-we-started div p:last-of-type {
+  margin-bottom: 0;
+}
 body main article#contact form button.CTA {
   margin: 1em 0.5em;
   padding: 0.5em;
@@ -121,6 +162,13 @@ body main button.CTA {
 body main button.CTA:active {
   background-color: #b10000;
   border-color: #630000;
+}
+body main article#why-we-started p > img.right {
+  rotate: 50deg;
+  opacity: 0.5;
+}
+body main article#why-we-started div {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 /*# sourceMappingURL=main.css.map */

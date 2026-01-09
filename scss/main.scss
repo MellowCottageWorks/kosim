@@ -49,13 +49,26 @@ body {
 
       &#why-we-started {
 
-        h2 {
+        h2, p {
         }
+        h2 {}
+        p {
+          & > img.right, & > img.left {
+          }
 
-        img {
+          & > img.right {
+            rotate: 50deg;
+            opacity: .5;
+          }
+
+          & > img.left {
+          }
         }
+        div {
+          background-color: rgba(0,0,0,.5);
 
-        strong {
+          p {
+          }
         }
       }
 
