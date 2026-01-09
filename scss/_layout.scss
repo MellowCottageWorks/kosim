@@ -1,9 +1,13 @@
 @use 'media' as *;
 
 html, body {
+  box-sizing: border-box;
+  font-size: 16px;
+  min-width: 400px;
+}
+html, body, p {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
@@ -18,7 +22,20 @@ body {
         &:last-child {
         }
       }
+
       &#hero {
+        text-align: center;
+
+        p:first-child {
+          position: absolute;
+          width: 100%;
+          text-align: center;
+          z-index: -1;
+
+          img {
+            height: 80vh;
+          }
+        }
         h1 {
         }
         strong {

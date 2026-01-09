@@ -31,40 +31,18 @@ body {
 
     article {
       &#hero {
-        $tomato-overlay-text-color: rgba(0,0,0,.7);
 
-        background: url(../image/tomato.png) no-repeat center 0;
-        background-size: contain;
-        background-origin: padding-box;
-        color: white;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 2em;
-
+        img {
+        }
         h1 {
-          margin: 0.5em 0;
-          font-size: 1.2em;
-          font-weight: normal;
         }
         strong {
-          font-size: 6em;
-          letter-spacing: 0.1em;
-          display: block;
-          margin: 0.2em 0;
         }
         #h1-sub {
-          font-size: 1em;
-          line-height: 1.6;
-          margin: 1em 0;
         }
         h1, strong, #h1-sub {
-          text-shadow: 0 0 1em $tomato-overlay-text-color;
         }
         button.CTA {
-          display: none;
         }
       }
 
@@ -77,9 +55,6 @@ body {
         }
 
         strong {
-          display: block;
-          margin: 1.5em 0;
-          font-size: 1.1em;
         }
       }
 

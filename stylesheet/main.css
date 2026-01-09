@@ -1,11 +1,28 @@
 html, body {
+  box-sizing: border-box;
+  font-size: 16px;
+  min-width: 400px;
+}
+
+html, body, p {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
   overflow-x: hidden;
+}
+body main article#hero {
+  text-align: center;
+}
+body main article#hero p:first-child {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  z-index: -1;
+}
+body main article#hero p:first-child img {
+  height: 80vh;
 }
 body main article#hero strong {
   font-size: 8em;
@@ -73,45 +90,6 @@ body main button.CTA {
 body main button.CTA:active {
   background-color: #b10000;
   border-color: #630000;
-}
-body main article#hero {
-  background: url(../image/tomato.png) no-repeat center 0;
-  background-size: contain;
-  background-origin: padding-box;
-  color: white;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2em;
-}
-body main article#hero h1 {
-  margin: 0.5em 0;
-  font-size: 1.2em;
-  font-weight: normal;
-}
-body main article#hero strong {
-  font-size: 6em;
-  letter-spacing: 0.1em;
-  display: block;
-  margin: 0.2em 0;
-}
-body main article#hero #h1-sub {
-  font-size: 1em;
-  line-height: 1.6;
-  margin: 1em 0;
-}
-body main article#hero h1, body main article#hero strong, body main article#hero #h1-sub {
-  text-shadow: 0 0 1em rgba(0, 0, 0, 0.7);
-}
-body main article#hero button.CTA {
-  display: none;
-}
-body main article#why-we-started strong {
-  display: block;
-  margin: 1.5em 0;
-  font-size: 1.1em;
 }
 
 /*# sourceMappingURL=main.css.map */
