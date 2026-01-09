@@ -9,90 +9,22 @@ html, body {
 body {
   overflow-x: hidden;
 
-  header {
-    position: sticky;
-    top: 0;
-    left: 0;
-
-    #header-ribbon {
-      $gap: .5em;
-      $ribbon-height: 3.5 * 2 + $gap;
-
-      position: absolute;
-      left: 47.5%;
-      display: flex;
-      flex-flow: column nowrap;
-      rotate: 45deg;
-      width: 100vw;
-      height: $ribbon-height;
-      gap: $gap;
-      z-index: 1;
-
-      .ribbon.red {
-        flex: 2.4em;
-      }
-      .ribbon.bright {
-        flex: 2 .8em;
-      }
-      .ribbon.red, .ribbon.bright {
-        min-height: .4em;
-      }
-
-      @include for-portrait {
-        left: 0;
-        height: 3.2em;
-        gap: 0;
-        rotate: 0deg;
-      }
-    }
-    nav {
-      z-index: 0;
-      width: 100vw;
-
-      ul {
-        display: flex;
-        flex-flow: row nowrap;
-        list-style: none;
-        margin: 0 1em 1em;
-        padding: 0;
-
-        li {
-          a {
-            display: block;
-            padding: 2em 1em;
-
-            &:link, &:focus, &:active, &:visited {
-              color: #804040;
-            }
-          }
-        }
-      }
-    }
-  }
-
   main {
     article {
       &[id] {
-        margin-bottom: 0;
-        border-top: 2px solid white;
-        padding: 3em 2em;
 
         &:first-child {
-          border-top: none;
         }
         &:last-child {
-          margin-bottom: 0;
         }
       }
       &#hero {
         h1 {
-          margin: 0.5em 0;
         }
         strong {
           font-size: 8em;
         }
         #h1-sub {
-          max-width: 600px;
         }
         button.CTA {
           margin: 2em 1em;
@@ -107,10 +39,6 @@ body {
         }
         h2 {}
         p {
-        }
-        blockquote {
-          margin: 2em 0;
-          padding: .8em 0 .8em 1.5em;
         }
       }
 
@@ -132,14 +60,9 @@ body {
 
           .process-step {
 
-            img {
-            }
             p {
             }
           }
-        }
-
-        & > p {
         }
       }
 

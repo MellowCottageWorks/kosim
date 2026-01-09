@@ -17,22 +17,6 @@ body {
     }
   }
 
-  header {
-
-    nav {
-      ul {
-        li {
-          a {
-            &:link, &:focus, &:active, &:visited {
-              color: $red-0;
-              text-decoration: none;
-            }
-          }
-        }
-      }
-    }
-  }
-
   main {
     button.CTA {
       background-color: $red-1;
@@ -49,8 +33,7 @@ body {
       &#hero {
         $tomato-overlay-text-color: rgba(0,0,0,.7);
 
-        background: no-repeat url(../image/tomato.png);
-        background-position: center;
+        background: url(../image/tomato.png) no-repeat center 0;
         background-size: contain;
         background-origin: padding-box;
         color: white;
@@ -86,27 +69,11 @@ body {
       }
 
       &#why-we-started {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3em;
-        align-items: center;
 
         h2 {
-          grid-column: 1 / -1;
-          text-align: center;
-          display: none;
         }
 
         img {
-          width: 100%;
-          max-width: 500px;
-          justify-self: center;
-        }
-
-        p, strong {
-          color: white;
-          line-height: 1.8;
-          font-size: 1em;
         }
 
         strong {
@@ -114,54 +81,22 @@ body {
           margin: 1.5em 0;
           font-size: 1.1em;
         }
-
-        blockquote {
-          border: .2em solid lightgray;
-          box-shadow: -.5em .5em 0 lightgray;
-          background-color: $background-color;
-        }
       }
 
       &#core-strengths {
-        text-align: center;
-
-        h2 {
-          margin-bottom: 2em;
-          font-size: 1.8em;
-        }
-
         .strengths {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 2em;
-          margin: 3em 0;
-        }
 
-        div.strength-card {
-          background-color: rgba(255, 255, 255, 0.05);
-          padding: 2em 1.5em;
-          border-radius: 8px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 1em;
 
-          img {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 1em;
-          }
+          .strength-card {
+            img {
 
-          h3 {
-            font-size: 1.1em;
-            margin: 0;
-            color: white;
-          }
+            }
+            h3 {
 
-          span {
-            font-size: 0.9em;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.6;
+            }
+            span {
+              
+            }
           }
         }
       }
