@@ -15,8 +15,9 @@ const updateOffsets = () => {
       'scroll-margin-top',
       v.id !== 'contact' ? `${offsetOffset}px` : `${offsetOffset - 30}px`
     )
-    /*v.style.setProperty('min-height',
-      `calc(100vh - ${offsetOffset}px)`)*/
+    // if (v.id === 'hero')
+    v.style.setProperty('min-height',
+    `calc(100vh - ${offsetOffset}px)`)
   })
 }
 const getLastArticlePositionFrom = y => {
