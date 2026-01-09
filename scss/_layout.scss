@@ -73,19 +73,27 @@ body {
   main {
     article {
       &[id] {
-        margin-bottom: 3em;
+        margin-bottom: 0;
+        border-top: 2px solid white;
+        padding: 3em 2em;
+
+        &:first-child {
+          border-top: none;
+        }
         &:last-child {
-          margin-bottom: 1em;
+          margin-bottom: 0;
         }
       }
       &#hero {
-
         h1 {
+          margin: 0.5em 0;
         }
         strong {
           font-size: 8em;
         }
-        #h1-sub {}
+        #h1-sub {
+          max-width: 600px;
+        }
         button.CTA {
           margin: 2em 1em;
           padding: 1em;

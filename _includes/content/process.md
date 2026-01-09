@@ -2,24 +2,19 @@
 
 <div id="process-steps">
     <div class="process-step">
-        <img src="https://dummyimage.com/64/808080/fff.png">
         <p>토마토 수급</p>
     </div>
     <div class="process-step">
-        <img src="https://dummyimage.com/64/808080/fff.png">
-        <p>세척</p>
+        <p>토마토 세척</p>
     </div>
     <div class="process-step">
-        <img src="https://dummyimage.com/64/808080/fff.png">
-        <p>가공</p>
+        <p>토마토 가공</p>
     </div>
     <div class="process-step">
-        <img src="https://dummyimage.com/64/808080/fff.png">
-        <p>포장</p>
+        <p>토마토즙 포장</p>
     </div>
     <div class="process-step">
-        <img src="https://dummyimage.com/64/808080/fff.png">
-        <p>출고</p>
+        <p>토마토즙 출고</p>
     </div>
 </div>
 <p>
