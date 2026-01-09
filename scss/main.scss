@@ -18,24 +18,7 @@ body {
   }
 
   header {
-    background: linear-gradient(
-        0deg,
-        transparent 0%,
-        $background-color 30%,
-        $background-color 100%
-    );
 
-    #header-ribbon {
-
-      .ribbon.red {
-        background: $red-2;
-      }
-      .ribbon.bright {
-        background: $red-1;
-      }
-      .ribbon.red, .ribbon.bright {
-      }
-    }
     nav {
       ul {
         li {
@@ -95,6 +78,8 @@ body {
         background-repeat: no-repeat;*/
 
         blockquote {
+          border: .2em solid lightgray;
+          box-shadow: -.5em .5em 0 lightgray;
           background-color: $background-color;
         }
       }
