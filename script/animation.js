@@ -220,4 +220,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     animationObserver.observe(coreStrengths);
   }
+
+  // Trigger process animations when section comes into view
+  const process = document.getElementById('process');
+  if (process) {
+    const processObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !process.classList.contains('animate')) {
+          process.classList.add('animate');
+          // Unobserve after triggering once
+          processObserver.unobserve(process);
+        }
+      });
+    }, {
+      threshold: 0.2 // Trigger when 20% of section is visible
+    });
+
+    processObserver.observe(process);
+  }
 });

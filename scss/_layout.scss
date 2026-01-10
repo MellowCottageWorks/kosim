@@ -36,6 +36,11 @@ body {
         }
       }
 
+      h2 {
+        text-align: center;
+        padding: 2rem;
+      }
+
       &#hero {
         text-align: center;
 
@@ -141,10 +146,6 @@ body {
       }
 
       &#core-strengths {
-        h2 {
-          text-align: center;
-          padding: 2rem;
-        }
 
         .strengths {
           display: flex;
@@ -153,7 +154,6 @@ body {
           gap: 2rem;
 
           div.strength-card {
-            border-radius: 1rem;
             padding: 1.5rem;
             text-align: center;
             flex: 0 1 15rem;
@@ -180,7 +180,6 @@ body {
             display: flex;
             flex-direction: row;
             padding: 0.5rem;
-            border-radius: 1rem;
 
             div {
               strong {
@@ -204,13 +203,97 @@ body {
       }
 
       &#process {
+        $shift: 4rem;
+        height: 100vh;
+        overflow-y: hidden;
 
         div#process-steps {
+          position: relative;
+          top: $shift;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 60%;
+          margin: 4rem auto;
+          padding: 6rem 0;
+
+          // Horizontal timeline line (spans full container width)
+          &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: white;
+            transform: translateY(-50%);
+            transform-origin: left;
+            z-index: 1;
+          }
 
           .process-step {
+            position: relative;
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
 
-            p {
+            // Dot on the line
+            &::before {
+              content: '';
+              width: 12px;
+              height: 12px;
+              background: white;
+              border-radius: 50%;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              z-index: 3;
             }
+
+            // Rectangle box
+            p {
+              position: absolute;
+              padding: 1.5rem 1rem;
+              min-width: 8rem;
+              text-align: center;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+
+            // Odd items (1, 3, 5) - rectangles above
+            &:nth-child(odd) p {
+              bottom: calc(50% + 1.5rem);
+            }
+
+            // Even items (2, 4) - rectangles below
+            &:nth-child(even) p {
+              top: calc(50% + 1.5rem);
+            }
+          }
+        }
+
+        // Last paragraph (HACCP note)
+        > p:nth-last-of-type(2) {
+          position: relative;
+          top: $shift;
+          text-align: center;
+          opacity: 0;
+        }
+
+        // IMG
+        > p:last-of-type {
+          position: relative;
+          top: $shift;
+          text-align: right;
+
+          img {
+            position: relative;
+            right: 7%;
+            width: 39vw;
+            height: auto;
           }
         }
       }

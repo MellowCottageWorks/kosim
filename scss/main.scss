@@ -79,6 +79,7 @@ body {
 
           .strength-card {
             background-color: rgba(127, 127, 127, 0.3);
+            border-radius: 1rem;
 
             img {
 
@@ -97,6 +98,7 @@ body {
 
           li {
             background-color: rgba(127, 127, 127, 0.2);
+            border-radius: 1rem;
           }
         }
       }
@@ -113,7 +115,9 @@ body {
           .process-step {
 
             p {
-
+              background: rgba(255, 255, 255, 0.1);
+              border: 1px solid transparent;
+              border-radius: 0.5rem;
             }
           }
         }

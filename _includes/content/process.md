@@ -20,3 +20,4 @@
 <p>
     모든 공정은 HACCP 안전·위생 기준에 따라 관리됩니다.
 </p>
+<img src="../image/tomato.png">

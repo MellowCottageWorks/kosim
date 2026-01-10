@@ -32,6 +32,10 @@ html, body, p {
 body {
   overflow-x: hidden;
 }
+body main article h2 {
+  text-align: center;
+  padding: 2rem;
+}
 body main article#hero {
   text-align: center;
 }
@@ -123,10 +127,6 @@ body main article#why-we-started div p {
 body main article#why-we-started div p:last-of-type {
   margin-bottom: 0;
 }
-body main article#core-strengths h2 {
-  text-align: center;
-  padding: 2rem;
-}
 body main article#core-strengths .strengths {
   display: flex;
   flex-flow: row nowrap;
@@ -134,7 +134,6 @@ body main article#core-strengths .strengths {
   gap: 2rem;
 }
 body main article#core-strengths .strengths div.strength-card {
-  border-radius: 1rem;
   padding: 1.5rem;
   text-align: center;
   flex: 0 1 15rem;
@@ -157,7 +156,6 @@ body main article#core-strengths ul li {
   display: flex;
   flex-direction: row;
   padding: 0.5rem;
-  border-radius: 1rem;
 }
 body main article#core-strengths ul li div strong {
   font-size: 1.2rem;
@@ -171,6 +169,83 @@ body main article#core-strengths ul li div:first-child {
   text-align: center;
   font-size: 3em;
   padding: 0.5rem;
+}
+body main article#process {
+  height: 100vh;
+  overflow-y: hidden;
+}
+body main article#process div#process-steps {
+  position: relative;
+  top: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+  margin: 4rem auto;
+  padding: 6rem 0;
+}
+body main article#process div#process-steps::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: white;
+  transform: translateY(-50%);
+  transform-origin: left;
+  z-index: 1;
+}
+body main article#process div#process-steps .process-step {
+  position: relative;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+body main article#process div#process-steps .process-step::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+body main article#process div#process-steps .process-step p {
+  position: absolute;
+  padding: 1.5rem 1rem;
+  min-width: 8rem;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+}
+body main article#process div#process-steps .process-step:nth-child(odd) p {
+  bottom: calc(50% + 1.5rem);
+}
+body main article#process div#process-steps .process-step:nth-child(even) p {
+  top: calc(50% + 1.5rem);
+}
+body main article#process > p:nth-last-of-type(2) {
+  position: relative;
+  top: 4rem;
+  text-align: center;
+  opacity: 0;
+}
+body main article#process > p:last-of-type {
+  position: relative;
+  top: 4rem;
+  text-align: right;
+}
+body main article#process > p:last-of-type img {
+  position: relative;
+  right: 7%;
+  width: 39vw;
+  height: auto;
 }
 body main article#contact form {
   max-width: 600px;
@@ -498,6 +573,110 @@ article#core-strengths.animate ul li:nth-child(3) div:nth-child(2) span {
     transform: translateX(0);
   }
 }
+article#process div#process-steps::before {
+  transform: translateY(-50%) scaleX(0);
+}
+article#process div#process-steps .process-step:nth-child(odd) p {
+  opacity: 0;
+  transform: translate(-50%, 0);
+}
+article#process div#process-steps .process-step:nth-child(even) p {
+  opacity: 0;
+  transform: translate(-50%, 0);
+}
+article#process.animate div#process-steps::before {
+  animation: line-extend 1s ease-out 0s forwards;
+}
+article#process.animate div#process-steps .process-step:nth-child(1) p {
+  animation: slide-up-from-line 0.5s ease-out 1s forwards;
+}
+article#process.animate div#process-steps .process-step:nth-child(1) p::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+  animation: fade-out 0.3s ease-out 1.15s forwards;
+}
+article#process.animate div#process-steps .process-step:nth-child(2) p {
+  animation: slide-down-from-line 0.5s ease-out 1.3s forwards;
+}
+article#process.animate div#process-steps .process-step:nth-child(2) p::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+  animation: fade-out 0.3s ease-out 1.45s forwards;
+}
+article#process.animate div#process-steps .process-step:nth-child(3) p {
+  animation: slide-up-from-line 0.5s ease-out 1.6s forwards;
+}
+article#process.animate div#process-steps .process-step:nth-child(3) p::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+  animation: fade-out 0.3s ease-out 1.75s forwards;
+}
+article#process.animate div#process-steps .process-step:nth-child(4) p {
+  animation: slide-down-from-line 0.5s ease-out 1.9s forwards;
+}
+article#process.animate div#process-steps .process-step:nth-child(4) p::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+  animation: fade-out 0.3s ease-out 2.05s forwards;
+}
+article#process.animate div#process-steps .process-step:nth-child(5) p {
+  animation: slide-up-from-line 0.5s ease-out 2.2s forwards;
+}
+article#process.animate div#process-steps .process-step:nth-child(5) p::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+  animation: fade-out 0.3s ease-out 2.35s forwards;
+}
+article#process.animate > p:nth-last-of-type(2) {
+  animation: slide-up-fade 0.6s ease-out 2.7s forwards;
+}
+
+@keyframes line-extend {
+  from {
+    transform: translateY(-50%) scaleX(0);
+  }
+  to {
+    transform: translateY(-50%) scaleX(1);
+  }
+}
+@keyframes slide-up-from-line {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 25%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+@keyframes slide-down-from-line {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -25%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 body {
   background: black;
   color: whitesmoke;
@@ -528,9 +707,16 @@ body main article#why-we-started div {
 }
 body main article#core-strengths .strengths .strength-card {
   background-color: rgba(127, 127, 127, 0.3);
+  border-radius: 1rem;
 }
 body main article#core-strengths ul li {
   background-color: rgba(127, 127, 127, 0.2);
+  border-radius: 1rem;
+}
+body main article#process div#process-steps .process-step p {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
 }
 body main article#contact form section label input[type=text], body main article#contact form section label input[type=tel], body main article#contact form section label textarea {
   border: 1px solid #ddd;
