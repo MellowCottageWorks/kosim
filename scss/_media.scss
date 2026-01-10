@@ -1,5 +1,7 @@
-$portrait-width: 768px;
-$portrait-min-width: 574px;
+$portrait-width: 1000px;
+$portrait-small-width: 768px;
+$portrait-smaller-width: 640px;
+$portrait-min-width: 540px;
 
 @mixin for-width($size) {
   @media screen and (max-width: $size), print { @content; }
@@ -9,6 +11,16 @@ $portrait-min-width: 574px;
   @include for-width($portrait-width) { @content; }
 }
 
+@mixin for-portrait-small {
+  @include for-width($portrait-small-width) { @content; }
+}
+
 @mixin for-portrait-smaller {
-  @include for-width($portrait-min-width) { @content; }
+  @include for-width($portrait-smaller-width)
+    { @content;}
+}
+
+@mixin for-portrait-min-width {
+  @include for-width($portrait-min-width)
+    { @content;}
 }

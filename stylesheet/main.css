@@ -1,7 +1,27 @@
 html, body {
   box-sizing: border-box;
   font-size: 16px;
-  min-width: 400px;
+  min-width: 540px;
+}
+@media screen and (max-width: 1000px), print {
+  html, body {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 768px), print {
+  html, body {
+    font-size: 1.7vw;
+  }
+}
+@media screen and (max-width: 640px), print {
+  html, body {
+    font-size: 9.3px; /* 1.7vw; */
+  }
+}
+@media screen and (max-width: 540px), print {
+  html, body {
+    font-size: 7.2px; /* 1.5vw; */
+  }
 }
 
 html, body, p {
@@ -31,7 +51,7 @@ body main article#hero p:first-child img {
   padding-bottom: 10vh;
   align-self: center;
 }
-@media screen and (max-width: 768px), print {
+@media screen and (max-width: 1000px), print {
   body main article#hero p:first-child img {
     width: 80vw;
     height: auto;
@@ -237,6 +257,97 @@ body main article#contact form button.CTA {
   }
 ]
  */
+article#hero p:first-child img {
+  animation: tomato-zoom-in 1s ease-out forwards;
+  opacity: 0;
+}
+article#hero strong {
+  display: inline-flex;
+  overflow: hidden;
+}
+article#hero strong .letter {
+  display: inline-block;
+  transform: translateY(100%);
+}
+article#hero strong .letter:nth-child(1) {
+  animation: slide-up-letter 0.5s ease-out 1s forwards;
+}
+article#hero strong .letter:nth-child(2) {
+  animation: slide-up-letter 0.5s ease-out 1.125s forwards;
+}
+article#hero strong .letter:nth-child(3) {
+  animation: slide-up-letter 0.5s ease-out 1.25s forwards;
+}
+article#hero strong .letter:nth-child(4) {
+  animation: slide-up-letter 0.5s ease-out 1.375s forwards;
+}
+article#hero strong .letter:nth-child(5) {
+  animation: slide-up-letter 0.5s ease-out 1.5s forwards;
+}
+article#hero h1 {
+  animation: slide-down 0.6s ease-out 2s forwards;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+article#hero #h1-sub {
+  animation: slide-up 0.6s ease-out 2s forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+article#hero button.CTA {
+  animation: slide-up-fade 0.6s ease-out 2.6s forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes tomato-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slide-up-letter {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes slide-up-fade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 body {
   background: black;
   color: whitesmoke;
