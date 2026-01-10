@@ -229,6 +229,60 @@ body {
         }
 
         form {
+          $max-width: 600px;
+          $label-width: 5rem;
+
+          max-width: $max-width;
+          padding: 2rem;
+
+          p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+          }
+
+          section {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            margin-bottom: 2rem;
+
+            label {
+              display: grid;
+              grid-template-columns: $label-width 1fr;
+              gap: 1em;
+              align-items: start;
+
+              span {
+                font-weight: 600;
+                font-size: .95rem;
+                padding-top: .75rem;
+              }
+
+              input[type="text"], input[type="tel"], textarea {
+                padding: .75rem;
+                font-size: 1rem;
+                transition: border-color .2s;
+              }
+
+              input[type="file"] {
+                padding: .5rem 0;
+                font-size: .95rem;
+              }
+
+              textarea {
+                resize: vertical;
+                min-height: 5em;
+              }
+
+              @include for-width($max-width) {
+                grid-template-columns: 1fr;
+                span {
+                  padding-top: 0;
+                }
+              }
+            }
+          }
+
 
           button.CTA {
             margin: 1em .5em;

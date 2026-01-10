@@ -152,6 +152,52 @@ body main article#core-strengths ul li div:first-child {
   font-size: 3em;
   padding: 0.5rem;
 }
+body main article#contact form {
+  max-width: 600px;
+  padding: 2rem;
+}
+body main article#contact form p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+body main article#contact form section {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-bottom: 2rem;
+}
+body main article#contact form section label {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 1em;
+  align-items: start;
+}
+body main article#contact form section label span {
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding-top: 0.75rem;
+}
+body main article#contact form section label input[type=text], body main article#contact form section label input[type=tel], body main article#contact form section label textarea {
+  padding: 0.75rem;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+body main article#contact form section label input[type=file] {
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+}
+body main article#contact form section label textarea {
+  resize: vertical;
+  min-height: 5em;
+}
+@media screen and (max-width: 600px), print {
+  body main article#contact form section label {
+    grid-template-columns: 1fr;
+  }
+  body main article#contact form section label span {
+    padding-top: 0;
+  }
+}
 body main article#contact form button.CTA {
   margin: 1em 0.5em;
   padding: 0.5em;
@@ -224,6 +270,15 @@ body main article#core-strengths .strengths .strength-card {
 }
 body main article#core-strengths ul li {
   background-color: rgba(127, 127, 127, 0.2);
+}
+body main article#contact form section label input[type=text], body main article#contact form section label input[type=tel], body main article#contact form section label textarea {
+  border: 1px solid #ddd;
+  border-width: 1px;
+  transition: border-color 0.2s;
+}
+body main article#contact form section label input[type=text]:focus, body main article#contact form section label input[type=tel]:focus, body main article#contact form section label textarea:focus {
+  outline: none;
+  border-color: gray;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -11,15 +11,17 @@
     </address></a>
 </div>
 
-<form>
+<form id="contact-form">
     <p>
       문의 시 아래 정보를 함께 남겨주시면 빠른 상담이 가능합니다.
     </p>
     <section>
-        <label><span>업체명</span> <input></label>
-        <label><span>전화번호</span> <input></label>
-        <label><span>문의 내용</span> <textarea></textarea></label>
-        <label><span>파일 첨부 (선택)</span> </label>
+        <label><span>업체명</span> <input type="text" name="company" required></label>
+        <label><span>전화번호</span> <input type="tel" name="phone" required></label>
+        <label><span>문의 내용</span> <textarea name="message" rows="5" required></textarea></label>
+        <label><span>파일 첨부 (선택)</span> <input type="file" name="attachment" multiple></label>
     </section>
-    {% include button-cta.html %}
+    {% include button-cta.html
+        type='submit'
+    %}
 </form>

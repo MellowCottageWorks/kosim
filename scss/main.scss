@@ -150,6 +150,37 @@ body {
 
         form {
 
+          p {
+          }
+
+          section {
+
+            label {
+
+              span {
+              }
+
+              input[type="text"], input[type="tel"], textarea {
+                border: 1px solid #ddd;
+                border-width: 1px;
+                transition: border-color .2s;
+
+                &:focus {
+                  outline: none;
+                  border-color: gray;
+                }
+              }
+
+              input[type="file"] {
+              }
+
+              textarea {
+              }
+            }
+          }
+
+          button.CTA {
+          }
         }
       }
     }
