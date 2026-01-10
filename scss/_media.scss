@@ -1,26 +1,45 @@
-$portrait-width: 1000px;
-$portrait-small-width: 768px;
-$portrait-smaller-width: 640px;
-$portrait-min-width: 540px;
+// Breakpoint values - mobile-first approach
+$breakpoint-xs: 375px;   // Small phones
+$breakpoint-sm: 576px;   // Large phones
+$breakpoint-md: 768px;   // Tablets
+$breakpoint-lg: 1024px;  // Small laptops/tablets landscape
+$breakpoint-xl: 1280px;  // Desktops
+$breakpoint-xxl: 1536px; // Large desktops
 
+// Base mixin for custom widths
 @mixin for-width($size) {
-  @media screen and (max-width: $size), print { @content; }
+  @media screen and (max-width: $size) {
+    @content;
+  }
 }
 
-@mixin for-portrait {
-  @include for-width($portrait-width) { @content; }
+// Specific breakpoint mixins (max-width - applies BELOW this size)
+@mixin for-mobile-sm {
+  @include for-width($breakpoint-xs) {
+    @content;
+  }
 }
 
-@mixin for-portrait-small {
-  @include for-width($portrait-small-width) { @content; }
+@mixin for-mobile {
+  @include for-width($breakpoint-sm) {
+    @content;
+  }
 }
 
-@mixin for-portrait-smaller {
-  @include for-width($portrait-smaller-width)
-    { @content;}
+@mixin for-tablet {
+  @include for-width($breakpoint-md) {
+    @content;
+  }
 }
 
-@mixin for-portrait-min-width {
-  @include for-width($portrait-min-width)
-    { @content;}
+@mixin for-laptop {
+  @include for-width($breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin for-desktop {
+  @include for-width($breakpoint-xl) {
+    @content;
+  }
 }

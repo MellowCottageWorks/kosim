@@ -1,26 +1,26 @@
 html, body {
+  overflow-x: hidden;
   box-sizing: border-box;
   font-size: 16px;
-  min-width: 540px;
 }
-@media screen and (max-width: 1000px), print {
+@media screen and (max-width: 1024px) {
+  html, body {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 768px) {
+  html, body {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 576px) {
+  html, body {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 375px) {
   html, body {
     font-size: 12px;
-  }
-}
-@media screen and (max-width: 768px), print {
-  html, body {
-    font-size: 1.7vw;
-  }
-}
-@media screen and (max-width: 640px), print {
-  html, body {
-    font-size: 9.3px; /* 1.7vw; */
-  }
-}
-@media screen and (max-width: 540px), print {
-  html, body {
-    font-size: 7.2px; /* 1.5vw; */
   }
 }
 
@@ -29,8 +29,10 @@ html, body, p {
   padding: 0;
 }
 
-body {
-  overflow-x: hidden;
+@media screen and (max-width: 375px) {
+  body header nav {
+    right: 0.5rem;
+  }
 }
 body main article h2 {
   text-align: center;
@@ -55,7 +57,7 @@ body main article#hero p:first-child img {
   padding-bottom: 10vh;
   align-self: center;
 }
-@media screen and (max-width: 1000px), print {
+@media screen and (max-width: 1024px) {
   body main article#hero p:first-child img {
     width: 80vw;
     height: auto;
@@ -66,7 +68,7 @@ body main article#hero > div {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
 body main article#hero > div h1 {
@@ -133,10 +135,30 @@ body main article#core-strengths .strengths {
   justify-content: center;
   gap: 2rem;
 }
+@media screen and (max-width: 1024px) {
+  body main article#core-strengths .strengths {
+    gap: 1.5rem;
+  }
+}
+@media screen and (max-width: 375px) {
+  body main article#core-strengths .strengths {
+    gap: 0.75rem;
+  }
+}
 body main article#core-strengths .strengths div.strength-card {
   padding: 1.5rem;
   text-align: center;
   flex: 0 1 15rem;
+}
+@media screen and (max-width: 1024px) {
+  body main article#core-strengths .strengths div.strength-card img {
+    max-width: 20vw;
+  }
+}
+@media screen and (max-width: 375px) {
+  body main article#core-strengths .strengths div.strength-card img {
+    max-width: 11vw;
+  }
 }
 body main article#core-strengths .strengths div.strength-card h3 {
   margin-bottom: 0.5rem;
@@ -152,7 +174,7 @@ body main article#core-strengths ul {
   gap: 1em;
 }
 body main article#core-strengths ul li {
-  width: 50vw;
+  width: 55vw;
   display: flex;
   flex-direction: row;
   padding: 0.5rem;
@@ -285,7 +307,7 @@ body main article#contact form section label textarea {
   resize: vertical;
   min-height: 5em;
 }
-@media screen and (max-width: 600px), print {
+@media screen and (max-width: 600px) {
   body main article#contact form section label {
     grid-template-columns: 1fr;
   }

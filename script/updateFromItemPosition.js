@@ -13,7 +13,7 @@ const updateOffsets = () => {
   stackArticles.forEach(v => {
     v.style.setProperty(
       'scroll-margin-top',
-      v.id !== 'contact' ? `${offsetOffset}px` : `${offsetOffset - 30}px`
+      `${offsetOffset}px`
     )
     // if (v.id === 'hero')
     v.style.setProperty('min-height',
