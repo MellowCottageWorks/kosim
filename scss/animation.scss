@@ -112,14 +112,14 @@ article#hero {
   }
 
   #h1-sub {
-    animation: slide-up 0.6s ease-out 2s forwards;
+    animation: slide-up 0.6s ease-out 2.6s forwards;
     opacity: 0;
     transform: translateY(30px);
   }
 
   // CTA button animation (slide up with fade in after text)
   button.CTA {
-    animation: slide-up-fade 0.6s ease-out 2.6s forwards;
+    animation: slide-up-fade 0.6s ease-out 3.2s forwards;
     opacity: 0;
     transform: translateY(30px);
   }
