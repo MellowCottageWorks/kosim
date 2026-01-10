@@ -202,4 +202,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial call
     handleParallax();
   }
+
+  // Trigger core-strengths animations when section comes into view
+  const coreStrengths = document.getElementById('core-strengths');
+  if (coreStrengths) {
+    const animationObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !coreStrengths.classList.contains('animate')) {
+          coreStrengths.classList.add('animate');
+          // Unobserve after triggering once
+          animationObserver.unobserve(coreStrengths);
+        }
+      });
+    }, {
+      threshold: 0.2 // Trigger when 20% of section is visible
+    });
+
+    animationObserver.observe(coreStrengths);
+  }
 });
