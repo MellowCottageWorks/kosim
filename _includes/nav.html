@@ -2,8 +2,8 @@
   <ul>
     {% for m in site.data.navigation %}
       <li id="item-{{ m.name }}">
-        <a href="#{{ m.name }}">
-          {{ m.name-ko | capitalize }}
+        <a href="#{{ m.name }}" class="indicator-dot active">
+          <span>{{ m.name-ko }}</span>
         </a>
       </li>
     {% endfor %}

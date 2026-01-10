@@ -1,0 +1,180 @@
+// Scroll indicator navigation (fixed position, center-right)
+header nav {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: rgba(127, 127, 127, 0.3);
+    padding: 1rem;
+    border-radius: 1rem;
+
+    li {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      a.indicator-dot {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        background: transparent;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+        text-decoration: none;
+
+        &:hover {
+          border-color: rgba(255, 255, 255, 0.8);
+          transform: scale(1.2);
+
+          span {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+          }
+        }
+
+        &.active {
+          background: white;
+          border-color: white;
+        }
+
+        span {
+          position: absolute;
+          right: calc(100% + 1rem);
+          top: 50%;
+          transform: translateY(-50%) translateX(10px);
+          white-space: nowrap;
+          opacity: 0;
+          transition: all 0.3s ease;
+          pointer-events: none;
+          color: white;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
+
+// Hero section animations
+article#hero {
+  // Tomato zoom-in animation
+  p:first-child img {
+    animation: tomato-zoom-in 1s ease-out forwards;
+    opacity: 0;
+  }
+
+  // KOSIM letter animations (staggered slide up with clip reveal)
+  strong {
+    display: inline-flex;
+    overflow: hidden;
+
+    .letter {
+      display: inline-block;
+      transform: translateY(100%);
+
+      &:nth-child(1) {
+        animation: slide-up-letter 0.5s ease-out 1s forwards;
+      }
+      &:nth-child(2) {
+        animation: slide-up-letter 0.5s ease-out 1.125s forwards;
+      }
+      &:nth-child(3) {
+        animation: slide-up-letter 0.5s ease-out 1.25s forwards;
+      }
+      &:nth-child(4) {
+        animation: slide-up-letter 0.5s ease-out 1.375s forwards;
+      }
+      &:nth-child(5) {
+        animation: slide-up-letter 0.5s ease-out 1.5s forwards;
+      }
+    }
+  }
+
+  // Text animations (slide down/up after KOSIM settles)
+  h1 {
+    animation: slide-down 0.6s ease-out 2s forwards;
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  #h1-sub {
+    animation: slide-up 0.6s ease-out 2s forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  // CTA button animation (slide up with fade in after text)
+  button.CTA {
+    animation: slide-up-fade 0.6s ease-out 2.6s forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+// Keyframe definitions
+@keyframes tomato-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up-letter {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up-fade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

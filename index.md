@@ -14,3 +14,4 @@ description: 지역 농가와 함께 정직하게 가공하는 토마토 전문 
 {% endfor %}
 </div>
 <script src="./script/updateFromItemPosition.js"></script>
+<script src="./script/scrollIndicator.js"></script>
