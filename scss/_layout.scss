@@ -230,8 +230,9 @@ body {
 
       &#process {
         $shift: 4rem;
-        height: 100vh;
-        overflow-y: hidden;
+        min-height: 100vh;
+        position: relative;
+        overflow: visible;
 
         div#process-steps {
           position: relative;
@@ -311,15 +312,19 @@ body {
 
         // IMG
         > p:last-of-type {
-          position: relative;
-          top: $shift;
+          position: absolute;
+          bottom: 3em;
+          right: 0;
           text-align: right;
+          pointer-events: none;
+          z-index: -1;
 
           img {
             position: relative;
             right: 7%;
             width: 39vw;
             height: auto;
+            will-change: transform;
           }
         }
       }

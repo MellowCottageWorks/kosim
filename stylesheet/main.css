@@ -193,8 +193,9 @@ body main article#core-strengths ul li div:first-child {
   padding: 0.5rem;
 }
 body main article#process {
-  height: 100vh;
-  overflow-y: hidden;
+  min-height: 100vh;
+  position: relative;
+  overflow: visible;
 }
 body main article#process div#process-steps {
   position: relative;
@@ -259,15 +260,19 @@ body main article#process > p:nth-last-of-type(2) {
   opacity: 0;
 }
 body main article#process > p:last-of-type {
-  position: relative;
-  top: 4rem;
+  position: absolute;
+  bottom: 3em;
+  right: 0;
   text-align: right;
+  pointer-events: none;
+  z-index: -1;
 }
 body main article#process > p:last-of-type img {
   position: relative;
   right: 7%;
   width: 39vw;
   height: auto;
+  will-change: transform;
 }
 body main article#contact form {
   max-width: 600px;

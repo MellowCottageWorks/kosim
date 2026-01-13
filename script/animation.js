@@ -237,5 +237,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     processObserver.observe(process);
+
+    // Parallax effect for tomato image in process section
+    const tomatoImg = process.querySelector('p:last-of-type img');
+
+    if (tomatoImg) {
+      const handleTomatoParallax = () => {
+        const rect = process.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        // Calculate how much the section has scrolled into view
+        // When section top is at viewport bottom: scrollProgress = 0
+        // When section bottom is at viewport top: scrollProgress = 1
+        const scrollProgress = Math.max(0, Math.min(2,
+          (windowHeight - rect.top) / (windowHeight + rect.height)
+        ));
+
+        // Parallax factor: 0.6 means image moves at 60% of scroll speed
+        // This creates the "lagging behind" effect
+        const parallaxFactor = 0.6;
+        const maxTranslate = rect.height * 1.5;
+        const translateY = scrollProgress * maxTranslate * parallaxFactor;
+
+        tomatoImg.style.transform = `translateY(${translateY}px)`;
+      };
+
+      // Throttle scroll event for performance
+      let tomatoTicking = false;
+      window.addEventListener('scroll', () => {
+        if (!tomatoTicking) {
+          window.requestAnimationFrame(() => {
+            handleTomatoParallax();
+            tomatoTicking = false;
+          });
+          tomatoTicking = true;
+        }
+      });
+
+      // Initial call
+      handleTomatoParallax();
+    }
   }
 });
