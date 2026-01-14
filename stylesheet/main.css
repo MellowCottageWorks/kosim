@@ -285,23 +285,49 @@ body main article#featured-product div.product {
 body main article#featured-product div.product > img, body main article#featured-product div.product > div {
   flex: 1 1 50%;
 }
+body main article#featured-product div.product > img {
+  object-fit: contain;
+}
 body main article#featured-product div.product > div:first-of-type {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: flex-start;
   box-sizing: border-box;
-  padding: 0px 8rem;
+  padding: 0px 6rem;
+}
+body main article#featured-product div.product > div:first-of-type p.left {
+  margin: 0 auto 0 0;
+}
+body main article#featured-product div.product > div:first-of-type p.right {
+  margin: 0 0 0 auto;
 }
 body main article#featured-product div.product > div:first-of-type div.points {
   display: flex;
-  flex-flow: column wrap;
-  min-width: 23rem;
-  height: 7rem;
+  flex-flow: row wrap;
+  min-width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+  padding: 1em;
   gap: 1em;
 }
 body main article#featured-product div.product > div:first-of-type div.points div {
-  flex: 0 1 15rem;
+  flex: 0 1 7rem;
+  text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 0.5rem;
+}
+body main article#featured-product div.product > div:first-of-type div.points div img {
+  flex: 0 1 60%;
+  display: block;
+  width: 5em;
+  height: auto;
+}
+body main article#featured-product div.product > div:first-of-type div.points div strong {
+  flex: 0 0 40%;
+  margin-top: 0.5rem;
 }
 body main article#contact form {
   max-width: 600px;
@@ -775,7 +801,19 @@ body main article#process div#process-steps .process-step p {
   border-radius: 0.5rem;
 }
 body main article#featured-product div.product img {
-  background-image: linear-gradient(90deg, black 0%, rgba(0, 0, 0, 0.2) 50%);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0) 60%);
+}
+body main article#featured-product div.product div.points div {
+  background-color: rgba(127, 127, 127, 0.3);
+  border-radius: 1rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+body main article#featured-product div.product div.points div:hover {
+  transform: translateY(-0.5rem);
+  background-color: rgba(127, 127, 127, 0.5);
+}
+body main article#featured-product div.product div.points img {
+  background-image: none;
 }
 body main article#contact form section label input[type=text], body main article#contact form section label input[type=tel], body main article#contact form section label textarea {
   border: 1px solid #ddd;

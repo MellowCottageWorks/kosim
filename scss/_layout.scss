@@ -345,7 +345,7 @@ body {
           }
 
           & > img {
-
+            object-fit: contain;
           }
 
           & > div:first-of-type {
@@ -354,23 +354,49 @@ body {
             justify-content: center;
             align-items: flex-start;
             box-sizing: border-box;
-            padding: 0px 8rem;
+            padding: 0px 6rem;
 
             h3 {}
 
             p {
 
+
+              &.left {
+                margin: 0 auto 0 0;
+              }
+              &.right {
+                margin: 0 0 0 auto;
+              }
             }
 
             div.points {
               display: flex;
-              flex-flow: column wrap;
-              min-width: 23rem;
-              height: 7rem;
+              flex-flow: row wrap;
+              min-width: 100%;
+              box-sizing: border-box;
+              justify-content: center;
+              padding: 1em;
               gap: 1em;
 
               div {
-                flex: 0 1 15rem;
+                flex: 0 1 7rem;
+                text-align: center;
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: center;
+                padding: .5rem;
+
+                img {
+                  flex: 0 1 60%;
+                  display: block;
+                  width: 5em;
+                  height: auto;
+                }
+
+                strong {
+                  flex: 0 0 40%;
+                  margin-top: .5rem;
+                }
               }
             }
 

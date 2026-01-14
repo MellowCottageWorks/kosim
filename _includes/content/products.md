@@ -3,20 +3,29 @@
 <blockquote>우리가 어떤 회사를 지향하는지 보여주는 대표 제품</blockquote>
 
 <div class="product">
-<img alt="대표 제품 이미지">
+<img src="image/mockup.png" alt="대표 제품 이미지">
 <div>
     <h3>
         고심끝에 토마토즙
     </h3>
-    <p>
+    <p class="left">
         이 제품은 우리가 지향하는 
     </p>
     <div class="points">
-        <div><strong>원물 중심</strong></div>
-        <div><strong>가공 최소화</strong></div>
-        <div><strong>신뢰 기준</strong></div>
+        <div>
+            <img src="image/tomato.png" alt="1">
+            <strong>원물 중심</strong>
+        </div>
+        <div>
+            <img src="image/tomato.png" alt="2">
+                <strong>가공 최소화</strong>
+        </div>
+        <div>
+            <img src="image/tomato.png" alt="3">
+                <strong>신뢰 기준</strong>
+        </div>
     </div>
-    <p>
+    <p class="right">
         을 담아 만든 대표 제품입니다.
     </p>
     <ul>

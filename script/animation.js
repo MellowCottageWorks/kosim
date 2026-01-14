@@ -278,4 +278,45 @@ document.addEventListener('DOMContentLoaded', () => {
       handleTomatoParallax();
     }
   }
+
+  // Mouse-following tilt effect for featured-product mockup image
+  const featuredProduct = document.getElementById('featured-product');
+  if (featuredProduct) {
+    const mockupImg = featuredProduct.querySelector('div.product > img');
+
+    if (mockupImg) {
+      const handleMouseMove = (e) => {
+        const rect = mockupImg.getBoundingClientRect();
+        const imgCenterX = rect.left + rect.width / 2;
+        const imgCenterY = rect.top + rect.height / 2;
+
+        // Calculate mouse position relative to image center
+        const deltaX = e.clientX - imgCenterX;
+        const deltaY = e.clientY - imgCenterY;
+
+        // Convert to rotation angles (normalized by image dimensions)
+        // Clamp the deltas to the image bounds to prevent extreme rotation
+        const clampedDeltaX = Math.max(-rect.width / 2, Math.min(rect.width / 2, deltaX));
+        const clampedDeltaY = Math.max(-rect.height / 2, Math.min(rect.height / 2, deltaY));
+
+        const maxTilt = 15; // Maximum tilt in degrees
+        const rotateY = (clampedDeltaX / rect.width) * maxTilt * 2;
+        const rotateX = -(clampedDeltaY / rect.height) * maxTilt * 2;
+
+        // Apply 3D transform
+        mockupImg.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      };
+
+      const handleMouseLeave = () => {
+        // Reset to neutral position with smooth transition
+        mockupImg.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+      };
+
+      // Add smooth transition
+      mockupImg.style.transition = 'transform 0.1s ease-out';
+
+      featuredProduct.addEventListener('mousemove', handleMouseMove);
+      featuredProduct.addEventListener('mouseleave', handleMouseLeave);
+    }
+  }
 });
