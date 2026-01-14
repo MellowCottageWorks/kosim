@@ -88,11 +88,20 @@ body main article#hero button.CTA {
   padding: 1em;
   font-size: 1.2em;
 }
+body main article#why-we-started {
+  padding-bottom: 20vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
 body main article#why-we-started h2 {
   display: none;
 }
 body main article#why-we-started > p {
-  position: relative;
+  position: absolute;
+  z-index: 1;
 }
 body main article#why-we-started > p:first-of-type {
   top: 22vh;
@@ -102,26 +111,22 @@ body main article#why-we-started > p:nth-of-type(2) {
   top: 8vh;
   left: 4vw;
 }
-body main article#why-we-started > p > img.right, body main article#why-we-started > p > img.left {
-  position: absolute;
+body main article#why-we-started > p img {
+  display: block;
 }
-body main article#why-we-started > p > img.right {
-  width: 30%;
+body main article#why-we-started > p img.right {
+  width: 30vw;
 }
-body main article#why-we-started > p > img.left {
-  width: 40%;
+body main article#why-we-started > p img.left {
+  width: 40vw;
 }
 body main article#why-we-started div {
-  position: relative;
-  top: 17vh;
-  left: 20vw;
   width: 58vw;
   z-index: 2;
   line-height: 3rem;
   text-align: center;
   font-size: 1.6em;
   padding: 2rem 0;
-  border-radius: 2rem;
 }
 body main article#why-we-started div p {
   margin-bottom: 2em;
@@ -172,12 +177,20 @@ body main article#core-strengths ul {
   flex-flow: column nowrap;
   align-items: center;
   gap: 1em;
+  padding-left: 0;
 }
 body main article#core-strengths ul li {
   width: 55vw;
   display: flex;
   flex-direction: row;
   padding: 0.5rem;
+}
+@media screen and (max-width: 768px) {
+  body main article#core-strengths ul li {
+    width: 90%;
+    padding: 0.5rem 0;
+    margin: 0 auto;
+  }
 }
 body main article#core-strengths ul li div strong {
   font-size: 1.2rem;
@@ -282,11 +295,27 @@ body main article#featured-product div.product {
   flex-flow: row-reverse nowrap;
   height: 60vh;
 }
+@media screen and (max-width: 768px) {
+  body main article#featured-product div.product {
+    flex-flow: column nowrap;
+    height: auto;
+  }
+}
 body main article#featured-product div.product > img, body main article#featured-product div.product > div {
   flex: 1 1 50%;
 }
+@media screen and (max-width: 768px) {
+  body main article#featured-product div.product > img, body main article#featured-product div.product > div {
+    flex: 1 1 auto;
+  }
+}
 body main article#featured-product div.product > img {
   object-fit: contain;
+}
+@media screen and (max-width: 768px) {
+  body main article#featured-product div.product > img {
+    max-height: 50vh;
+  }
 }
 body main article#featured-product div.product > div:first-of-type {
   display: flex;
@@ -295,6 +324,11 @@ body main article#featured-product div.product > div:first-of-type {
   align-items: flex-start;
   box-sizing: border-box;
   padding: 0px 6rem;
+}
+@media screen and (max-width: 768px) {
+  body main article#featured-product div.product > div:first-of-type {
+    padding: 2rem;
+  }
 }
 body main article#featured-product div.product > div:first-of-type p.left {
   margin: 0 auto 0 0;
@@ -329,56 +363,82 @@ body main article#featured-product div.product > div:first-of-type div.points di
   flex: 0 0 40%;
   margin-top: 0.5rem;
 }
-body main article#contact form {
-  max-width: 600px;
-  padding: 2rem;
+body main article#contact .contact-flex {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: stretch;
+  height: calc(100vh - 2rem + 0.83em - 14rem);
+  padding: 0 4em;
 }
-body main article#contact form p {
+@media screen and (max-width: 1024px) {
+  body main article#contact .contact-flex {
+    height: calc(100vh - 2rem + 0.83em);
+  }
+}
+body main article#contact .contact-flex p {
+  text-align: center;
+}
+body main article#contact .contact-flex .contact {
+  padding: 0.5em 0 2em;
+  text-align: center;
+}
+body main article#contact .contact-flex form {
+  max-width: 600px;
+}
+body main article#contact .contact-flex form p {
   margin-bottom: 1.5rem;
   line-height: 1.6;
 }
-body main article#contact form section {
+body main article#contact .contact-flex form section {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
-body main article#contact form section label {
+body main article#contact .contact-flex form section label {
   display: grid;
-  grid-template-columns: 5rem 1fr;
+  grid-template-columns: 8rem 1fr;
   gap: 1em;
   align-items: start;
 }
-body main article#contact form section label span {
+body main article#contact .contact-flex form section label span {
   font-weight: 600;
   font-size: 0.95rem;
   padding-top: 0.75rem;
+  text-align: right;
 }
-body main article#contact form section label input[type=text], body main article#contact form section label input[type=tel], body main article#contact form section label textarea {
+body main article#contact .contact-flex form section label input[type=text], body main article#contact .contact-flex form section label input[type=tel], body main article#contact .contact-flex form section label textarea {
   padding: 0.75rem;
   font-size: 1rem;
   transition: border-color 0.2s;
 }
-body main article#contact form section label input[type=file] {
+body main article#contact .contact-flex form section label input[type=file] {
   padding: 0.5rem 0;
   font-size: 0.95rem;
 }
-body main article#contact form section label textarea {
+body main article#contact .contact-flex form section label textarea {
   resize: vertical;
   min-height: 5em;
 }
 @media screen and (max-width: 600px) {
-  body main article#contact form section label {
+  body main article#contact .contact-flex form section label {
     grid-template-columns: 1fr;
   }
-  body main article#contact form section label span {
+  body main article#contact .contact-flex form section label span {
     padding-top: 0;
+    text-align: left;
   }
 }
-body main article#contact form button.CTA {
-  margin: 1em 0.5em;
+body main article#contact .contact-flex form button.CTA {
+  margin: 1em 0.5em 1em calc(8rem + 1em);
   padding: 0.5em;
   font-size: 1em;
+}
+@media screen and (max-width: 1024px) {
+  body main article#contact .contact-flex form button.CTA {
+    display: block;
+    margin: 1em auto 0.5em;
+  }
 }
 /* colorbox.io Config
 [
@@ -763,6 +823,7 @@ body {
   background: black;
   color: whitesmoke;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+  word-break: keep-all;
 }
 body a:link, body a:focus, body a:active, body a:visited {
   color: #ffdcdc;
@@ -786,6 +847,7 @@ body main article#why-we-started p > img.right {
 }
 body main article#why-we-started div {
   background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 2rem;
 }
 body main article#core-strengths .strengths .strength-card {
   background-color: rgba(127, 127, 127, 0.3);

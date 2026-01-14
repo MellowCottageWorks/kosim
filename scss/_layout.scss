@@ -104,12 +104,21 @@ body {
       }
 
       &#why-we-started {
+        $bottom-padding: 20vh;
+        padding-bottom: $bottom-padding;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
 
         h2 {
           display: none;
         }
+
         & > p {
-          position: relative;
+          position: absolute;
+          z-index: 1;
 
           &:first-of-type {
             top: 22vh;
@@ -119,29 +128,27 @@ body {
             top: 8vh;
             left: 4vw;
           }
-          & > img.right, & > img.left {
-            position: absolute;
+
+          img {
+            display: block;
           }
 
-          & > img.right {
-            width: 30%;
+          img.right {
+            width: 30vw;
           }
 
-          & > img.left {
-            width: 40%;
+          img.left {
+            width: 40vw;
           }
         }
+
         div {
-          position: relative;
-          top: 17vh;
-          left: 20vw;
           width: 58vw;
           z-index: 2;
           line-height: 3rem;
           text-align: center;
           font-size: 1.6em;
           padding: 2rem 0;
-          border-radius: 2rem;
 
           p {
             margin-bottom: 2em;
@@ -200,12 +207,19 @@ body {
           flex-flow: column nowrap;
           align-items: center;
           gap: 1em;
+          padding-left: 0;
 
           li {
             width: 55vw;
             display: flex;
             flex-direction: row;
             padding: 0.5rem;
+
+            @include for-tablet {
+              width: 90%;
+              padding: .5rem 0;
+              margin: 0 auto;
+            }
 
             div {
               strong {
@@ -339,13 +353,25 @@ body {
           flex-flow: row-reverse nowrap;
           height: 60vh;
 
+          @include for-tablet {
+            flex-flow: column nowrap;
+            height: auto;
+          }
 
           & > img, & > div {
             flex: 1 1 50%;
+
+            @include for-tablet {
+              flex: 1 1 auto;
+            }
           }
 
           & > img {
             object-fit: contain;
+
+            @include for-tablet {
+              max-height: 50vh;
+            }
           }
 
           & > div:first-of-type {
@@ -355,6 +381,10 @@ body {
             align-items: flex-start;
             box-sizing: border-box;
             padding: 0px 6rem;
+
+            @include for-tablet {
+              padding: 2rem;
+            }
 
             h3 {}
 
@@ -414,73 +444,96 @@ body {
       &#contact {
 
         h2 {}
-        p {}
-        .contact {
-          a {
-            address {}
+        .contact-flex {
+          display: flex;
+          flex-flow: column wrap;
+          align-items: stretch;
+          height: calc(100vh - 2rem + 0.83em - 14rem);
+          padding: 0 4em;
+
+          @include for-laptop {
+            height: calc(100vh - 2rem + .83em);
           }
-        }
-
-        form {
-          $max-width: 600px;
-          $label-width: 5rem;
-
-          max-width: $max-width;
-          padding: 2rem;
 
           p {
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
+            text-align: center;
           }
 
-          section {
-            display: flex;
-            flex-direction: column;
-            gap: 1em;
-            margin-bottom: 2rem;
-
-            label {
-              display: grid;
-              grid-template-columns: $label-width 1fr;
-              gap: 1em;
-              align-items: start;
-
-              span {
-                font-weight: 600;
-                font-size: .95rem;
-                padding-top: .75rem;
-              }
-
-              input[type="text"], input[type="tel"], textarea {
-                padding: .75rem;
-                font-size: 1rem;
-                transition: border-color .2s;
-              }
-
-              input[type="file"] {
-                padding: .5rem 0;
-                font-size: .95rem;
-              }
-
-              textarea {
-                resize: vertical;
-                min-height: 5em;
-              }
-
-              @include for-width($max-width) {
-                grid-template-columns: 1fr;
-                span {
-                  padding-top: 0;
-                }
-              }
+          .contact {
+            padding: .5em 0 2em;
+            text-align: center;
+            a {
+              address {}
             }
           }
 
+          form {
+            $max-width: 600px;
+            $label-width: 8rem;
 
-          button.CTA {
-            margin: 1em .5em;
-            padding: .5em;
-            font-size: 1em;
+            max-width: $max-width;
+
+            p {
+              margin-bottom: 1.5rem;
+              line-height: 1.6;
+            }
+
+            section {
+              display: flex;
+              flex-direction: column;
+              gap: 1em;
+              margin-bottom: 0;
+
+              label {
+                display: grid;
+                grid-template-columns: $label-width 1fr;
+                gap: 1em;
+                align-items: start;
+
+                span {
+                  font-weight: 600;
+                  font-size: .95rem;
+                  padding-top: .75rem;
+                  text-align: right;
+                }
+
+                input[type="text"], input[type="tel"], textarea {
+                  padding: .75rem;
+                  font-size: 1rem;
+                  transition: border-color .2s;
+                }
+
+                input[type="file"] {
+                  padding: .5rem 0;
+                  font-size: .95rem;
+                }
+
+                textarea {
+                  resize: vertical;
+                  min-height: 5em;
+                }
+
+                @include for-width($max-width) {
+                  grid-template-columns: 1fr;
+                  span {
+                    padding-top: 0;
+                    text-align: left;
+                  }
+                }
+              }
+            }
+
+
+            button.CTA {
+              margin: 1em .5em 1em calc($label-width + 1em);
+              padding: .5em;
+              font-size: 1em;
+
+              @include for-laptop {
+                display: block;
+                margin: 1em auto .5em;
+              }
+            }
           }
         }
       }
