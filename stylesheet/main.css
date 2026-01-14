@@ -274,6 +274,29 @@ body main article#process > p:last-of-type img {
   height: auto;
   will-change: transform;
 }
+body main article#featured-product blockquote {
+  display: none;
+}
+body main article#featured-product div.product {
+  display: flex;
+  flex-flow: row-reverse nowrap;
+  height: 60vh;
+}
+body main article#featured-product div.product > img, body main article#featured-product div.product > div {
+  flex: 1 1 50%;
+}
+body main article#featured-product div.product > div:first-of-type {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 0px 8rem;
+}
+body main article#featured-product div.product > div:first-of-type div.points {
+  display: flex;
+  flex-flow: row nowrap;
+}
 body main article#contact form {
   max-width: 600px;
   padding: 2rem;
@@ -744,6 +767,9 @@ body main article#process div#process-steps .process-step p {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid transparent;
   border-radius: 0.5rem;
+}
+body main article#featured-product div.product img {
+  background-image: linear-gradient(90deg, black 0%, rgba(0, 0, 0, 0.2) 50%);
 }
 body main article#contact form section label input[type=text], body main article#contact form section label input[type=tel], body main article#contact form section label textarea {
   border: 1px solid #ddd;

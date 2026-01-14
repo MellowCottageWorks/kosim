@@ -130,7 +130,16 @@ body {
       &#featured-product {
         div.product {
 
-          img {}
+          & > img, & > div {
+
+          }
+
+          img {
+            background-image: linear-gradient(90deg,
+                black 0%,
+                rgba(0,0,0,0.2) 50%
+              );
+          }
           h3 {}
           p {}
           ul {

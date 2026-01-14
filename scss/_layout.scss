@@ -330,13 +330,46 @@ body {
       }
 
       &#featured-product {
-        div.product {
+        blockquote {
+          display: none;
+        }
 
-          img {}
-          h3 {}
-          p {}
-          ul {
-            li {}
+        div.product {
+          display: flex;
+          flex-flow: row-reverse nowrap;
+          height: 60vh;
+
+
+          & > img, & > div {
+            flex: 1 1 50%;
+          }
+
+          & > img {
+
+          }
+
+          & > div:first-of-type {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: flex-start;
+            box-sizing: border-box;
+            padding: 0px 8rem;
+
+            h3 {}
+
+            p {
+
+            }
+
+            div.points {
+              display: flex;
+              flex-flow: row nowrap;
+            }
+
+            ul {
+              li {}
+            }
           }
         }
       }
