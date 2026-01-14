@@ -364,7 +364,14 @@ body {
 
             div.points {
               display: flex;
-              flex-flow: row nowrap;
+              flex-flow: column wrap;
+              min-width: 23rem;
+              height: 7rem;
+              gap: 1em;
+
+              div {
+                flex: 0 1 15rem;
+              }
             }
 
             ul {

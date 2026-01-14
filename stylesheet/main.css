@@ -295,7 +295,13 @@ body main article#featured-product div.product > div:first-of-type {
 }
 body main article#featured-product div.product > div:first-of-type div.points {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column wrap;
+  min-width: 23rem;
+  height: 7rem;
+  gap: 1em;
+}
+body main article#featured-product div.product > div:first-of-type div.points div {
+  flex: 0 1 15rem;
 }
 body main article#contact form {
   max-width: 600px;
