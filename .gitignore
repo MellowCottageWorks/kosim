@@ -3,4 +3,6 @@
 /.jekyll-metadata
 /.idea/
 
+# Ignore desktop.ini files everywhere (Windows/Google Drive)
 desktop.ini
+**/desktop.ini

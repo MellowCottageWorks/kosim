@@ -13,3 +13,13 @@ exclude:
 keep_files:
   - .git
   - .nojekyll
+
+# Watch configuration - exclude SCSS files from livereload
+watch: true
+force_polling: false
+
+# Exclude SCSS files from watch to prevent multiple reloads
+# (SCSS watcher handles compilation separately)
+exclude_watch:
+  - scss/
+  - "**/*.scss"
