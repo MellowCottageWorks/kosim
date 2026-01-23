@@ -213,6 +213,25 @@ body {
             }
           }
         }
+      }
+
+      &#core-strengths-cont {
+        position: relative;
+        display: flex;
+        align-items: center;
+        min-height: 100vh;
+
+        h2 {
+          position: absolute;
+          left: 2rem;
+          top: 50%;
+          transform: translateY(-50%);
+          transform-origin: left center;
+          white-space: nowrap;
+          writing-mode: vertical-lr;
+          font-size: 1.5em;
+          margin: 0;
+        }
 
         ul {
           list-style: none;
@@ -221,6 +240,7 @@ body {
           align-items: center;
           gap: 1em;
           padding-left: 0;
+          width: 100%;
 
           li {
             width: 55vw;

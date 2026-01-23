@@ -173,35 +173,53 @@ body main article#core-strengths .strengths div.strength-card h3 {
 body main article#core-strengths .strengths div.strength-card span {
   line-height: 1.5rem;
 }
-body main article#core-strengths ul {
+body main article#core-strengths-cont {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
+body main article#core-strengths-cont h2 {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left center;
+  white-space: nowrap;
+  writing-mode: vertical-lr;
+  font-size: 1.5em;
+  margin: 0;
+}
+body main article#core-strengths-cont ul {
   list-style: none;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   gap: 1em;
   padding-left: 0;
+  width: 100%;
 }
-body main article#core-strengths ul li {
+body main article#core-strengths-cont ul li {
   width: 55vw;
   display: flex;
   flex-direction: row;
   padding: 0.5rem;
 }
 @media screen and (max-width: 768px) {
-  body main article#core-strengths ul li {
+  body main article#core-strengths-cont ul li {
     width: 90%;
     padding: 0.5rem 0;
     margin: 0 auto;
   }
 }
-body main article#core-strengths ul li div strong {
+body main article#core-strengths-cont ul li div strong {
   font-size: 1.2rem;
   line-height: 2em;
 }
-body main article#core-strengths ul li div p {
+body main article#core-strengths-cont ul li div p {
   line-height: 1.5em;
 }
-body main article#core-strengths ul li div:first-child {
+body main article#core-strengths-cont ul li div:first-child {
   width: 5rem;
   text-align: center;
   font-size: 3em;
@@ -551,15 +569,6 @@ article#core-strengths .strengths .strength-card span {
   opacity: 0;
   transform: translateY(20px);
 }
-article#core-strengths ul li {
-  opacity: 0;
-  transform: translateY(30px);
-}
-article#core-strengths ul li div:nth-child(2) span {
-  display: inline-block;
-  opacity: 0;
-  transform: translateX(20px);
-}
 article#core-strengths.animate .strengths .strength-card:nth-child(1) img {
   animation: zoom-in-fade 0.5s ease-out 0s forwards;
 }
@@ -587,23 +596,33 @@ article#core-strengths.animate .strengths .strength-card:nth-child(3) h3 {
 article#core-strengths.animate .strengths .strength-card:nth-child(3) span {
   animation: slide-up-fade 0.3s ease-out 1.9s forwards;
 }
-article#core-strengths.animate ul li:nth-child(1) {
-  animation: slide-up-fade 0.6s ease-out 2.2s forwards;
+
+article#core-strengths-cont ul li {
+  opacity: 0;
+  transform: translateY(30px);
 }
-article#core-strengths.animate ul li:nth-child(1) div:nth-child(2) span {
-  animation: slide-right-to-left-fade 0.5s ease-out 3.1s forwards;
+article#core-strengths-cont ul li div:nth-child(2) span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(20px);
 }
-article#core-strengths.animate ul li:nth-child(2) {
-  animation: slide-up-fade 0.6s ease-out 2.5s forwards;
+article#core-strengths-cont.animate ul li:nth-child(1) {
+  animation: slide-up-fade 0.6s ease-out 0s forwards;
 }
-article#core-strengths.animate ul li:nth-child(2) div:nth-child(2) span {
-  animation: slide-right-to-left-fade 0.5s ease-out 3.4s forwards;
+article#core-strengths-cont.animate ul li:nth-child(1) div:nth-child(2) span {
+  animation: slide-right-to-left-fade 0.5s ease-out 0.9s forwards;
 }
-article#core-strengths.animate ul li:nth-child(3) {
-  animation: slide-up-fade 0.6s ease-out 2.8s forwards;
+article#core-strengths-cont.animate ul li:nth-child(2) {
+  animation: slide-up-fade 0.6s ease-out 0.3s forwards;
 }
-article#core-strengths.animate ul li:nth-child(3) div:nth-child(2) span {
-  animation: slide-right-to-left-fade 0.5s ease-out 3.7s forwards;
+article#core-strengths-cont.animate ul li:nth-child(2) div:nth-child(2) span {
+  animation: slide-right-to-left-fade 0.5s ease-out 1.2s forwards;
+}
+article#core-strengths-cont.animate ul li:nth-child(3) {
+  animation: slide-up-fade 0.6s ease-out 0.6s forwards;
+}
+article#core-strengths-cont.animate ul li:nth-child(3) div:nth-child(2) span {
+  animation: slide-right-to-left-fade 0.5s ease-out 1.5s forwards;
 }
 
 @keyframes zoom-in-fade {
@@ -773,7 +792,7 @@ body main article#core-strengths .strengths .strength-card {
   background-color: rgba(127, 127, 127, 0.3);
   border-radius: 1rem;
 }
-body main article#core-strengths ul li {
+body main article#core-strengths-cont ul li {
   background-color: rgba(127, 127, 127, 0.2);
   border-radius: 1rem;
 }

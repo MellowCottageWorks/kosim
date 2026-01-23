@@ -89,19 +89,6 @@ article#core-strengths {
     }
   }
 
-  ul {
-    li {
-      opacity: 0;
-      transform: translateY(30px);
-
-      // Hashtags within li - must be inline-block for transforms to work
-      div:nth-child(2) span {
-        display: inline-block;
-        opacity: 0;
-        transform: translateX(20px);
-      }
-    }
-  }
 
   // Animations triggered when .animate class is added
   &.animate {
@@ -147,31 +134,49 @@ article#core-strengths {
         }
       }
     }
+  }
+}
 
+article#core-strengths-cont {
+  ul {
+    li {
+      opacity: 0;
+      transform: translateY(30px);
+
+      // Hashtags within li - must be inline-block for transforms to work
+      div:nth-child(2) span {
+        display: inline-block;
+        opacity: 0;
+        transform: translateX(20px);
+      }
+    }
+  }
+
+  &.animate {
     ul {
-      // All three li items appear sequentially after cards finish
+      // All three li items appear sequentially
       li:nth-child(1) {
-        animation: slide-up-fade 0.6s ease-out 2.2s forwards;
+        animation: slide-up-fade 0.6s ease-out 0s forwards;
 
         // Hashtag appears after li finishes (with 0.3s delay)
         div:nth-child(2) span {
-          animation: slide-right-to-left-fade 0.5s ease-out 3.1s forwards;
+          animation: slide-right-to-left-fade 0.5s ease-out 0.9s forwards;
         }
       }
       li:nth-child(2) {
-        animation: slide-up-fade 0.6s ease-out 2.5s forwards;
+        animation: slide-up-fade 0.6s ease-out 0.3s forwards;
 
         // Hashtag appears after li finishes (with 0.3s delay)
         div:nth-child(2) span {
-          animation: slide-right-to-left-fade 0.5s ease-out 3.4s forwards;
+          animation: slide-right-to-left-fade 0.5s ease-out 1.2s forwards;
         }
       }
       li:nth-child(3) {
-        animation: slide-up-fade 0.6s ease-out 2.8s forwards;
+        animation: slide-up-fade 0.6s ease-out 0.6s forwards;
 
         // Hashtag appears after li finishes (with 0.3s delay)
         div:nth-child(2) span {
-          animation: slide-right-to-left-fade 0.5s ease-out 3.7s forwards;
+          animation: slide-right-to-left-fade 0.5s ease-out 1.5s forwards;
         }
       }
     }

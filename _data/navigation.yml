@@ -5,8 +5,11 @@
   name-ko: 설립이유
   filename: started.md
 - name: core-strengths
-  name-ko: 핵심능력
+  name-ko: 핵심능력 (1)
   filename: strengths.md
+- name: core-strengths-cont
+  name-ko: 핵심능력 (2)
+  filename: strengths-cont.md
 - name: process
   name-ko: 제조·생산 공정
   filename: process.md

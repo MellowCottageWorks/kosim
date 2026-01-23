@@ -110,6 +110,24 @@ document.addEventListener('DOMContentLoaded', () => {
     animationObserver.observe(coreStrengths);
   }
 
+  // Trigger core-strengths-cont animations when section comes into view
+  const coreStrengthsCont = document.getElementById('core-strengths-cont');
+  if (coreStrengthsCont) {
+    const contAnimationObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !coreStrengthsCont.classList.contains('animate')) {
+          coreStrengthsCont.classList.add('animate');
+          // Unobserve after triggering once
+          contAnimationObserver.unobserve(coreStrengthsCont);
+        }
+      });
+    }, {
+      threshold: 0.2 // Trigger when 20% of section is visible
+    });
+
+    contAnimationObserver.observe(coreStrengthsCont);
+  }
+
   // Trigger process animations when section comes into view
   const process = document.getElementById('process');
   if (process) {
