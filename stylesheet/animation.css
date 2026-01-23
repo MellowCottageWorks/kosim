@@ -1,3 +1,18 @@
+article#hero img.fg {
+  opacity: 0;
+  animation: logo-reveal 2s ease-out 0.4s forwards;
+}
+
+@keyframes logo-reveal {
+  0% {
+    opacity: 0;
+    clip-path: circle(42% at 70% 70%);
+  }
+  100% {
+    opacity: 1;
+    clip-path: circle(72% at 63% 70%);
+  }
+}
 header nav {
   position: fixed;
   right: 2rem;
