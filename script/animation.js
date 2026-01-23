@@ -42,59 +42,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Parallax effect for why-we-started section
+  // Why-we-started section: slide images in from sides when section comes into view
   const whyWeStarted = document.getElementById('why-we-started');
   if (whyWeStarted) {
     const rightImage = whyWeStarted.querySelector('p:first-of-type > img.right');
     const leftImage = whyWeStarted.querySelector('p:nth-of-type(2) > img.left');
 
-    const handleParallax = () => {
-      const rect = whyWeStarted.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      const sectionHeight = rect.height;
+    // Set initial positions (outside viewport) and opacity
+    const angle = -60 * Math.PI / 180;
+    const offsetX = 150 * Math.cos(angle);
+    const offsetY = 150 * Math.sin(angle);
 
-      // Calculate progress: -1 (top of section at bottom of viewport) to 1 (bottom of section at top of viewport)
-      // When section is centered, progress = 0
-      const sectionCenter = rect.top + sectionHeight / 2;
-      const viewportCenter = windowHeight / 2;
-      const distanceFromCenter = sectionCenter - viewportCenter;
+    if (leftImage) {
+      leftImage.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease-out'; // Ease-out expo
+    }
+    if (rightImage) {
+      rightImage.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease-out'; // Ease-out expo
+    }
 
-      // Normalize: when centered = 0, normalize by half section height for smooth range
-      const progress = distanceFromCenter / (sectionHeight / 2);
-
-      // Left image: faster movement (coefficient 150)
-      // Right image: slower movement (coefficient 75)
-      // When progress = 0 (centered), both offsets = 0
-      if (leftImage) {
-        const leftOffset = progress * 150;
-        leftImage.style.transform = `translateY(${leftOffset}px)`;
-      }
-
-      if (rightImage) {
-        const rightOffset = progress * 50;
-        // Image is rotated 50deg clockwise
-        // To appear to move straight up, move at -50deg (counter-clockwise from vertical)
-        const angle = 50 * Math.PI / 180; // Convert -50deg to radians
-        const offsetX = rightOffset * Math.sin(angle); // Horizontal component
-        const offsetY = rightOffset * Math.cos(angle); // Vertical component
-        rightImage.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-      }
-    };
-
-    // Throttle scroll event for performance
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          handleParallax();
-          ticking = false;
-        });
-        ticking = true;
-      }
+    // Observe when section comes into view (replayable)
+    const whyWeStartedObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animate images to their final positions and fade in
+          if (leftImage) {
+            leftImage.style.transform = 'translateX(0)';
+            leftImage.style.opacity = '1';
+          }
+          if (rightImage) {
+            rightImage.style.transform = 'translate(0, 0)';
+            rightImage.style.opacity = '0.5'; // Darker appearance
+          }
+        } else {
+          // Reset to initial state when scrolled away
+          if (leftImage) {
+            leftImage.style.transform = 'translateX(-150px)';
+            leftImage.style.opacity = '0';
+          }
+          if (rightImage) {
+            rightImage.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+            rightImage.style.opacity = '0';
+          }
+        }
+      });
+    }, {
+      threshold: 0.3 // Trigger when 30% of section is visible
     });
 
-    // Initial call
-    handleParallax();
+    whyWeStartedObserver.observe(whyWeStarted);
   }
 
   // Trigger core-strengths animations when section comes into view

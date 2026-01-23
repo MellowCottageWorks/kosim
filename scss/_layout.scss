@@ -121,12 +121,12 @@ body {
           z-index: 1;
 
           &:first-of-type {
-            top: 22vh;
-            left: 60vw;
+            top: 24vh;
+            left: 57vw;
           }
           &:nth-of-type(2) {
             top: 8vh;
-            left: 4vw;
+            left: 12vw;
           }
 
           img {
@@ -134,21 +134,22 @@ body {
           }
 
           img.right {
-            width: 30vw;
+            rotate: 60deg;
+            width: 24vw;
           }
 
           img.left {
-            width: 40vw;
+            width: 36vw;
           }
         }
 
         div {
-          width: 58vw;
+          width: 47vw;
           z-index: 2;
-          line-height: 3rem;
+          line-height: 2.5rem;
           text-align: center;
-          font-size: 1.6em;
-          padding: 2rem 0;
+          font-size: 1.1em;
+          padding: 2.5rem 0;
 
           p {
             margin-bottom: 2em;

@@ -104,29 +104,30 @@ body main article#why-we-started > p {
   z-index: 1;
 }
 body main article#why-we-started > p:first-of-type {
-  top: 22vh;
-  left: 60vw;
+  top: 24vh;
+  left: 57vw;
 }
 body main article#why-we-started > p:nth-of-type(2) {
   top: 8vh;
-  left: 4vw;
+  left: 12vw;
 }
 body main article#why-we-started > p img {
   display: block;
 }
 body main article#why-we-started > p img.right {
-  width: 30vw;
+  rotate: 60deg;
+  width: 24vw;
 }
 body main article#why-we-started > p img.left {
-  width: 40vw;
+  width: 36vw;
 }
 body main article#why-we-started div {
-  width: 58vw;
+  width: 47vw;
   z-index: 2;
-  line-height: 3rem;
+  line-height: 2.5rem;
   text-align: center;
-  font-size: 1.6em;
-  padding: 2rem 0;
+  font-size: 1.1em;
+  padding: 2.5rem 0;
 }
 body main article#why-we-started div p {
   margin-bottom: 2em;
@@ -842,7 +843,6 @@ body main button.CTA:active {
   border-color: #630000;
 }
 body main article#why-we-started p > img.right {
-  rotate: 50deg;
   opacity: 0.5;
 }
 body main article#why-we-started div {
