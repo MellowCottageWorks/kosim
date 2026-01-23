@@ -1,5 +1,5 @@
-favicon: './favicon.ico'
+favicon: '/favicon.ico'
 color: '#b10000'
 site-name: '고심'
 author: 'admin'
-address: 'https://example.com'
+address: 'https://kosim.kr'
