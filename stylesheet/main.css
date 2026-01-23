@@ -138,8 +138,13 @@ body main article#why-we-started div p:last-of-type {
 }
 body main article#core-strengths {
   position: relative;
+  min-height: 100vh;
 }
 body main article#core-strengths .strengths {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -158,7 +163,15 @@ body main article#core-strengths .strengths {
 body main article#core-strengths .strengths div.strength-card {
   padding: 1.5rem;
   text-align: center;
-  flex: 0 1 15rem;
+  flex: 0 0 15rem;
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+body main article#core-strengths .strengths div.strength-card img {
+  max-height: 6rem;
+  object-fit: contain;
 }
 @media screen and (max-width: 1024px) {
   body main article#core-strengths .strengths div.strength-card img {
