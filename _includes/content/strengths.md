@@ -1,5 +1,9 @@
 ## 고심, 믿을 수 있는 이유
 
+<p class="background-image">
+    <img src="/image/interior.jpg" alt="interior">
+</p>
+
 <div class="strengths">
     <div class="strength-card">
         <img src="../image/HACCP.png">

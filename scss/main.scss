@@ -98,9 +98,12 @@ body {
       &#core-strengths-cont {
         ul {
 
-
           li {
-            background-color: rgba(127, 127, 127, 0.2);
+            background: linear-gradient(
+              to bottom,
+              transparent 0%,
+              rgba(255, 255, 255, 0.1) 100%
+            );
             border-radius: 1rem;
           }
         }

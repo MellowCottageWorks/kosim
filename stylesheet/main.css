@@ -53,7 +53,7 @@ body main article#hero p:first-child img.bg {
   top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: -1;
+  z-index: 0;
   height: 65vh;
 }
 body main article#hero p:first-child img.fg {
@@ -136,6 +136,9 @@ body main article#why-we-started div p {
 body main article#why-we-started div p:last-of-type {
   margin-bottom: 0;
 }
+body main article#core-strengths {
+  position: relative;
+}
 body main article#core-strengths .strengths {
   display: flex;
   flex-flow: row nowrap;
@@ -198,12 +201,13 @@ body main article#core-strengths-cont ul {
   gap: 1em;
   padding-left: 0;
   width: 100%;
+  margin: 0 auto;
 }
 body main article#core-strengths-cont ul li {
-  width: 55vw;
+  min-width: 50vw;
   display: flex;
   flex-direction: row;
-  padding: 0.5rem;
+  padding: 1rem;
 }
 @media screen and (max-width: 768px) {
   body main article#core-strengths-cont ul li {
@@ -557,6 +561,33 @@ header nav ul li a.indicator-dot span {
   font-size: 0.45rem;
 }
 
+article#core-strengths p.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
+article#core-strengths p.background-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 25%, rgba(0, 0, 0, 0.6) 75%, rgb(0, 0, 0) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+article#core-strengths p.background-image img {
+  opacity: 0;
+  filter: blur(10px);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 article#core-strengths .strengths .strength-card img {
   opacity: 0;
   transform: scale(0.8);
@@ -793,7 +824,7 @@ body main article#core-strengths .strengths .strength-card {
   border-radius: 1rem;
 }
 body main article#core-strengths-cont ul li {
-  background-color: rgba(127, 127, 127, 0.2);
+  background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.1) 100%);
   border-radius: 1rem;
 }
 body main article#process div#process-steps .process-step p {

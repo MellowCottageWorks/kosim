@@ -64,7 +64,7 @@ body {
             top: 48%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: -1;
+            z-index: 0;
             height: 65vh;
           }
 
@@ -173,6 +173,7 @@ body {
       }
 
       &#core-strengths {
+        position: relative;
 
         .strengths {
           display: flex;
@@ -241,12 +242,13 @@ body {
           gap: 1em;
           padding-left: 0;
           width: 100%;
+          margin: 0 auto;
 
           li {
-            width: 55vw;
+            min-width: 50vw;
             display: flex;
             flex-direction: row;
-            padding: 0.5rem;
+            padding: 1rem;
 
             @include for-tablet {
               width: 90%;
