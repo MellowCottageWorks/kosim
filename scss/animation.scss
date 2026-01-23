@@ -69,62 +69,6 @@ header nav {
   }
 }
 
-// Hero section animations
-article#hero {
-  // Tomato zoom-in animation
-  p:first-child img {
-    animation: tomato-zoom-in 1s ease-out forwards;
-    opacity: 0;
-  }
-
-  // KOSIM letter animations (staggered slide up with clip reveal)
-  strong {
-    display: inline-flex;
-    overflow: hidden;
-
-    .letter {
-      display: inline-block;
-      transform: translateY(100%);
-
-      &:nth-child(1) {
-        animation: slide-up-letter 0.5s ease-out 1s forwards;
-      }
-      &:nth-child(2) {
-        animation: slide-up-letter 0.5s ease-out 1.125s forwards;
-      }
-      &:nth-child(3) {
-        animation: slide-up-letter 0.5s ease-out 1.25s forwards;
-      }
-      &:nth-child(4) {
-        animation: slide-up-letter 0.5s ease-out 1.375s forwards;
-      }
-      &:nth-child(5) {
-        animation: slide-up-letter 0.5s ease-out 1.5s forwards;
-      }
-    }
-  }
-
-  // Text animations (slide down/up after KOSIM settles)
-  h1 {
-    animation: slide-down 0.6s ease-out 2s forwards;
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-
-  #h1-sub {
-    animation: slide-up 0.6s ease-out 2.6s forwards;
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  // CTA button animation (slide up with fade in after text)
-  button.CTA {
-    animation: slide-up-fade 0.6s ease-out 3.2s forwards;
-    opacity: 0;
-    transform: translateY(30px);
-  }
-}
-
 // Core strengths section animations
 article#core-strengths {
   .strengths {
@@ -235,17 +179,6 @@ article#core-strengths {
 }
 
 // Keyframe definitions
-@keyframes tomato-zoom-in {
-  from {
-    opacity: 0;
-    transform: scale(1.2);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 @keyframes zoom-in-fade {
   from {
     opacity: 0;
@@ -254,37 +187,6 @@ article#core-strengths {
   to {
     opacity: 1;
     transform: scale(1);
-  }
-}
-
-@keyframes slide-down {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-up-letter {
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(0);
   }
 }
 

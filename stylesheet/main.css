@@ -538,49 +538,6 @@ header nav ul li a.indicator-dot span {
   font-size: 0.45rem;
 }
 
-article#hero p:first-child img {
-  animation: tomato-zoom-in 1s ease-out forwards;
-  opacity: 0;
-}
-article#hero strong {
-  display: inline-flex;
-  overflow: hidden;
-}
-article#hero strong .letter {
-  display: inline-block;
-  transform: translateY(100%);
-}
-article#hero strong .letter:nth-child(1) {
-  animation: slide-up-letter 0.5s ease-out 1s forwards;
-}
-article#hero strong .letter:nth-child(2) {
-  animation: slide-up-letter 0.5s ease-out 1.125s forwards;
-}
-article#hero strong .letter:nth-child(3) {
-  animation: slide-up-letter 0.5s ease-out 1.25s forwards;
-}
-article#hero strong .letter:nth-child(4) {
-  animation: slide-up-letter 0.5s ease-out 1.375s forwards;
-}
-article#hero strong .letter:nth-child(5) {
-  animation: slide-up-letter 0.5s ease-out 1.5s forwards;
-}
-article#hero h1 {
-  animation: slide-down 0.6s ease-out 2s forwards;
-  opacity: 0;
-  transform: translateY(-30px);
-}
-article#hero #h1-sub {
-  animation: slide-up 0.6s ease-out 2.6s forwards;
-  opacity: 0;
-  transform: translateY(30px);
-}
-article#hero button.CTA {
-  animation: slide-up-fade 0.6s ease-out 3.2s forwards;
-  opacity: 0;
-  transform: translateY(30px);
-}
-
 article#core-strengths .strengths .strength-card img {
   opacity: 0;
   transform: scale(0.8);
@@ -648,16 +605,6 @@ article#core-strengths.animate ul li:nth-child(3) div:nth-child(2) span {
   animation: slide-right-to-left-fade 0.5s ease-out 3.7s forwards;
 }
 
-@keyframes tomato-zoom-in {
-  from {
-    opacity: 0;
-    transform: scale(1.2);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
 @keyframes zoom-in-fade {
   from {
     opacity: 0;
@@ -666,34 +613,6 @@ article#core-strengths.animate ul li:nth-child(3) div:nth-child(2) span {
   to {
     opacity: 1;
     transform: scale(1);
-  }
-}
-@keyframes slide-down {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes slide-up-letter {
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(0);
   }
 }
 @keyframes slide-up-fade {
