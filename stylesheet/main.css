@@ -339,7 +339,7 @@ body main article#featured-product div.product {
   }
 }
 body main article#featured-product div.product > img, body main article#featured-product div.product > div {
-  flex: 1 1 50%;
+  flex: 1 1 60%;
 }
 @media screen and (max-width: 768px) {
   body main article#featured-product div.product > img, body main article#featured-product div.product > div {
