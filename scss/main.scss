@@ -226,18 +226,20 @@ body {
               span {
               }
 
+              input[type="text"], input[type="tel"], textarea,
+              input[type="file"] {
+                border: 1px solid dimgray;
+                background-color: #323232;
+                color: whitesmoke;
+              }
+
               input[type="text"], input[type="tel"], textarea {
-                border: 1px solid #ddd;
-                border-width: 1px;
                 transition: border-color .2s;
 
                 &:focus {
                   outline: none;
                   border-color: gray;
                 }
-              }
-
-              input[type="file"] {
               }
 
               textarea {

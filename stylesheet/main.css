@@ -946,9 +946,13 @@ body main article#featured-product div.product div.points div:hover {
 body main article#featured-product div.product div.points img {
   background-image: none;
 }
+body main article#contact form section label input[type=text], body main article#contact form section label input[type=tel], body main article#contact form section label textarea,
+body main article#contact form section label input[type=file] {
+  border: 1px solid dimgray;
+  background-color: #323232;
+  color: whitesmoke;
+}
 body main article#contact form section label input[type=text], body main article#contact form section label input[type=tel], body main article#contact form section label textarea {
-  border: 1px solid #ddd;
-  border-width: 1px;
   transition: border-color 0.2s;
 }
 body main article#contact form section label input[type=text]:focus, body main article#contact form section label input[type=tel]:focus, body main article#contact form section label textarea:focus {
