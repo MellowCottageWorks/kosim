@@ -1,4 +1,4 @@
-## 고심, 믿을 수 있는 이유
+## 안정적인 생산 시스템
 
 <p class="background-image">
     <img src="/image/interior.jpg" alt="interior">
