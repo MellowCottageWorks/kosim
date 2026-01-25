@@ -72,9 +72,19 @@ body main article#hero > div {
   flex-flow: column nowrap;
   align-items: center;
 }
+@media screen and (max-width: 576px) {
+  body main article#hero > div {
+    min-width: 375px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  body main article#hero > div {
+    max-width: 950px;
+  }
+}
 body main article#hero > div h1, body main article#hero > div #h1-sub {
   align-self: flex-end;
-  padding-right: 24rem;
+  margin-right: 33vw;
 }
 body main article#hero > div h1 {
   font-weight: normal;
@@ -83,6 +93,14 @@ body main article#hero > div h1 {
 }
 body main article#hero > div #h1-sub {
   font-size: 1.1em;
+}
+@media screen and (max-width: 1024px) {
+  body main article#hero > div h1 {
+    font-size: 1em;
+  }
+  body main article#hero > div #h1-sub {
+    font-size: 0.8em;
+  }
 }
 body main article#hero button.CTA {
   margin: 2em 1em;
@@ -165,9 +183,23 @@ body main article#core-strengths .strengths div.strength-card {
   text-align: center;
   flex: 0 0 15rem;
   height: 15rem;
+  position: relative;
+}
+body main article#core-strengths .strengths div.strength-card .material-cover {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  width: 5em;
+  height: 5em;
+}
+body main article#core-strengths .strengths div.strength-card h3 {
+  margin-top: 8rem;
 }
 body main article#core-strengths .strengths div.strength-card img {
   max-height: 6rem;
@@ -848,6 +880,27 @@ body a:link, body a:focus, body a:active, body a:visited {
 }
 body a:focus {
   color: #eb9292;
+}
+body .material-icons {
+  font-size: 48px;
+}
+body .material-icons.teal {
+  color: #34d399;
+}
+body .material-icons.orange {
+  color: #fb923c;
+}
+body .material-icons.red {
+  color: #e54e5f;
+}
+body .material-cover:has(.material-icons.teal) {
+  background-color: rgba(52, 211, 153, 0.2);
+}
+body .material-cover:has(.material-icons.orange) {
+  background-color: rgba(251, 146, 60, 0.2);
+}
+body .material-cover:has(.material-icons.red) {
+  background-color: rgba(229, 78, 95, 0.2);
 }
 body main button.CTA {
   background-color: #d85252;

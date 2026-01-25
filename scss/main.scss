@@ -20,6 +20,28 @@ body {
     }
   }
 
+  .material-icons {
+    font-size: 48px;
+    &.teal { color: #34d399; }
+    &.orange { color: #fb923c; }
+    &.red { color: #e54e5f; }
+  }
+
+  .material-cover {
+
+    &:has(.material-icons.teal) {
+      background-color: rgba(52, 211, 153, 0.2);
+    }
+
+    &:has(.material-icons.orange) {
+      background-color: rgba(251, 146, 60, 0.2);
+    }
+
+    &:has(.material-icons.red) {
+      background-color: rgba(229, 78, 95, 0.2);
+    }
+  }
+
   main {
     button.CTA {
       background-color: $red-1;

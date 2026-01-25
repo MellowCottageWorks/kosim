@@ -90,9 +90,16 @@ body {
           flex-flow: column nowrap;
           align-items: center;
 
+          @include for-mobile {
+            min-width: $breakpoint-xs;
+          }
+          @include for-laptop {
+            max-width: 950px;
+          }
+
           h1, #h1-sub {
             align-self: flex-end;
-            padding-right: 24rem;
+            margin-right: 33vw;
           }
           h1 {
             font-weight: normal;
@@ -104,7 +111,12 @@ body {
           }
 
           @include for-laptop {
-
+            h1 {
+              font-size: 1em;
+            }
+            #h1-sub {
+              font-size: .8em;
+            }
           }
         }
 
@@ -199,9 +211,26 @@ body {
             text-align: center;
             flex: 0 0 15rem;
             height: 15rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            position: relative;
+
+            .material-cover {
+              position: absolute;
+              top: 2rem;
+              left: 50%;
+              transform: translateX(-50%);
+
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 0.5rem;
+              border-radius: 1rem;
+              width: 5em;
+              height: 5em;
+            }
+
+            h3 {
+              margin-top: 8rem;
+            }
 
             img {
               max-height: 6rem;
