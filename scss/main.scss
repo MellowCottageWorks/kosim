@@ -25,6 +25,7 @@ body {
     &.teal { color: #34d399; }
     &.orange { color: #fb923c; }
     &.red { color: #e54e5f; }
+    &.tomato { color: $red-2; }
   }
 
   .material-cover {
@@ -39,6 +40,9 @@ body {
 
     &:has(.material-icons.red) {
       background-color: rgba(229, 78, 95, 0.2);
+    }
+    &:has(.material-icons.tomato) {
+      background-color: rgba(177, 0, 0, 0.2);
     }
   }
 
@@ -185,44 +189,45 @@ body {
       &#featured-product {
         div.product {
 
-          & > img, & > div {
+          & > img, & > div:first-of-type {
 
           }
 
           & > img {
-
+            background-image: radial-gradient(
+                rgba(0, 0, 0, 0.2) 30%,
+                rgba(0, 0, 0, 0) 60%
+            )
           }
 
           & > div:first-of-type {
+            background-color: rgba(64, 64, 64, 0.5);
+            border-radius: 1rem;
 
-          }
+            & span.title {
+              width: 100%;
+              background-color: $red-2;
+              color: black;
+              text-transform: uppercase;
+              padding: .2rem;
+            }
+            h3 {
+              font-size: 2em;
+            }
+            ul {
+              list-style-type: none;
+              padding-left: 0;
+              li {
+                line-height: 2rem;
 
-          img {
-            background-image: radial-gradient(
-              rgba(0, 0, 0, 0.2) 30%,
-              rgba(0, 0, 0, 0) 60%
-            )
-          }
-          h3 {}
-          p {}
-          div.points {
-            div {
-              background-color: rgba(127, 127, 127, 0.3);
-              border-radius: 1rem;
-              transition: transform 0.3s ease, background-color 0.3s ease;
-
-              &:hover {
-                transform: translateY(-0.5rem);
-                background-color: rgba(127, 127, 127, 0.5);
+                &:before {
+                  content: 'check_circle';
+                  font-family: 'Material Icons';
+                  color: $red-2;
+                  font-variation-settings: 'FILL' 1;
+                }
               }
             }
-            img {
-              background-image: none;
-            }
-            strong {}
-          }
-          ul {
-            li {}
           }
         }
       }

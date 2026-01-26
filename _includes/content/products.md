@@ -5,6 +5,7 @@
 <div class="product">
     <img src="image/mockup.png" alt="대표 제품 이미지">
     <div>
+        <span class="title">best seller</span>
         <h3>
             고심끝에 토마토즙
         </h3>

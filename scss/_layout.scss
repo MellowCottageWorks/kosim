@@ -435,40 +435,22 @@ body {
         }
 
         // Last paragraph (HACCP note)
-        > p:nth-last-of-type(2) {
+        > p:last-of-type {
           position: relative;
           top: $shift;
           text-align: center;
           opacity: 0;
         }
-
-        // IMG
-        > p:last-of-type {
-          position: absolute;
-          bottom: 3em;
-          right: 0;
-          text-align: right;
-          pointer-events: none;
-          z-index: -1;
-
-          img {
-            position: relative;
-            right: 7%;
-            width: 39vw;
-            height: auto;
-            will-change: transform;
-          }
-        }
       }
 
       &#featured-product {
-        blockquote {
+        blockquote, h2 {
           display: none;
         }
 
         div.product {
           display: flex;
-          flex-flow: row-reverse nowrap;
+          flex-flow: row nowrap;
           height: 60vh;
 
           @include for-tablet {
@@ -476,7 +458,7 @@ body {
             height: auto;
           }
 
-          & > img, & > div {
+          & > img, & > div:first-of-type {
             flex: 1 1 60%;
 
             @include for-tablet {
@@ -498,7 +480,7 @@ body {
             justify-content: center;
             align-items: flex-start;
             box-sizing: border-box;
-            padding: 0px 6rem;
+            padding: 0 16rem 0 4rem;
 
             @include for-tablet {
               padding: 2rem;
