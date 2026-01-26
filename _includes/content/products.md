@@ -3,41 +3,26 @@
 <blockquote>우리가 어떤 회사를 지향하는지 보여주는 대표 제품</blockquote>
 
 <div class="product">
-<img src="image/mockup.png" alt="대표 제품 이미지">
-<div>
-    <h3>
-        고심끝에 토마토즙
-    </h3>
-    <p class="left">
-        이 제품은 우리가 지향하는 
-    </p>
-    <div class="points">
-        <div>
-            <img src="image/tomato.png" alt="1">
-            <strong>원물 중심</strong>
-        </div>
-        <div>
-            <img src="image/tomato.png" alt="2">
-                <strong>가공 최소화</strong>
-        </div>
-        <div>
-            <img src="image/tomato.png" alt="3">
-                <strong>신뢰 기준</strong>
-        </div>
+    <img src="image/mockup.png" alt="대표 제품 이미지">
+    <div>
+        <h3>
+            고심끝에 토마토즙
+        </h3>
+        <p>
+            자연이 빚은 100% 국내산 토마토의 싱싱함을 느껴보세요.
+            우리 농가에서 재배한 토마토만을 사용해, 본연의 깊이와 순도를 담아냈습니다.
+    정교한 저온 살균 공법과 갈아만든 토마토즙은 맛과 영양을 모두 잡았습니다.
+        </p>
+        <ul>
+            <li>
+                100% 순수 토마토, 불필요한 첨가물 ZERO
+            </li>
+            <li>
+                언제 어디서나 간편한 110㎖ 파우치
+            </li>
+            <li>
+                영양은 살리고, 맛은 더욱 진하게
+            </li>
+        </ul>
     </div>
-    <p class="right">
-        을 담아 만든 대표 제품입니다.
-    </p>
-    <ul>
-        <li>
-            국내산 토마토 사용
-        </li>
-        <li>
-            무리한 첨가 없이 원물의 맛을 살린 가공
-        </li>
-        <li>
-            위생과 품질 기준을 동일하게 적용한 생산
-        </li>
-    </ul>
-</div>
 </div>
