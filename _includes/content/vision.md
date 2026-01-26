@@ -36,6 +36,6 @@
                 </div>
             </div>
         </div>
-        <!--<button class="CTA">비전에 함께하기</button>-->``
+        <!--<button class="CTA">비전에 함께하기</button>-->
     </div>
 </div>
