@@ -710,6 +710,22 @@ body main article#contact .contact-flex form button.CTA {
     margin: 1em auto 0.5em;
   }
 }
+body footer {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 2rem 1rem;
+  gap: 0.5rem;
+}
+body footer #company-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+body footer p {
+  font-size: 0.85rem;
+  margin: 0;
+}
+
 /* colorbox.io Config
 [
   {
@@ -1234,6 +1250,16 @@ body main article#contact form section label input[type=text], body main article
 body main article#contact form section label input[type=text]:focus, body main article#contact form section label input[type=tel]:focus, body main article#contact form section label textarea:focus {
   outline: none;
   border-color: gray;
+}
+body footer {
+  background-color: black;
+  border-top: 1px solid rgba(245, 245, 245, 0.1);
+}
+body footer #company-name {
+  color: whitesmoke;
+}
+body footer p {
+  color: rgba(245, 245, 245, 0.5);
 }
 
 /*# sourceMappingURL=main.css.map */

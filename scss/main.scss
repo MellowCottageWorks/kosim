@@ -329,7 +329,15 @@ body {
   }
 
   footer {
-    #company-name {}
-    p {}
+    background-color: black;
+    border-top: 1px solid rgba(whitesmoke, 0.1);
+
+    #company-name {
+      color: whitesmoke;
+    }
+
+    p {
+      color: rgba(whitesmoke, 0.5);
+    }
   }
 }
