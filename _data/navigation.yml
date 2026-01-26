@@ -19,6 +19,9 @@
 - name: values-and-direction
   name-ko: 가치·방향성
   filename: values.md
+- name: vision
+  name-ko: 비전
+  filename: vision.md
 - name: contact
   name-ko: 문의
   filename: contact.html

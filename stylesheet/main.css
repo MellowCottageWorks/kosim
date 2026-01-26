@@ -396,43 +396,48 @@ body main article#featured-product blockquote, body main article#featured-produc
 body main article#featured-product div.product {
   display: flex;
   flex-flow: row nowrap;
-  height: 60vh;
   width: 100%;
 }
 @media screen and (max-width: 768px) {
   body main article#featured-product div.product {
     flex-flow: column nowrap;
-    height: auto;
-  }
-}
-body main article#featured-product div.product > img, body main article#featured-product div.product > div:first-of-type {
-  flex: 1 1 60%;
-}
-@media screen and (max-width: 768px) {
-  body main article#featured-product div.product > img, body main article#featured-product div.product > div:first-of-type {
-    flex: 1 1 auto;
   }
 }
 body main article#featured-product div.product > img {
+  flex: 0 0 40%;
   object-fit: contain;
+  max-height: 70vh;
 }
 @media screen and (max-width: 768px) {
   body main article#featured-product div.product > img {
+    flex: 0 0 auto;
     max-height: 50vh;
   }
 }
 body main article#featured-product div.product > div:first-of-type {
+  flex: 1 1 auto;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: flex-start;
   box-sizing: border-box;
-  padding: 0 16rem 0 4rem;
+  padding: 4rem 0 4rem 4rem;
 }
 @media screen and (max-width: 768px) {
   body main article#featured-product div.product > div:first-of-type {
-    padding: 2rem;
+    padding: 2rem 0 2rem 2rem;
   }
+}
+body main article#featured-product div.product > div:first-of-type > *:not(span.title) {
+  padding-right: 8rem;
+}
+@media screen and (max-width: 768px) {
+  body main article#featured-product div.product > div:first-of-type > *:not(span.title) {
+    padding-right: 2rem;
+  }
+}
+body main article#featured-product div.product > div:first-of-type span.title {
+  align-self: stretch;
 }
 body main article#featured-product div.product > div:first-of-type p.left {
   margin: 0 auto 0 0;
@@ -603,127 +608,307 @@ body main article#values-and-direction .two-columns .certifications .badges .bad
 body main article#values-and-direction .two-columns .certifications .badges .badge .label {
   font-size: 0.9rem;
 }
-body main article#contact {
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
+body main article#vision h2 {
+  display: none;
 }
-body main article#contact::before {
+body main article#vision .vision-split {
+  display: flex;
+  flex-flow: row nowrap;
+  min-height: 100vh;
+}
+@media screen and (max-width: 768px) {
+  body main article#vision .vision-split {
+    flex-flow: column nowrap;
+  }
+}
+body main article#vision .vision-split .vision-image {
+  flex: 0 0 50%;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  body main article#vision .vision-split .vision-image {
+    flex: 0 0 auto;
+    min-height: 300px;
+  }
+}
+body main article#vision .vision-split .vision-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+body main article#vision .vision-split .vision-image::after {
   content: "";
   position: absolute;
-  top: -10%;
-  left: -2%;
-  width: 110%;
-  height: 110%;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 0%, black 45%), url(/image/mockups.jpg);
-  background-size: 100% auto, contain;
-  background-position: center center, left center;
-  background-repeat: no-repeat;
-  background-color: black;
-  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent 50%, var(--vision-bg, #b10000) 100%);
 }
-body main article#contact > * {
-  position: relative;
-  z-index: 1;
-}
-body main article#contact .contact-flex {
-  display: flex;
-  flex-flow: column wrap;
-  align-items: stretch;
-  height: calc(100vh - 2rem + 0.83em - 14rem);
-  padding: 0 4em;
-}
-@media screen and (max-width: 1024px) {
-  body main article#contact .contact-flex {
-    height: calc(100vh - 2rem + 0.83em);
+@media screen and (max-width: 768px) {
+  body main article#vision .vision-split .vision-image::after {
+    background: linear-gradient(to bottom, transparent 50%, var(--vision-bg, #b10000) 100%);
   }
 }
-body main article#contact .contact-flex p {
-  text-align: center;
-}
-body main article#contact .contact-flex .contact {
-  padding: 0.5em 0 2em;
-  text-align: center;
-}
-body main article#contact .contact-flex form {
-  max-width: 600px;
-  position: relative;
-  padding-left: 4rem;
-}
-@media screen and (max-width: 1024px) {
-  body main article#contact .contact-flex form {
-    padding-left: 0;
-  }
-}
-body main article#contact .contact-flex form p {
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-body main article#contact .contact-flex form section {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  margin-bottom: 0;
-}
-body main article#contact .contact-flex form section label {
-  display: grid;
-  grid-template-columns: 8rem 1fr;
-  gap: 1em;
-  align-items: start;
-}
-body main article#contact .contact-flex form section label span {
-  font-weight: 600;
-  font-size: 0.95rem;
-  padding-top: 0.75rem;
-  text-align: right;
-}
-body main article#contact .contact-flex form section label input[type=text], body main article#contact .contact-flex form section label input[type=tel], body main article#contact .contact-flex form section label textarea {
-  padding: 0.75rem;
-  font-size: 1rem;
-  transition: border-color 0.2s;
-}
-body main article#contact .contact-flex form section label input[type=file] {
-  padding: 0.5rem 0;
-  font-size: 0.95rem;
-}
-body main article#contact .contact-flex form section label textarea {
-  resize: vertical;
-  min-height: 5em;
-}
-@media screen and (max-width: 600px) {
-  body main article#contact .contact-flex form section label {
-    grid-template-columns: 1fr;
-  }
-  body main article#contact .contact-flex form section label span {
-    padding-top: 0;
-    text-align: left;
-  }
-}
-body main article#contact .contact-flex form button.CTA {
-  margin: 1em 0.5em 1em calc(8rem + 1em);
-  padding: 0.5em;
-  font-size: 1em;
-}
-@media screen and (max-width: 1024px) {
-  body main article#contact .contact-flex form button.CTA {
-    display: block;
-    margin: 1em auto 0.5em;
-  }
-}
-body footer {
+body main article#vision .vision-split .vision-content {
+  flex: 0 0 50%;
   display: flex;
   flex-flow: column nowrap;
-  align-items: center;
-  padding: 2rem 1rem;
-  gap: 0.5rem;
+  justify-content: center;
+  padding: 4rem;
+  box-sizing: border-box;
 }
-body footer #company-name {
-  font-size: 1.2rem;
+@media screen and (max-width: 768px) {
+  body main article#vision .vision-split .vision-content {
+    flex: 0 0 auto;
+    padding: 3rem 2rem;
+  }
+}
+body main article#vision .vision-split .vision-content .tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+}
+body main article#vision .vision-split .vision-content h3 {
+  font-size: 2rem;
+  line-height: 1.3;
+  margin-bottom: 3rem;
+}
+@media screen and (max-width: 768px) {
+  body main article#vision .vision-split .vision-content h3 {
+    font-size: 1.5rem;
+  }
+}
+body main article#vision .vision-split .vision-content .vision-points {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+body main article#vision .vision-split .vision-content .vision-points .point {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+body main article#vision .vision-split .vision-content .vision-points .point .icon {
+  flex: 0 0 auto;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body main article#vision .vision-split .vision-content .vision-points .point .icon .material-icons {
+  font-size: 1.75rem;
+}
+body main article#vision .vision-split .vision-content .vision-points .point .text {
+  flex: 1 1 auto;
+}
+body main article#vision .vision-split .vision-content .vision-points .point .text h4 {
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+}
+body main article#vision .vision-split .vision-content .vision-points .point .text p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+body main article#vision .vision-split .vision-content button.CTA {
+  width: fit-content;
+  padding: 1rem 2.5rem;
+  border-radius: 0.75rem;
   font-weight: bold;
 }
-body footer p {
+body main article#contact {
+  padding: 4rem 2rem;
+  box-sizing: border-box;
+}
+body main article#contact h2 {
+  display: none;
+}
+body main article#contact .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 768px) {
+  body main article#contact .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+body main article#contact .contact-grid .contact-info h3 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+@media screen and (max-width: 768px) {
+  body main article#contact .contact-grid .contact-info h3 {
+    font-size: 2rem;
+  }
+}
+body main article#contact .contact-grid .contact-info > p {
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+body main article#contact .contact-grid .contact-info .contact-methods {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.5rem;
+}
+body main article#contact .contact-grid .contact-info .contact-methods .method {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 1rem;
+}
+body main article#contact .contact-grid .contact-info .contact-methods .method .icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body main article#contact .contact-grid .contact-info .contact-methods .method .icon .material-icons {
+  font-size: 1.25rem;
+}
+body main article#contact .contact-grid .contact-info .contact-methods .method .details h4 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+body main article#contact .contact-grid .contact-info .contact-methods .method .details a {
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+body main article#contact .contact-grid .contact-form-wrap {
+  padding: 2rem;
+  border-radius: 1.5rem;
+}
+body main article#contact .contact-grid .contact-form-wrap form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}
+body main article#contact .contact-grid .contact-form-wrap form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media screen and (max-width: 576px) {
+  body main article#contact .contact-grid .contact-form-wrap form .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+body main article#contact .contact-grid .contact-form-wrap form .form-group {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.5rem;
+}
+body main article#contact .contact-grid .contact-form-wrap form .form-group label {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+body main article#contact .contact-grid .contact-form-wrap form .form-group input, body main article#contact .contact-grid .contact-form-wrap form .form-group textarea {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+body main article#contact .contact-grid .contact-form-wrap form .form-group textarea {
+  resize: vertical;
+}
+body main article#contact .contact-grid .contact-form-wrap form .form-group .file-upload {
+  border: 2px dashed;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+body main article#contact .contact-grid .contact-form-wrap form .form-group .file-upload .material-icons {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+body main article#contact .contact-grid .contact-form-wrap form .form-group .file-upload p {
   font-size: 0.85rem;
   margin: 0;
+}
+body main article#contact .contact-grid .contact-form-wrap form .form-group .file-upload input[type=file] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+body main article#contact .contact-grid .contact-form-wrap form button.CTA {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+body footer {
+  padding: 3rem 2rem;
+}
+body footer .footer-content {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+@media screen and (max-width: 768px) {
+  body footer .footer-content {
+    flex-flow: column nowrap;
+    text-align: center;
+    gap: 1.5rem;
+  }
+}
+body footer .footer-content .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+body footer .footer-content .logo img {
+  width: 1.5rem;
+  height: auto;
+}
+body footer .footer-content .logo span {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+body footer .footer-content p {
+  font-size: 0.85rem;
+  margin: 0;
+}
+body footer .footer-content .social {
+  display: flex;
+  gap: 1rem;
+}
+body footer .footer-content .social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body footer .footer-content .social a .material-icons {
+  font-size: 1.25rem;
 }
 
 /* colorbox.io Config
@@ -1238,28 +1423,113 @@ body main article#values-and-direction .two-columns .certifications .badges .bad
 body main article#values-and-direction .two-columns .certifications .badges .badge .label {
   color: rgba(245, 245, 245, 0.8);
 }
-body main article#contact form section label input[type=text], body main article#contact form section label input[type=tel], body main article#contact form section label textarea,
-body main article#contact form section label input[type=file] {
-  border: 1px solid dimgray;
-  background-color: #323232;
+body main article#vision {
+  --vision-bg: #b10000;
+}
+body main article#vision .vision-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+body main article#vision .vision-image::after {
+  z-index: 2;
+}
+body main article#vision .vision-content {
+  background-color: #b10000;
+  color: white;
+}
+body main article#vision .vision-content .tag {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+}
+body main article#vision .vision-content .vision-points .point .icon {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+body main article#vision .vision-content .vision-points .point .text p {
+  color: rgba(255, 255, 255, 0.8);
+}
+body main article#vision .vision-content button.CTA {
+  background-color: white;
+  color: #b10000;
+  border: none;
+}
+body main article#vision .vision-content button.CTA:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+body main article#contact .contact-grid .contact-info > p {
+  color: rgba(245, 245, 245, 0.7);
+}
+body main article#contact .contact-grid .contact-info .contact-methods .method .icon {
+  background-color: rgba(177, 0, 0, 0.1);
+  color: #b10000;
+}
+body main article#contact .contact-grid .contact-info .contact-methods .method .details a {
+  color: rgba(245, 245, 245, 0.7);
+}
+body main article#contact .contact-grid .contact-info .contact-methods .method .details a:hover {
+  color: #eb9292;
+}
+body main article#contact .contact-grid .contact-form-wrap {
+  background-color: #1a1a1a;
+}
+body main article#contact .contact-grid .contact-form-wrap form .form-group label {
+  color: rgba(245, 245, 245, 0.9);
+}
+body main article#contact .contact-grid .contact-form-wrap form .form-group input, body main article#contact .contact-grid .contact-form-wrap form .form-group textarea {
+  border: 1px solid #333;
+  background-color: black;
   color: whitesmoke;
 }
-body main article#contact form section label input[type=text], body main article#contact form section label input[type=tel], body main article#contact form section label textarea {
-  transition: border-color 0.2s;
-}
-body main article#contact form section label input[type=text]:focus, body main article#contact form section label input[type=tel]:focus, body main article#contact form section label textarea:focus {
+body main article#contact .contact-grid .contact-form-wrap form .form-group input:focus, body main article#contact .contact-grid .contact-form-wrap form .form-group textarea:focus {
   outline: none;
-  border-color: gray;
+  border-color: #b10000;
+}
+body main article#contact .contact-grid .contact-form-wrap form .form-group input::placeholder, body main article#contact .contact-grid .contact-form-wrap form .form-group textarea::placeholder {
+  color: rgba(245, 245, 245, 0.4);
+}
+body main article#contact .contact-grid .contact-form-wrap form .form-group .file-upload {
+  border-color: #333;
+  color: rgba(245, 245, 245, 0.5);
+}
+body main article#contact .contact-grid .contact-form-wrap form .form-group .file-upload:hover {
+  background-color: rgba(245, 245, 245, 0.05);
+}
+body main article#contact .contact-grid .contact-form-wrap form button.CTA {
+  background-color: #b10000;
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(177, 0, 0, 0.3);
+}
+body main article#contact .contact-grid .contact-form-wrap form button.CTA:hover {
+  background-color: rgb(151.5, 0, 0);
 }
 body footer {
   background-color: black;
   border-top: 1px solid rgba(245, 245, 245, 0.1);
 }
-body footer #company-name {
-  color: whitesmoke;
+body footer .footer-content .logo img {
+  filter: brightness(0) invert(1);
 }
-body footer p {
+body footer .footer-content .logo span {
+  color: #b10000;
+}
+body footer .footer-content p {
   color: rgba(245, 245, 245, 0.5);
+}
+body footer .footer-content .social a {
+  color: rgba(245, 245, 245, 0.5);
+  transition: color 0.2s;
+}
+body footer .footer-content .social a:hover {
+  color: #b10000;
 }
 
 /*# sourceMappingURL=main.css.map */
