@@ -403,7 +403,7 @@ article#process {
     }
 
     // Final paragraph (HACCP note) slides up after all animations (starts at 2.7s)
-    > p:nth-last-of-type(2) {
+    > p:last-of-type {
       animation: slide-up-fade 0.6s ease-out 2.7s forwards;
     }
   }
