@@ -259,17 +259,13 @@ body {
       &#core-strengths-cont {
         position: relative;
         display: flex;
+        flex-flow: column nowrap;
         align-items: center;
         min-height: 100vh;
 
         h2 {
-          position: absolute;
-          left: 2rem;
-          top: 50%;
-          transform: translateY(-50%);
-          transform-origin: left center;
           white-space: nowrap;
-          writing-mode: vertical-lr;
+          //writing-mode: vertical-lr;
           font-size: 1.5em;
           margin: 0;
         }
@@ -277,39 +273,86 @@ body {
         ul {
           list-style: none;
           display: flex;
-          flex-flow: column nowrap;
-          align-items: center;
-          gap: 1em;
-          padding-left: 0;
+          flex-flow: row wrap;
           width: 100%;
+          min-height: 50vh;
+          justify-content: center;
+          align-items: stretch;
+          gap: 1rem;
+          padding-left: 0;
           margin: 0 auto;
 
           li {
-            min-width: 50vw;
+            max-width: 250px;
+            max-height: 50vh;
             display: flex;
-            flex-direction: row;
-            padding: 1rem;
+            flex-flow: column nowrap;
+            justify-content: flex-start;
+            padding: .5rem 1.5rem;
 
-            @include for-tablet {
-              width: 90%;
-              padding: .5rem 0;
-              margin: 0 auto;
+            @include for-laptop {
+              flex-flow: row nowrap;
+              max-width: 70vw;
+              max-height: 250px;
             }
 
             div {
-              strong {
-                font-size: 1.2rem;
-                line-height: 2em;
-              }
-              p {
-                line-height: 1.5em;
+              &:first-child {
+                justify-self: flex-end;
+                width: 5rem;
+                font-size: 3em;
+                line-height: 4rem;
+                padding-bottom: .5rem;
               }
 
-              &:first-child {
-                width: 5rem;
-                text-align: center;
-                font-size: 3em;
-                padding: .5rem;
+              &:nth-child(2) {
+
+                @include for-laptop {
+                  width: 35vw;
+                  margin: auto 1rem;
+                }
+
+                @include for-tablet {
+                  width: 65vw;
+                }
+              }
+
+              &:nth-last-child(2) {
+                margin-top: auto;
+                padding-bottom: 1rem;
+
+                @include for-laptop {
+                  margin: auto 0;
+                  padding: 0 1rem;
+                }
+              }
+              &:last-child {
+                padding-bottom: 1.5rem;
+
+                @include for-laptop {
+                  display: flex;
+                  flex-flow: column nowrap;
+                  justify-content: center;
+                  padding-bottom: 0;
+                }
+              }
+
+
+              strong {
+                font-size: 1.5rem;
+                line-height: 1.5rem;
+              }
+              p {
+                font-size: .8rem;
+              }
+              span {
+                font-size: .8em;
+                white-space: nowrap;
+
+                @include for-laptop {
+                  display: inline-block;
+                  margin-bottom: .2rem;
+                }
               }
             }
 
