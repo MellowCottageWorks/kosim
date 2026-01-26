@@ -1,9 +1,51 @@
-## 회사의 가치와 방향성
+## 검증된 신뢰의 기록
 
-우리는 지역 농산물을 더 가치 있게 만들고,  
-나아가 우리나라만의 특색을 가진 식품으로  
-사회에 기여하고자 합니다.
+<p class="subtitle">설립 이후, 우리는 모든 제품에 담긴 신뢰와 품질의 기반을 쌓아왔습니다.<br>당신과 가족을 위한 최고를 전달하겠다는 약속의 증거입니다.</p>
 
-농가, 지역, 소비자가  
-모두 신뢰할 수 있는 구조를 만드는 것이  
-회사가 나아가고자 하는 방향입니다.
+<div class="stats">
+    <div class="stat">
+        <strong>10 톤</strong>
+        <span>누적 생산량</span>
+    </div>
+    <div class="stat">
+        <strong>2년+</strong>
+        <span>운영 경력</span>
+    </div>
+    <div class="stat">
+        <strong>50,000+</strong>
+        <span>공급 수량</span>
+    </div>
+</div>
+
+<div class="two-columns">
+    <div class="journey">
+        <h3>성장의 여정</h3>
+        <ul class="timeline">
+            <li>
+                <span class="year">2022</span>
+                <span class="title">회사 설립</span>
+            </li>
+            <li>
+                <span class="year">2023</span>
+                <span class="title">HACCP 인증 취득</span>
+            </li>
+            <li>
+                <span class="year">2024</span>
+                <span class="title">토마토즙 10톤 생산 달성</span>
+            </li>
+        </ul>
+    </div>
+    <div class="certifications">
+        <h3>인증 및 파트너</h3>
+        <div class="badges">
+            <div class="badge">
+                <span class="material-icons">workspace_premium</span>
+                <span class="label">HACCP</span>
+            </div>
+            <div class="badge">
+                <span class="material-icons">handshake</span>
+                <span class="label">따옴 농장</span>
+            </div>
+        </div>
+    </div>
+</div>

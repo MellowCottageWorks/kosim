@@ -383,6 +383,13 @@ body main article#process > p:last-of-type {
   text-align: center;
   opacity: 0;
 }
+body main article#featured-product {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
 body main article#featured-product blockquote, body main article#featured-product h2 {
   display: none;
 }
@@ -390,6 +397,7 @@ body main article#featured-product div.product {
   display: flex;
   flex-flow: row nowrap;
   height: 60vh;
+  width: 100%;
 }
 @media screen and (max-width: 768px) {
   body main article#featured-product div.product {
@@ -459,6 +467,165 @@ body main article#featured-product div.product > div:first-of-type div.points di
   flex: 0 0 40%;
   margin-top: 0.5rem;
 }
+body main article#values-and-direction {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  box-sizing: border-box;
+}
+body main article#values-and-direction h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+@media screen and (max-width: 768px) {
+  body main article#values-and-direction h2 {
+    font-size: 1.8rem;
+  }
+}
+body main article#values-and-direction .subtitle {
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+body main article#values-and-direction .stats {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+@media screen and (max-width: 768px) {
+  body main article#values-and-direction .stats {
+    gap: 1rem;
+  }
+}
+body main article#values-and-direction .stats .stat {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+}
+@media screen and (max-width: 768px) {
+  body main article#values-and-direction .stats .stat {
+    padding: 1.5rem 2rem;
+  }
+}
+body main article#values-and-direction .stats .stat strong {
+  font-size: 3rem;
+  line-height: 1.2;
+}
+@media screen and (max-width: 768px) {
+  body main article#values-and-direction .stats .stat strong {
+    font-size: 2rem;
+  }
+}
+body main article#values-and-direction .stats .stat span {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+body main article#values-and-direction .two-columns {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 4rem;
+  width: 100%;
+  max-width: 900px;
+  justify-content: center;
+}
+@media screen and (max-width: 768px) {
+  body main article#values-and-direction .two-columns {
+    flex-flow: column nowrap;
+    gap: 3rem;
+    align-items: center;
+  }
+}
+body main article#values-and-direction .two-columns .journey, body main article#values-and-direction .two-columns .certifications {
+  flex: 1 1 50%;
+}
+@media screen and (max-width: 768px) {
+  body main article#values-and-direction .two-columns .journey, body main article#values-and-direction .two-columns .certifications {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 400px;
+  }
+}
+body main article#values-and-direction .two-columns .journey h3, body main article#values-and-direction .two-columns .certifications h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+body main article#values-and-direction .two-columns .journey .timeline {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  border-left: 2px solid currentColor;
+  padding-left: 1.5rem;
+}
+body main article#values-and-direction .two-columns .journey .timeline li {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+body main article#values-and-direction .two-columns .journey .timeline li::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.5rem - 5px);
+  top: 0.5rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+body main article#values-and-direction .two-columns .journey .timeline li .year {
+  display: block;
+  font-weight: bold;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+body main article#values-and-direction .two-columns .journey .timeline li .title {
+  display: block;
+  font-size: 1rem;
+}
+body main article#values-and-direction .two-columns .certifications .badges {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1.5rem;
+}
+body main article#values-and-direction .two-columns .certifications .badges .badge {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+body main article#values-and-direction .two-columns .certifications .badges .badge .material-icons {
+  font-size: 3rem;
+}
+body main article#values-and-direction .two-columns .certifications .badges .badge .label {
+  font-size: 0.9rem;
+}
+body main article#contact {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+body main article#contact::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -2%;
+  width: 110%;
+  height: 110%;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 0%, black 45%), url(/image/mockups.jpg);
+  background-size: 100% auto, contain;
+  background-position: center center, left center;
+  background-repeat: no-repeat;
+  background-color: black;
+  z-index: 0;
+}
+body main article#contact > * {
+  position: relative;
+  z-index: 1;
+}
 body main article#contact .contact-flex {
   display: flex;
   flex-flow: column wrap;
@@ -480,6 +647,13 @@ body main article#contact .contact-flex .contact {
 }
 body main article#contact .contact-flex form {
   max-width: 600px;
+  position: relative;
+  padding-left: 4rem;
+}
+@media screen and (max-width: 1024px) {
+  body main article#contact .contact-flex form {
+    padding-left: 0;
+  }
 }
 body main article#contact .contact-flex form p {
   margin-bottom: 1.5rem;
@@ -1017,6 +1191,36 @@ body main article#featured-product div.product > div:first-of-type ul li:before 
   font-family: "Material Icons";
   color: #b10000;
   font-variation-settings: "FILL" 1;
+}
+body main article#values-and-direction .subtitle {
+  color: rgba(245, 245, 245, 0.7);
+}
+body main article#values-and-direction .stats .stat {
+  background-color: rgba(64, 64, 64, 0.5);
+}
+body main article#values-and-direction .stats .stat strong {
+  color: #d85252;
+}
+body main article#values-and-direction .stats .stat span {
+  color: rgba(245, 245, 245, 0.8);
+}
+body main article#values-and-direction .two-columns h3 {
+  color: rgba(245, 245, 245, 0.9);
+}
+body main article#values-and-direction .two-columns .timeline {
+  border-left-color: #b10000;
+}
+body main article#values-and-direction .two-columns .timeline li::before {
+  background-color: #b10000;
+}
+body main article#values-and-direction .two-columns .timeline .year {
+  color: #d85252;
+}
+body main article#values-and-direction .two-columns .certifications .badges .badge .material-icons {
+  color: #b10000;
+}
+body main article#values-and-direction .two-columns .certifications .badges .badge .label {
+  color: rgba(245, 245, 245, 0.8);
 }
 body main article#contact form section label input[type=text], body main article#contact form section label input[type=tel], body main article#contact form section label textarea,
 body main article#contact form section label input[type=file] {

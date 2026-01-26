@@ -233,7 +233,49 @@ body {
       }
 
       &#values-and-direction {
+        .subtitle {
+          color: rgba(whitesmoke, 0.7);
+        }
 
+        .stats .stat {
+          background-color: rgba(64, 64, 64, 0.5);
+
+          strong {
+            color: $red-1;
+          }
+
+          span {
+            color: rgba(whitesmoke, 0.8);
+          }
+        }
+
+        .two-columns {
+          h3 {
+            color: rgba(whitesmoke, 0.9);
+          }
+
+          .timeline {
+            border-left-color: $red-2;
+
+            li::before {
+              background-color: $red-2;
+            }
+
+            .year {
+              color: $red-1;
+            }
+          }
+
+          .certifications .badges .badge {
+            .material-icons {
+              color: $red-2;
+            }
+
+            .label {
+              color: rgba(whitesmoke, 0.8);
+            }
+          }
+        }
       }
 
       &#contact {
