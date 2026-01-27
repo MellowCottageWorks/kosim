@@ -579,7 +579,14 @@ body {
             }
 
             ul {
-              li {}
+              li {
+                &:before {
+                  font-size: 1.2em;
+                  line-height: 1;
+                  position: relative;
+                  top: 0.25em;
+                }
+              }
             }
           }
         }

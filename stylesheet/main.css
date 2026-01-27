@@ -513,6 +513,12 @@ body main article#featured-product div.product > div:first-of-type div.points di
   flex: 0 0 40%;
   margin-top: 0.5rem;
 }
+body main article#featured-product div.product > div:first-of-type ul li:before {
+  font-size: 1.2em;
+  line-height: 1;
+  position: relative;
+  top: 0.25em;
+}
 body main article#values-and-direction {
   display: flex;
   flex-flow: column nowrap;
@@ -1461,6 +1467,9 @@ body main article#featured-product div.product > div:first-of-type ul {
   padding-left: 0;
 }
 body main article#featured-product div.product > div:first-of-type ul li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
   line-height: 2rem;
 }
 body main article#featured-product div.product > div:first-of-type ul li:before {
