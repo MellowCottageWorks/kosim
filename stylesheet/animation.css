@@ -242,97 +242,102 @@ article#core-strengths-cont.animate ul li:nth-child(3) div:nth-child(2) span {
 article#process div#process-steps::before {
   transform: translateY(-50%) scaleX(0);
 }
-article#process div#process-steps .process-step:nth-child(odd) p {
+article#process div#process-steps .process-step .icon {
   opacity: 0;
-  transform: translate(-50%, 0);
+  transform: translateX(-50%) translateY(20px);
 }
-article#process div#process-steps .process-step:nth-child(even) p {
+article#process div#process-steps .process-step p {
   opacity: 0;
-  transform: translate(-50%, 0);
+  transform: translateX(-50%) translateY(-20px);
 }
 article#process.animate div#process-steps::before {
   animation: line-extend 1s ease-out 0s forwards;
 }
-article#process.animate div#process-steps .process-step:nth-child(1) p {
-  animation: slide-up-from-line 0.5s ease-out 1s forwards;
+article#process.animate div#process-steps .process-step:nth-child(1) .icon {
+  animation: icon-slide-down 0.5s ease-out 1s forwards;
 }
-article#process.animate div#process-steps .process-step:nth-child(1) p::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.1);
-  animation: fade-out 0.3s ease-out 1.15s forwards;
+article#process.animate div#process-steps .process-step:nth-child(1) p {
+  animation: label-slide-up 0.5s ease-out 1.15s forwards;
+}
+article#process.animate div#process-steps .process-step:nth-child(1)::before {
+  animation: dot-highlight 5s ease-in-out 3s infinite;
+}
+article#process.animate div#process-steps .process-step:nth-child(2) .icon {
+  animation: icon-slide-down 0.5s ease-out 1.3s forwards;
 }
 article#process.animate div#process-steps .process-step:nth-child(2) p {
-  animation: slide-down-from-line 0.5s ease-out 1.3s forwards;
+  animation: label-slide-up 0.5s ease-out 1.45s forwards;
 }
-article#process.animate div#process-steps .process-step:nth-child(2) p::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.1);
-  animation: fade-out 0.3s ease-out 1.45s forwards;
+article#process.animate div#process-steps .process-step:nth-child(2)::before {
+  animation: dot-highlight 5s ease-in-out 4s infinite;
+}
+article#process.animate div#process-steps .process-step:nth-child(3) .icon {
+  animation: icon-slide-down 0.5s ease-out 1.6s forwards;
 }
 article#process.animate div#process-steps .process-step:nth-child(3) p {
-  animation: slide-up-from-line 0.5s ease-out 1.6s forwards;
+  animation: label-slide-up 0.5s ease-out 1.75s forwards;
 }
-article#process.animate div#process-steps .process-step:nth-child(3) p::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.1);
-  animation: fade-out 0.3s ease-out 1.75s forwards;
+article#process.animate div#process-steps .process-step:nth-child(3)::before {
+  animation: dot-highlight 5s ease-in-out 5s infinite;
+}
+article#process.animate div#process-steps .process-step:nth-child(4) .icon {
+  animation: icon-slide-down 0.5s ease-out 1.9s forwards;
 }
 article#process.animate div#process-steps .process-step:nth-child(4) p {
-  animation: slide-down-from-line 0.5s ease-out 1.9s forwards;
+  animation: label-slide-up 0.5s ease-out 2.05s forwards;
 }
-article#process.animate div#process-steps .process-step:nth-child(4) p::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.1);
-  animation: fade-out 0.3s ease-out 2.05s forwards;
+article#process.animate div#process-steps .process-step:nth-child(4)::before {
+  animation: dot-highlight 5s ease-in-out 6s infinite;
+}
+article#process.animate div#process-steps .process-step:nth-child(5) .icon {
+  animation: icon-slide-down 0.5s ease-out 2.2s forwards;
 }
 article#process.animate div#process-steps .process-step:nth-child(5) p {
-  animation: slide-up-from-line 0.5s ease-out 2.2s forwards;
+  animation: label-slide-up 0.5s ease-out 2.35s forwards;
 }
-article#process.animate div#process-steps .process-step:nth-child(5) p::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.1);
-  animation: fade-out 0.3s ease-out 2.35s forwards;
+article#process.animate div#process-steps .process-step:nth-child(5)::before {
+  animation: dot-highlight 5s ease-in-out 7s infinite;
 }
 article#process.animate > p:last-of-type {
   animation: slide-up-fade 0.6s ease-out 2.7s forwards;
 }
 
+@keyframes dot-highlight {
+  0%, 15% {
+    background-color: var(--dot-highlight-color, #d85252);
+    box-shadow: 0 0 8px 2px var(--dot-highlight-color, #d85252);
+  }
+  20%, 100% {
+    background-color: white;
+    box-shadow: none;
+  }
+}
+@keyframes icon-slide-down {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+@keyframes label-slide-up {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
 @keyframes line-extend {
   from {
     transform: translateY(-50%) scaleX(0);
   }
   to {
     transform: translateY(-50%) scaleX(1);
-  }
-}
-@keyframes slide-up-from-line {
-  from {
-    opacity: 0;
-    transform: translate(-50%, 25%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
-}
-@keyframes slide-down-from-line {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -25%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0);
   }
 }
 @keyframes fade-out {

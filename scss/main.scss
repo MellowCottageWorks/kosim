@@ -163,6 +163,8 @@ body {
       }
 
       &#process {
+        // CSS variable for dot highlight animation
+        --dot-highlight-color: #{$red-1};
 
         h2 {
 
@@ -170,8 +172,15 @@ body {
 
         div#process-steps {
 
-
           .process-step {
+            .icon {
+              background: rgba(255, 255, 255, 0.1);
+              border: 1px solid rgba(255, 255, 255, 0.2);
+
+              .material-icons {
+                color: $red-1;
+              }
+            }
 
             p {
               background: rgba(255, 255, 255, 0.1);

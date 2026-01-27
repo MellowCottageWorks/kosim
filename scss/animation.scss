@@ -323,15 +323,16 @@ article#process {
     }
 
     .process-step {
-      // Initial state: rectangles are at the line position
-      &:nth-child(odd) p {
+      // Initial state: icons are hidden
+      .icon {
         opacity: 0;
-        transform: translate(-50%, 0);
+        transform: translateX(-50%) translateY(20px);
       }
 
-      &:nth-child(even) p {
+      // Initial state: labels are hidden
+      p {
         opacity: 0;
-        transform: translate(-50%, 0);
+        transform: translateX(-50%) translateY(-20px);
       }
     }
   }
@@ -347,77 +348,68 @@ article#process {
       .process-step {
         // Step 1: starts at 1s (after line finishes)
         &:nth-child(1) {
+          .icon {
+            animation: icon-slide-down 0.5s ease-out 1s forwards;
+          }
           p {
-            animation: slide-up-from-line 0.5s ease-out 1s forwards;
-
-            // Text content fades in 150ms after rectangle starts
-            &::after {
-              content: '';
-              position: absolute;
-              inset: 0;
-              background: rgba(255, 255, 255, 0.1);
-              animation: fade-out 0.3s ease-out 1.15s forwards;
-            }
+            animation: label-slide-up 0.5s ease-out 1.15s forwards;
+          }
+          // Looping dot highlight - starts after all intro animations complete (3s delay)
+          // Each dot is lit for 1s out of 5s total cycle
+          &::before {
+            animation: dot-highlight 5s ease-in-out 3s infinite;
           }
         }
 
         // Step 2: starts at 1.3s
         &:nth-child(2) {
+          .icon {
+            animation: icon-slide-down 0.5s ease-out 1.3s forwards;
+          }
           p {
-            animation: slide-down-from-line 0.5s ease-out 1.3s forwards;
-
-            &::after {
-              content: '';
-              position: absolute;
-              inset: 0;
-              background: rgba(255, 255, 255, 0.1);
-              animation: fade-out 0.3s ease-out 1.45s forwards;
-            }
+            animation: label-slide-up 0.5s ease-out 1.45s forwards;
+          }
+          &::before {
+            animation: dot-highlight 5s ease-in-out 4s infinite;
           }
         }
 
         // Step 3: starts at 1.6s
         &:nth-child(3) {
+          .icon {
+            animation: icon-slide-down 0.5s ease-out 1.6s forwards;
+          }
           p {
-            animation: slide-up-from-line 0.5s ease-out 1.6s forwards;
-
-            &::after {
-              content: '';
-              position: absolute;
-              inset: 0;
-              background: rgba(255, 255, 255, 0.1);
-              animation: fade-out 0.3s ease-out 1.75s forwards;
-            }
+            animation: label-slide-up 0.5s ease-out 1.75s forwards;
+          }
+          &::before {
+            animation: dot-highlight 5s ease-in-out 5s infinite;
           }
         }
 
         // Step 4: starts at 1.9s
         &:nth-child(4) {
+          .icon {
+            animation: icon-slide-down 0.5s ease-out 1.9s forwards;
+          }
           p {
-            animation: slide-down-from-line 0.5s ease-out 1.9s forwards;
-
-            &::after {
-              content: '';
-              position: absolute;
-              inset: 0;
-              background: rgba(255, 255, 255, 0.1);
-              animation: fade-out 0.3s ease-out 2.05s forwards;
-            }
+            animation: label-slide-up 0.5s ease-out 2.05s forwards;
+          }
+          &::before {
+            animation: dot-highlight 5s ease-in-out 6s infinite;
           }
         }
 
         // Step 5: starts at 2.2s
         &:nth-child(5) {
+          .icon {
+            animation: icon-slide-down 0.5s ease-out 2.2s forwards;
+          }
           p {
-            animation: slide-up-from-line 0.5s ease-out 2.2s forwards;
-
-            &::after {
-              content: '';
-              position: absolute;
-              inset: 0;
-              background: rgba(255, 255, 255, 0.1);
-              animation: fade-out 0.3s ease-out 2.35s forwards;
-            }
+            animation: label-slide-up 0.5s ease-out 2.35s forwards;
+          }
+          &::before {
+            animation: dot-highlight 5s ease-in-out 7s infinite;
           }
         }
       }
@@ -430,6 +422,42 @@ article#process {
   }
 }
 
+// Dot highlight animation - lights up for 20% of cycle (1s out of 5s)
+// Using CSS variable --highlight-color set in main.scss
+@keyframes dot-highlight {
+  0%, 15% {
+    background-color: var(--dot-highlight-color, #d85252);
+    box-shadow: 0 0 8px 2px var(--dot-highlight-color, #d85252);
+  }
+  20%, 100% {
+    background-color: white;
+    box-shadow: none;
+  }
+}
+
+// Keyframes for process icon animations
+@keyframes icon-slide-down {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes label-slide-up {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
 // Additional keyframes for process animations
 @keyframes line-extend {
   from {
@@ -437,28 +465,6 @@ article#process {
   }
   to {
     transform: translateY(-50%) scaleX(1);
-  }
-}
-
-@keyframes slide-up-from-line {
-  from {
-    opacity: 0;
-    transform: translate(-50%, 25%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
-}
-
-@keyframes slide-down-from-line {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -25%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0);
   }
 }
 
