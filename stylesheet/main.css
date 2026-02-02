@@ -542,7 +542,7 @@ body main article#values-and-direction h2 {
 body main article#values-and-direction .subtitle {
   text-align: center;
   max-width: 600px;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   line-height: 1.6;
 }
 body main article#values-and-direction .stats {
@@ -550,7 +550,7 @@ body main article#values-and-direction .stats {
   flex-flow: row wrap;
   justify-content: center;
   gap: 2rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 @media screen and (max-width: 768px) {
   body main article#values-and-direction .stats {

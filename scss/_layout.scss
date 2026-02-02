@@ -615,7 +615,7 @@ body {
         .subtitle {
           text-align: center;
           max-width: 600px;
-          margin-bottom: 3rem;
+          margin-bottom: 2rem;
           line-height: 1.6;
         }
 
@@ -624,7 +624,7 @@ body {
           flex-flow: row wrap;
           justify-content: center;
           gap: 2rem;
-          margin-bottom: 4rem;
+          margin-bottom: 2rem;
 
           @include for-tablet {
             gap: 1rem;
