@@ -95,8 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Trigger core-strengths animations when section comes into view
   const coreStrengths = document.getElementById('core-strengths');
   if (coreStrengths) {
-    const backgroundImg = coreStrengths.querySelector('p.background-image img');
-
     const animationObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && !coreStrengths.classList.contains('animate')) {
@@ -110,65 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     animationObserver.observe(coreStrengths);
-
-    // Background image fade based on scroll progress
-    if (backgroundImg) {
-      const coreStrengthsCont = document.getElementById('core-strengths-cont');
-
-      const handleBackgroundScroll = () => {
-        const whyWeStarted = document.getElementById('why-we-started');
-        if (!whyWeStarted || !coreStrengthsCont) return;
-
-        const viewportHeight = window.innerHeight;
-        const whyWeStartedRect = whyWeStarted.getBoundingClientRect();
-        const coreStrengthsRect = coreStrengths.getBoundingClientRect();
-        const coreStrengthsContRect = coreStrengthsCont.getBoundingClientRect();
-
-        // Calculate scroll progress
-        // Page 2.5 = halfway through why-we-started section
-        const fadeInStart = whyWeStartedRect.top + whyWeStartedRect.height / 2;
-        const fadeInEnd = coreStrengthsRect.top;
-
-        // Fade out starts when scrolling halfway through core-strengths-cont
-        const fadeOutStart = coreStrengthsContRect.top;
-        const fadeOutEnd = coreStrengthsContRect.top + coreStrengthsContRect.height / 2;
-
-        if (fadeInStart > 0 && fadeInEnd > 0) {
-          // Before page 2.5 - completely transparent
-          backgroundImg.style.opacity = '0';
-        } else if (fadeInStart <= 0 && fadeInEnd > 0) {
-          // Between page 2.5 and page 3 - fade in progressively
-          const progress = Math.abs(fadeInStart) / (Math.abs(fadeInStart) + fadeInEnd);
-          backgroundImg.style.opacity = Math.min(1, progress).toString();
-        } else if (fadeInEnd <= 0 && fadeOutStart > 0) {
-          // Between page 3 and halfway through page 4 - fully visible
-          backgroundImg.style.opacity = '1';
-        } else if (fadeOutStart <= 0 && fadeOutEnd > 0) {
-          // Between halfway through page 4 and end of page 4 - fade out progressively
-          const fadeOutDistance = coreStrengthsContRect.height / 2;
-          const progress = Math.abs(fadeOutStart) / fadeOutDistance;
-          backgroundImg.style.opacity = Math.max(0, 1 - progress).toString();
-        } else {
-          // After page 4 - completely transparent
-          backgroundImg.style.opacity = '0';
-        }
-      };
-
-      // Throttle scroll event for performance
-      let backgroundTicking = false;
-      window.addEventListener('scroll', () => {
-        if (!backgroundTicking) {
-          window.requestAnimationFrame(() => {
-            handleBackgroundScroll();
-            backgroundTicking = false;
-          });
-          backgroundTicking = true;
-        }
-      });
-
-      // Initial call
-      handleBackgroundScroll();
-    }
   }
 
   // Trigger core-strengths-cont animations when section comes into view

@@ -1,5 +1,11 @@
 // Hero section animations
 article#hero {
+  img.bg {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+    animation: tomato-entrance 1.2s ease-out 0.5s forwards;
+  }
+
   img.fg {
     opacity: 0;
     animation: logo-reveal 2s ease-out 0.4s forwards;
@@ -24,6 +30,17 @@ article#hero {
   100% {
     opacity: 1;
     clip-path: circle(72% at 63% 70%);
+  }
+}
+
+@keyframes tomato-entrance {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 
@@ -112,12 +129,12 @@ header nav {
 // Core strengths section animations
 article#core-strengths {
   p.background-image {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    z-index: -1;
+    height: 100%;
+    z-index: 0;
     overflow: hidden;
 
     &::before {
@@ -139,8 +156,6 @@ article#core-strengths {
     }
 
     img {
-      opacity: 0;
-      filter: blur(10px);
       width: 100%;
       height: 100%;
       object-fit: cover;

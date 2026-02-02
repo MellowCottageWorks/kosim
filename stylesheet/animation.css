@@ -1,3 +1,8 @@
+article#hero img.bg {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+  animation: tomato-entrance 1.2s ease-out 0.5s forwards;
+}
 article#hero img.fg {
   opacity: 0;
   animation: logo-reveal 2s ease-out 0.4s forwards;
@@ -19,6 +24,16 @@ article#hero #h1-sub {
   100% {
     opacity: 1;
     clip-path: circle(72% at 63% 70%);
+  }
+}
+@keyframes tomato-entrance {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 @keyframes text-reveal {
@@ -95,12 +110,12 @@ header nav ul li a.indicator-dot span {
 }
 
 article#core-strengths p.background-image {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
-  z-index: -1;
+  height: 100%;
+  z-index: 0;
   overflow: hidden;
 }
 article#core-strengths p.background-image::before {
@@ -115,8 +130,6 @@ article#core-strengths p.background-image::before {
   pointer-events: none;
 }
 article#core-strengths p.background-image img {
-  opacity: 0;
-  filter: blur(10px);
   width: 100%;
   height: 100%;
   object-fit: cover;

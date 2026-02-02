@@ -1,7 +1,6 @@
 @use 'media' as *;
 
 html, body {
-  overflow-x: hidden;
   box-sizing: border-box;
   font-size: 16px;
 
@@ -36,21 +35,26 @@ body {
   main {
     article {
       &[id] {
+        position: sticky;
+        top: 0;
+        height: 108vh;
+        padding-bottom: 8vh;
+        box-sizing: border-box;
 
-        &:first-child {
-        }
-        &:last-child {
+        &:last-of-type {
+          height: calc(100vh - 5rem);
+          padding-bottom: 0;
         }
       }
 
       h2 {
         text-align: center;
         padding: 2rem;
+        margin: 0;
       }
 
       &#hero {
         text-align: center;
-        position: relative;
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
@@ -129,11 +133,9 @@ body {
       &#why-we-started {
         $bottom-padding: 20vh;
         padding-bottom: $bottom-padding;
-        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 100vh;
 
         h2 {
           display: none;
@@ -184,14 +186,18 @@ body {
       }
 
       &#core-strengths {
-        position: relative;
-        min-height: 100vh;
+
+        h2 {
+          position: relative;
+          z-index: 1;
+        }
 
         .strengths {
           position: absolute;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
+          z-index: 1;
           display: flex;
           flex-flow: row nowrap;
           justify-content: center;
@@ -256,11 +262,9 @@ body {
       }
 
       &#core-strengths-cont {
-        position: relative;
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
-        min-height: 100vh;
 
         h2 {
           white-space: nowrap;
@@ -361,8 +365,6 @@ body {
 
       &#process {
         $shift: 4rem;
-        min-height: 100vh;
-        position: relative;
         overflow: visible;
 
         div#process-steps {
@@ -482,7 +484,6 @@ body {
         flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
-        min-height: 100vh;
 
         blockquote, h2 {
           display: none;
@@ -1038,6 +1039,8 @@ body {
   }
 
   footer {
+    position: relative;
+    z-index: 1;
     padding: 3rem 2rem;
 
     .footer-content {
