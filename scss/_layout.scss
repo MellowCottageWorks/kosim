@@ -42,7 +42,7 @@ body {
         box-sizing: border-box;
 
         &:last-of-type {
-          height: calc(100vh - 5rem);
+          height: calc(100vh - 9rem); // honestly, fuck vibe coding
           padding-bottom: 0;
         }
       }
