@@ -65,9 +65,26 @@ body main article#hero p:first-child img.fg {
   filter: brightness(0) invert(1);
   height: 60vh;
 }
+body main article#hero h1, body main article#hero #h1-sub {
+  position: absolute;
+  text-align: right;
+  white-space: nowrap;
+}
+body main article#hero h1 {
+  top: calc(50% + 21vh);
+  transform: translateX(calc(-50% + 10vh));
+  font-weight: normal;
+  font-size: 2.5vh;
+  margin: 0;
+}
+body main article#hero #h1-sub {
+  top: calc(50% + 26vh);
+  transform: translateX(calc(-50% + 10vh));
+  font-size: 2.2vh;
+}
 body main article#hero > div {
   position: relative;
-  top: 34vh;
+  top: 40vh;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -80,26 +97,6 @@ body main article#hero > div {
 @media screen and (max-width: 1024px) {
   body main article#hero > div {
     max-width: 950px;
-  }
-}
-body main article#hero > div h1, body main article#hero > div #h1-sub {
-  align-self: flex-end;
-  margin-right: 33vw;
-}
-body main article#hero > div h1 {
-  font-weight: normal;
-  font-size: 1.2em;
-  margin-bottom: 0.5rem;
-}
-body main article#hero > div #h1-sub {
-  font-size: 1.1em;
-}
-@media screen and (max-width: 1024px) {
-  body main article#hero > div h1 {
-    font-size: 1em;
-  }
-  body main article#hero > div #h1-sub {
-    font-size: 0.8em;
   }
 }
 body main article#hero button.CTA {

@@ -83,9 +83,30 @@ body {
           }
         }
 
+        // Text elements positioned from center anchor (same as images)
+        h1, #h1-sub {
+          position: absolute;
+          text-align: right;
+          white-space: nowrap;
+        }
+
+        h1 {
+          top: calc(50% + 21vh);
+          transform: translateX(calc(-50% + 10vh));
+          font-weight: normal;
+          font-size: 2.5vh;
+          margin: 0;
+        }
+
+        #h1-sub {
+          top: calc(50% + 26vh);
+          transform: translateX(calc(-50% + 10vh));
+          font-size: 2.2vh;
+        }
+
         & > div {
           position: relative;
-          top: 34vh;
+          top: 40vh;
           display: flex;
           flex-flow: column nowrap;
           align-items: center;
@@ -95,28 +116,6 @@ body {
           }
           @include for-laptop {
             max-width: 950px;
-          }
-
-          h1, #h1-sub {
-            align-self: flex-end;
-            margin-right: 33vw;
-          }
-          h1 {
-            font-weight: normal;
-            font-size: 1.2em;
-            margin-bottom: .5rem;
-          }
-          #h1-sub {
-            font-size: 1.1em;
-          }
-
-          @include for-laptop {
-            h1 {
-              font-size: 1em;
-            }
-            #h1-sub {
-              font-size: .8em;
-            }
           }
         }
 
