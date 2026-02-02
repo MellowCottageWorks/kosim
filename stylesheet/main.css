@@ -1435,17 +1435,17 @@ body main article#core-strengths .strengths .strength-card {
   border-radius: 1rem;
 }
 body main article#core-strengths-cont ul li:nth-child(1) {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%), url("image/strcont1.png");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%), url("/image/strcont1.png");
   background-size: cover;
   background-position: center;
 }
 body main article#core-strengths-cont ul li:nth-child(2) {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%), url("image/strcont2.png");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%), url("/image/strcont2.png");
   background-size: cover;
   background-position: center;
 }
 body main article#core-strengths-cont ul li:nth-child(3) {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%), url("image/strcont3.png");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%), url("/image/strcont3.png");
   background-size: cover;
   background-position: center;
 }
