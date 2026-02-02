@@ -1,8 +1,8 @@
 ## 우리가 이 일을 시작한 이유
 
-<img class="right" src="../image/mockup-tilt.png" alt="고심끝에 토마토즙 패키지">
+<img class="right" src="image/mockup-tilt.png" alt="고심끝에 토마토즙 패키지">
 
-<img class="left" src="../image/mockup-tilt.png" alt="고심끝에 토마토즙 패키지">
+<img class="left" src="image/mockup-tilt.png" alt="고심끝에 토마토즙 패키지">
 
 <div>
 <p>
