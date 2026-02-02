@@ -1,69 +1,65 @@
-let header = document.querySelector('header')
 let navLis = []
 let stackArticles = []
 let lastPassed = null
 let offsetOffset = 0
 let rAFPending = false
 
-const updateOffsets = () => {
-  navLis = [...document.querySelectorAll("header nav ul li")]
-  stackArticles = [...document.querySelectorAll("div#stack article[id]")]
+function updateOffsets () {
+  navLis = [...document.querySelectorAll('header nav ul li')]
+  stackArticles = [...document.querySelectorAll('div#stack article[id]')]
   offsetOffset = stackArticles[0].offsetTop
 
-  stackArticles.forEach(v => {
-    v.style.setProperty(
-      'scroll-margin-top',
-      `${offsetOffset}px`
-    )
-    // if (v.id === 'hero')
-    v.style.setProperty('min-height',
-    `calc(100vh - ${offsetOffset}px)`)
+  stackArticles.forEach(function (el) {
+    el.style.setProperty('scroll-margin-top', offsetOffset + 'px')
+    el.style.setProperty('min-height', 'calc(100vh - ' + offsetOffset + 'px)')
   })
 }
-const getLastArticlePositionFrom = y => {
-  let i = stackArticles.findIndex(v => v.offsetTop >= y)
-  switch (i) {
-    case -1: return stackArticles[stackArticles.length - 1]
-    case 0: return null
-    default: return stackArticles[i - 1]
-  }
-}
-const updateCurrentLi = lP => {
-  if (!lP) return
-  navLis.forEach(v =>
-    v.classList.remove('above', 'current', 'below')
-  )
-  const currentArticleIndex = stackArticles.findIndex(v =>
-    v.id === lP.id)
 
-  for (let i = 0; i < navLis.length; i++) switch (true) {
-    case i < currentArticleIndex:
+function getLastArticleFrom (y) {
+  var i = stackArticles.findIndex(function (el) {
+    return el.offsetTop >= y
+  })
+  if (i === -1) return stackArticles[stackArticles.length - 1]
+  if (i === 0) return null
+  return stackArticles[i - 1]
+}
+
+function updateCurrentLi (article) {
+  if (!article) return
+
+  navLis.forEach(function (li) {
+    li.classList.remove('above', 'current', 'below')
+  })
+
+  var currentIndex = stackArticles.findIndex(function (el) {
+    return el.id === article.id
+  })
+
+  for (var i = 0; i < navLis.length; i++) {
+    if (i < currentIndex) {
       navLis[i].classList.add('above')
-      break
-    case i === currentArticleIndex:
+    } else if (i === currentIndex) {
       navLis[i].classList.add('current')
-      break
-    default:
+    } else {
       navLis[i].classList.add('below')
-      break
+    }
   }
 }
-const rAFCallbackToGetLastArticle = () => {
+
+function onScroll () {
   if (rAFPending) return
   rAFPending = true
-  requestAnimationFrame(() => {
+  requestAnimationFrame(function () {
     rAFPending = false
-    lastPassed = getLastArticlePositionFrom(window.scrollY + offsetOffset + 1)
+    lastPassed = getLastArticleFrom(window.scrollY + offsetOffset + 1)
     updateCurrentLi(lastPassed)
   })
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', function () {
   updateOffsets()
-  rAFCallbackToGetLastArticle()
+  onScroll()
 })
 
-window.addEventListener(
-  'scroll', rAFCallbackToGetLastArticle, { passive: true }
-)
+window.addEventListener('scroll', onScroll, { passive: true })
 window.addEventListener('resize', updateOffsets, { passive: true })

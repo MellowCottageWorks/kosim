@@ -1,221 +1,164 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Navigation click handling
-  // Sticky elements have unreliable offsetTop, so scroll to top first
-  // then read offsets from a clean state
-  const dots = document.querySelectorAll('header nav .indicator-dot');
-  const getScrollTargets = () => {
-    const saved = window.scrollY;
-    window.scrollTo({ top: 0 });
+document.addEventListener('DOMContentLoaded', function () {
+  // --- Navigation click handling ---
+  // Snap to top to read clean offsetTop values, then restore scroll
+  var dots = document.querySelectorAll('header nav .indicator-dot')
 
-    const targets = {};
-    stackArticles.forEach(a => {
-      targets[a.id] = a.offsetTop - offsetOffset;
-    });
+  function getScrollTargets () {
+    var saved = window.scrollY
+    window.scrollTo({ top: 0 })
 
-    window.scrollTo({ top: saved });
-    return targets;
-  };
+    var targets = {}
+    stackArticles.forEach(function (el) {
+      targets[el.id] = el.offsetTop - offsetOffset
+    })
 
-  let scrollTargets = getScrollTargets();
-  window.addEventListener('resize', () => {
-    scrollTargets = getScrollTargets();
-  });
+    window.scrollTo({ top: saved })
+    return targets
+  }
 
-  dots.forEach(dot => {
-    dot.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = dot.getAttribute('href').substring(1);
-      if (targetId in scrollTargets) {
-        window.scrollTo({
-          top: scrollTargets[targetId],
-          behavior: 'smooth'
-        });
+  var scrollTargets = getScrollTargets()
+
+  window.addEventListener('resize', function () {
+    scrollTargets = getScrollTargets()
+  })
+
+  dots.forEach(function (dot) {
+    dot.addEventListener('click', function (e) {
+      e.preventDefault()
+      var id = dot.getAttribute('href').substring(1)
+      if (id in scrollTargets) {
+        window.scrollTo({ top: scrollTargets[id], behavior: 'smooth' })
       }
-    });
-  });
+    })
+  })
 
-  // Why-we-started section: slide images in from sides when section comes into view
-  const whyWeStarted = document.getElementById('why-we-started');
+  // --- Shared helpers ---
+
+  // One-shot observer: adds 'animate' class once, then stops observing
+  function observeOnce (el, threshold) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !el.classList.contains('animate')) {
+          el.classList.add('animate')
+          observer.unobserve(el)
+        }
+      })
+    }, { threshold: threshold })
+    observer.observe(el)
+  }
+
+  // --- Why-we-started: slide images in from sides (replayable) ---
+
+  var whyWeStarted = document.getElementById('why-we-started')
   if (whyWeStarted) {
-    const rightImage = whyWeStarted.querySelector('p:first-of-type > img.right');
-    const leftImage = whyWeStarted.querySelector('p:nth-of-type(2) > img.left');
+    var rightImage = whyWeStarted.querySelector('p:first-of-type > img.right')
+    var leftImage = whyWeStarted.querySelector('p:nth-of-type(2) > img.left')
 
-    // Set initial positions (outside viewport) and opacity
-    const angle = -60 * Math.PI / 180;
-    const offsetX = 150 * Math.cos(angle);
-    const offsetY = 150 * Math.sin(angle);
+    var angle = -60 * Math.PI / 180
+    var dx = 150 * Math.cos(angle)
+    var dy = 150 * Math.sin(angle)
+    var easing = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease-out'
 
-    if (leftImage) {
-      leftImage.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease-out'; // Ease-out expo
-    }
-    if (rightImage) {
-      rightImage.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease-out'; // Ease-out expo
-    }
+    if (leftImage) leftImage.style.transition = easing
+    if (rightImage) rightImage.style.transition = easing
 
-    // Observe when section comes into view (replayable)
-    const whyWeStartedObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          // Animate images to their final positions and fade in
           if (leftImage) {
-            leftImage.style.transform = 'translateX(0)';
-            leftImage.style.opacity = '1';
+            leftImage.style.transform = 'translateX(0)'
+            leftImage.style.opacity = '1'
           }
           if (rightImage) {
-            rightImage.style.transform = 'translate(0, 0)';
-            rightImage.style.opacity = '0.5'; // Darker appearance
+            rightImage.style.transform = 'translate(0, 0)'
+            rightImage.style.opacity = '0.5'
           }
         } else {
-          // Reset to initial state when scrolled away
           if (leftImage) {
-            leftImage.style.transform = 'translateX(-150px)';
-            leftImage.style.opacity = '0';
+            leftImage.style.transform = 'translateX(-150px)'
+            leftImage.style.opacity = '0'
           }
           if (rightImage) {
-            rightImage.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-            rightImage.style.opacity = '0';
+            rightImage.style.transform = 'translate(' + dx + 'px, ' + dy + 'px)'
+            rightImage.style.opacity = '0'
           }
         }
-      });
-    }, {
-      threshold: 0.3 // Trigger when 30% of section is visible
-    });
+      })
+    }, { threshold: 0.3 })
 
-    whyWeStartedObserver.observe(whyWeStarted);
+    observer.observe(whyWeStarted)
   }
 
-  // Trigger core-strengths animations when section comes into view
-  const coreStrengths = document.getElementById('core-strengths');
-  if (coreStrengths) {
-    const animationObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !coreStrengths.classList.contains('animate')) {
-          coreStrengths.classList.add('animate');
-          // Unobserve after triggering once
-          animationObserver.unobserve(coreStrengths);
-        }
-      });
-    }, {
-      threshold: 0.2 // Trigger when 20% of section is visible
-    });
+  // --- One-shot section animations ---
 
-    animationObserver.observe(coreStrengths);
-  }
+  var coreStrengths = document.getElementById('core-strengths')
+  if (coreStrengths) observeOnce(coreStrengths, 0.2)
 
-  // Trigger core-strengths-cont animations when section comes into view
-  const coreStrengthsCont = document.getElementById('core-strengths-cont');
-  if (coreStrengthsCont) {
-    const contAnimationObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !coreStrengthsCont.classList.contains('animate')) {
-          coreStrengthsCont.classList.add('animate');
-          // Unobserve after triggering once
-          contAnimationObserver.unobserve(coreStrengthsCont);
-        }
-      });
-    }, {
-      threshold: 0.2 // Trigger when 20% of section is visible
-    });
+  var coreStrengthsCont = document.getElementById('core-strengths-cont')
+  if (coreStrengthsCont) observeOnce(coreStrengthsCont, 0.2)
 
-    contAnimationObserver.observe(coreStrengthsCont);
-  }
+  // --- Process section: animation + tomato parallax ---
 
-  // Trigger process animations when section comes into view
-  const process = document.getElementById('process');
+  var process = document.getElementById('process')
   if (process) {
-    const processObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !process.classList.contains('animate')) {
-          process.classList.add('animate');
-          // Unobserve after triggering once
-          processObserver.unobserve(process);
-        }
-      });
-    }, {
-      threshold: 0.2 // Trigger when 20% of section is visible
-    });
+    observeOnce(process, 0.2)
 
-    processObserver.observe(process);
-
-    // Parallax effect for tomato image in process section
-    const tomatoImg = process.querySelector('p:last-of-type img');
-
+    var tomatoImg = process.querySelector('p:last-of-type img')
     if (tomatoImg) {
-      const handleTomatoParallax = () => {
-        const rect = process.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
+      var ticking = false
 
-        // Calculate how much the section has scrolled into view
-        // When section top is at viewport bottom: scrollProgress = 0
-        // When section bottom is at viewport top: scrollProgress = 1
-        const scrollProgress = Math.max(0, Math.min(2,
-          (windowHeight - rect.top) / (windowHeight + rect.height)
-        ));
+      function handleParallax () {
+        var rect = process.getBoundingClientRect()
+        var vh = window.innerHeight
+        var progress = Math.max(0, Math.min(2,
+          (vh - rect.top) / (vh + rect.height)
+        ))
+        tomatoImg.style.transform = 'translateY(' + (progress * rect.height * 0.9) + 'px)'
+      }
 
-        // Parallax factor: 0.6 means image moves at 60% of scroll speed
-        // This creates the "lagging behind" effect
-        const parallaxFactor = 0.6;
-        const maxTranslate = rect.height * 1.5;
-        const translateY = scrollProgress * maxTranslate * parallaxFactor;
-
-        tomatoImg.style.transform = `translateY(${translateY}px)`;
-      };
-
-      // Throttle scroll event for performance
-      let tomatoTicking = false;
-      window.addEventListener('scroll', () => {
-        if (!tomatoTicking) {
-          window.requestAnimationFrame(() => {
-            handleTomatoParallax();
-            tomatoTicking = false;
-          });
-          tomatoTicking = true;
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          requestAnimationFrame(function () {
+            handleParallax()
+            ticking = false
+          })
+          ticking = true
         }
-      });
+      })
 
-      // Initial call
-      handleTomatoParallax();
+      handleParallax()
     }
   }
 
-  // Mouse-following tilt effect for featured-product mockup image
-  const featuredProduct = document.getElementById('featured-product');
+  // --- Featured product: mouse-following tilt ---
+
+  var featuredProduct = document.getElementById('featured-product')
   if (featuredProduct) {
-    const mockupImg = featuredProduct.querySelector('div.product > img');
+    var mockupImg = featuredProduct.querySelector('div.product > img')
 
     if (mockupImg) {
-      const handleMouseMove = (e) => {
-        const rect = mockupImg.getBoundingClientRect();
-        const imgCenterX = rect.left + rect.width / 2;
-        const imgCenterY = rect.top + rect.height / 2;
+      var maxTilt = 15
 
-        // Calculate mouse position relative to image center
-        const deltaX = e.clientX - imgCenterX;
-        const deltaY = e.clientY - imgCenterY;
+      mockupImg.style.transition = 'transform 0.1s ease-out'
 
-        // Convert to rotation angles (normalized by image dimensions)
-        // Clamp the deltas to the image bounds to prevent extreme rotation
-        const clampedDeltaX = Math.max(-rect.width / 2, Math.min(rect.width / 2, deltaX));
-        const clampedDeltaY = Math.max(-rect.height / 2, Math.min(rect.height / 2, deltaY));
+      featuredProduct.addEventListener('mousemove', function (e) {
+        var rect = mockupImg.getBoundingClientRect()
+        var cx = rect.left + rect.width / 2
+        var cy = rect.top + rect.height / 2
 
-        const maxTilt = 15; // Maximum tilt in degrees
-        const rotateY = (clampedDeltaX / rect.width) * maxTilt * 2;
-        const rotateX = -(clampedDeltaY / rect.height) * maxTilt * 2;
+        var dx = Math.max(-rect.width / 2, Math.min(rect.width / 2, e.clientX - cx))
+        var dy = Math.max(-rect.height / 2, Math.min(rect.height / 2, e.clientY - cy))
 
-        // Apply 3D transform
-        mockupImg.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-      };
+        var rotateY = (dx / rect.width) * maxTilt * 2
+        var rotateX = -(dy / rect.height) * maxTilt * 2
 
-      const handleMouseLeave = () => {
-        // Reset to neutral position with smooth transition
-        mockupImg.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-      };
+        mockupImg.style.transform =
+          'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)'
+      })
 
-      // Add smooth transition
-      mockupImg.style.transition = 'transform 0.1s ease-out';
-
-      featuredProduct.addEventListener('mousemove', handleMouseMove);
-      featuredProduct.addEventListener('mouseleave', handleMouseLeave);
+      featuredProduct.addEventListener('mouseleave', function () {
+        mockupImg.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)'
+      })
     }
   }
-});
+})
