@@ -1,7 +1,7 @@
 ## 안정적인 생산 시스템
 
 <p class="background-image">
-    <img src="/image/interior.jpg" alt="interior">
+    <img src="image/interior.jpg" alt="interior">
 </p>
 
 <div class="strengths">

@@ -136,7 +136,7 @@ body {
                     rgba(0, 0, 0, 0.1) 0%,
                     rgba(0, 0, 0, 0.6) 100%
                 ),
-                url('/image/strcont#{$i}.png');
+                url('image/strcont#{$i}.png');
               background-size: cover;
               background-position: center;
             }
@@ -220,7 +220,6 @@ body {
               background-color: $red-2;
               color: black;
               text-transform: uppercase;
-              padding: .2rem;
             }
             h3 {
               font-size: 2em;

@@ -50,7 +50,7 @@ body main article[id]:last-of-type {
 }
 body main article h2 {
   text-align: center;
-  padding: 2rem;
+  padding: 4rem;
   margin: 0;
 }
 body main article#hero {
@@ -484,6 +484,7 @@ body main article#featured-product div.product > div:first-of-type > *:not(span.
 }
 body main article#featured-product div.product > div:first-of-type span.title {
   align-self: stretch;
+  padding: 0.2rem 0;
 }
 body main article#featured-product div.product > div:first-of-type p.left {
   margin: 0 auto 0 0;
@@ -531,7 +532,7 @@ body main article#values-and-direction {
   box-sizing: border-box;
 }
 body main article#values-and-direction h2 {
-  font-size: 2.5rem;
+  padding-bottom: 1rem;
   margin-bottom: 0.5rem;
 }
 @media screen and (max-width: 768px) {
@@ -1434,17 +1435,17 @@ body main article#core-strengths .strengths .strength-card {
   border-radius: 1rem;
 }
 body main article#core-strengths-cont ul li:nth-child(1) {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%), url("/image/strcont1.png");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%), url("image/strcont1.png");
   background-size: cover;
   background-position: center;
 }
 body main article#core-strengths-cont ul li:nth-child(2) {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%), url("/image/strcont2.png");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%), url("image/strcont2.png");
   background-size: cover;
   background-position: center;
 }
 body main article#core-strengths-cont ul li:nth-child(3) {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%), url("/image/strcont3.png");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%), url("image/strcont3.png");
   background-size: cover;
   background-position: center;
 }
@@ -1488,7 +1489,6 @@ body main article#featured-product div.product > div:first-of-type span.title {
   background-color: #b10000;
   color: black;
   text-transform: uppercase;
-  padding: 0.2rem;
 }
 body main article#featured-product div.product > div:first-of-type h3 {
   font-size: 2em;

@@ -2,7 +2,7 @@
 
 <div class="vision-split">
     <div class="vision-image">
-        <img src="/image/mockups.jpg" alt="제품 이미지">
+        <img src="image/mockups.jpg" alt="제품 이미지">
     </div>
     <div class="vision-content">
         <span class="tag">Our Shared Future</span>

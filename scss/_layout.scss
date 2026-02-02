@@ -54,7 +54,7 @@ body {
 
       h2 {
         text-align: center;
-        padding: 2rem;
+        padding: 4rem;
         margin: 0;
       }
 
@@ -537,6 +537,7 @@ body {
 
             span.title {
               align-self: stretch;
+              padding: .2rem 0;
             }
 
             h3 {}
@@ -604,7 +605,7 @@ body {
         box-sizing: border-box;
 
         h2 {
-          font-size: 2.5rem;
+          padding-bottom: 1rem;
           margin-bottom: 0.5rem;
 
           @include for-tablet {
