@@ -1,43 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Scroll indicator active state management
-  const sections = document.querySelectorAll('article[id]');
+  // Navigation click handling
+  // Sticky elements have unreliable offsetTop, so scroll to top first
+  // then read offsets from a clean state
   const dots = document.querySelectorAll('header nav .indicator-dot');
+  const getScrollTargets = () => {
+    const saved = window.scrollY;
+    window.scrollTo({ top: 0 });
 
-  // Set first dot as active initially
-  if (dots.length > 0) {
-    dots[0].classList.add('active');
-  }
+    const targets = {};
+    stackArticles.forEach(a => {
+      targets[a.id] = a.offsetTop - offsetOffset;
+    });
 
-  const observerOptions = {
-    root: null,
-    rootMargin: '-50% 0px -50% 0px',
-    threshold: 0
+    window.scrollTo({ top: saved });
+    return targets;
   };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const sectionId = entry.target.id;
-        dots.forEach(dot => {
-          dot.classList.remove('active');
-          if (dot.getAttribute('href') === `#${sectionId}`) {
-            dot.classList.add('active');
-          }
-        });
-      }
-    });
-  }, observerOptions);
+  let scrollTargets = getScrollTargets();
+  window.addEventListener('resize', () => {
+    scrollTargets = getScrollTargets();
+  });
 
-  sections.forEach(section => observer.observe(section));
-
-  // Smooth scroll behavior for navigation clicks
   dots.forEach(dot => {
     dot.addEventListener('click', (e) => {
       e.preventDefault();
       const targetId = dot.getAttribute('href').substring(1);
-      const targetSection = document.getElementById(targetId);
-      if (targetSection) {
-        targetSection.scrollIntoView({ behavior: 'smooth' });
+      if (targetId in scrollTargets) {
+        window.scrollTo({
+          top: scrollTargets[targetId],
+          behavior: 'smooth'
+        });
       }
     });
   });
