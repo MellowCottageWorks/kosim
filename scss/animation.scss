@@ -122,6 +122,11 @@ header nav {
           font-size: 0.45rem;
         }
       }
+
+      &.current a.indicator-dot {
+        background: white;
+        border-color: white;
+      }
     }
   }
 }

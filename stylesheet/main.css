@@ -1113,6 +1113,10 @@ header nav ul li a.indicator-dot span {
   color: white;
   font-size: 0.45rem;
 }
+header nav ul li.current a.indicator-dot {
+  background: white;
+  border-color: white;
+}
 
 article#core-strengths p.background-image {
   position: absolute;
