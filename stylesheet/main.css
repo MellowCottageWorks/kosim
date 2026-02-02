@@ -41,7 +41,7 @@ body main article[id] {
   box-sizing: border-box;
 }
 body main article[id]:last-of-type {
-  height: calc(100vh - 5rem);
+  height: calc(100vh - 9rem);
   padding-bottom: 0;
 }
 body main article h2 {
@@ -801,6 +801,7 @@ body main article#contact .contact-grid {
 body main article#contact .contact-grid .contact-info h3 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  margin-top: 0;
 }
 @media screen and (max-width: 768px) {
   body main article#contact .contact-grid .contact-info h3 {
