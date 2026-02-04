@@ -40,12 +40,8 @@ body main article[id] {
   padding-bottom: 8vh;
   box-sizing: border-box;
 }
-body main article[id]:nth-last-of-type(2) {
-  height: 100vh;
-  padding-bottom: 0;
-}
 body main article[id]:last-of-type {
-  height: calc(100vh - 9rem);
+  height: calc(100vh - 7rem);
   padding-bottom: 0;
 }
 body main article h2 {

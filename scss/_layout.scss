@@ -41,13 +41,8 @@ body {
         padding-bottom: 8vh;
         box-sizing: border-box;
 
-        &:nth-last-of-type(2) {
-          height: 100vh;
-          padding-bottom: 0;
-        }
-
         &:last-of-type {
-          height: calc(100vh - 9rem); // honestly, fuck vibe coding
+          height: calc(100vh - 7rem);
           padding-bottom: 0;
         }
       }
