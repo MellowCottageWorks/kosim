@@ -130,6 +130,59 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  // --- Values section: count-up numbers ---
+
+  var values = document.getElementById('values-and-direction')
+  if (values) {
+    var counters = values.querySelectorAll('strong[data-count-to]')
+    var counted = false
+
+    function formatNumber (n, useComma) {
+      if (!useComma) return String(n)
+      return n.toLocaleString()
+    }
+
+    function animateCounters () {
+      if (counted) return
+      counted = true
+
+      counters.forEach(function (el) {
+        var target = parseInt(el.getAttribute('data-count-to'), 10)
+        var suffix = el.getAttribute('data-count-suffix') || ''
+        var useComma = el.getAttribute('data-count-comma') === 'true'
+        var duration = 2700
+        var start = performance.now()
+
+        function step (now) {
+          var elapsed = now - start
+          var progress = Math.min(elapsed / duration, 1)
+          // ease-out quad
+          var eased = 1 - (1 - progress) * (1 - progress)
+          var current = Math.round(eased * target)
+
+          el.textContent = formatNumber(current, useComma) + suffix
+
+          if (progress < 1) {
+            requestAnimationFrame(step)
+          }
+        }
+
+        requestAnimationFrame(step)
+      })
+    }
+
+    var valuesObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCounters()
+          valuesObserver.unobserve(values)
+        }
+      })
+    }, { threshold: 0.32 })
+
+    valuesObserver.observe(values)
+  }
+
   // --- Featured product: mouse-following tilt ---
 
   var featuredProduct = document.getElementById('featured-product')
