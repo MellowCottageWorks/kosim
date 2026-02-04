@@ -43,12 +43,12 @@ body {
         box-sizing: border-box;
 
         &:last-of-type {
-          height: calc(100vh - 7rem);
+          height: calc(100vh - 2rem);
           padding-bottom: 0;
 
           @include for-tablet {
             height: auto;
-            min-height: calc(100vh - 7rem);
+            min-height: calc(100vh - 2rem);
           }
         }
       }
