@@ -54,7 +54,7 @@ body {
 
       h2 {
         text-align: center;
-        padding: 4rem;
+        padding: 2rem;
         margin: 0;
       }
 
@@ -332,6 +332,10 @@ body {
           //writing-mode: vertical-lr;
           font-size: 1.5em;
           margin: 0;
+        }
+
+        h3 {
+          margin: 1rem 0 3rem;
         }
 
         ul {

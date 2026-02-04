@@ -52,7 +52,7 @@ body main article[id]:last-of-type {
 }
 body main article h2 {
   text-align: center;
-  padding: 4rem;
+  padding: 2rem;
   margin: 0;
 }
 body main article#hero {
@@ -305,6 +305,9 @@ body main article#core-strengths-cont h2 {
   white-space: nowrap;
   font-size: 1.5em;
   margin: 0;
+}
+body main article#core-strengths-cont h3 {
+  margin: 1rem 0 3rem;
 }
 body main article#core-strengths-cont ul {
   list-style: none;
