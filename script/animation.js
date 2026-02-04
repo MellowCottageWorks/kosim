@@ -1,18 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
   // --- Navigation click handling ---
-  // Snap to top to read clean offsetTop values, then restore scroll
   var dots = document.querySelectorAll('header nav .indicator-dot')
 
   function getScrollTargets () {
-    var saved = window.scrollY
-    window.scrollTo({ top: 0 })
-
     var targets = {}
-    stackArticles.forEach(function (el) {
-      targets[el.id] = el.offsetTop - offsetOffset
+    stackArticles.forEach(function (el, i) {
+      targets[el.id] = articleOffsets[i]
     })
-
-    window.scrollTo({ top: saved })
     return targets
   }
 

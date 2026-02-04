@@ -5,17 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
   var targets = []
 
   function cacheTargets () {
-    var saved = window.scrollY
-    window.scrollTo({ top: 0 })
-
-    targets = stackArticles.map(function (el, i) {
-      if (i === stackArticles.length - 1) {
-        return document.documentElement.scrollHeight - window.innerHeight
-      }
-      return el.offsetTop - offsetOffset
-    })
-
-    window.scrollTo({ top: saved })
+    targets = articleOffsets.slice()
+    targets[targets.length - 1] =
+      document.documentElement.scrollHeight - window.innerHeight
   }
 
   cacheTargets()
@@ -79,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (Math.abs(from - to) < 2) return
 
+    updateCurrentLi(stackArticles[nextIndex])
     animateScroll(from, to)
   }, { passive: false })
 })

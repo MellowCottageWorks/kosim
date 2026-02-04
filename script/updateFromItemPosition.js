@@ -1,27 +1,42 @@
-let navLis = []
-let stackArticles = []
-let lastPassed = null
-let offsetOffset = 0
-let rAFPending = false
+var navLis = []
+var stackArticles = []
+var articleOffsets = []
+var lastPassed = null
+var offsetOffset = 0
+var rAFPending = false
 
 function updateOffsets () {
-  navLis = [...document.querySelectorAll('header nav ul li')]
-  stackArticles = [...document.querySelectorAll('div#stack article[id]')]
+  navLis = [].slice.call(document.querySelectorAll('header nav ul li'))
+  stackArticles = [].slice.call(document.querySelectorAll('div#stack article[id]'))
   offsetOffset = stackArticles[0].offsetTop
 
   stackArticles.forEach(function (el) {
     el.style.setProperty('scroll-margin-top', offsetOffset + 'px')
     el.style.setProperty('min-height', 'calc(100vh - ' + offsetOffset + 'px)')
   })
+
+  cacheArticleOffsets()
+}
+
+function cacheArticleOffsets () {
+  articleOffsets = []
+  var cumulative = 0
+  for (var i = 0; i < stackArticles.length; i++) {
+    articleOffsets.push(cumulative)
+    if (i < stackArticles.length - 1) {
+      cumulative += stackArticles[i].offsetHeight
+    }
+  }
 }
 
 function getLastArticleFrom (y) {
-  var i = stackArticles.findIndex(function (el) {
-    return el.offsetTop >= y
-  })
-  if (i === -1) return stackArticles[stackArticles.length - 1]
-  if (i === 0) return null
-  return stackArticles[i - 1]
+  var index = 0
+  for (var i = 0; i < articleOffsets.length; i++) {
+    if (articleOffsets[i] <= y) {
+      index = i
+    }
+  }
+  return stackArticles[index]
 }
 
 function updateCurrentLi (article) {
@@ -48,10 +63,11 @@ function updateCurrentLi (article) {
 
 function onScroll () {
   if (rAFPending) return
+  if (typeof pageScrollLocked !== 'undefined' && pageScrollLocked) return
   rAFPending = true
   requestAnimationFrame(function () {
     rAFPending = false
-    lastPassed = getLastArticleFrom(window.scrollY + offsetOffset + 1)
+    lastPassed = getLastArticleFrom(window.scrollY + 1)
     updateCurrentLi(lastPassed)
   })
 }
