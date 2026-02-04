@@ -66,9 +66,6 @@ body {
         align-items: center;
         width: 100%;
         height: 100vh;
-        // TODO: remove when hero responsive design is decided
-        overflow-x: hidden;
-        max-width: 100vw;
 
         p:first-child {
           img.bg {
@@ -91,7 +88,18 @@ body {
           }
 
           @include for-laptop {
+            img.bg, img.fg {
+            }
 
+            img.bg {
+              top: 50%;
+              height: 90vh;
+            }
+            img.fg {
+              top: 44%;
+              left: 52%;
+              height: 26vh;
+            }
           }
         }
 
@@ -114,6 +122,35 @@ body {
           top: calc(50% + 26vh);
           transform: translateX(calc(-50% + 10vh));
           font-size: 2.2vh;
+          min-width: inherit;
+        }
+
+        @include for-laptop {
+          h1, #h1-sub {
+            transform: translateX(0);
+            text-align: center;
+            white-space: break-spaces;
+            width: 90vw;
+            display: block;
+          }
+
+          h1 {
+            top: calc(50% + 10vh);
+          }
+
+          #h1-sub {
+            top: calc(50% + 20vh);
+          }
+        }
+
+        @include for-mobile-sm {
+          h1 {
+            font-size: 2.2vh;
+          }
+
+          #h1-sub {
+            font-size: 2vh;
+          }
         }
 
         & > div {
@@ -128,6 +165,7 @@ body {
           }
           @include for-laptop {
             max-width: 950px;
+            top: 38vh;
           }
         }
 

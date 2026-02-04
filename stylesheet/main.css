@@ -63,8 +63,6 @@ body main article#hero {
   align-items: center;
   width: 100%;
   height: 100vh;
-  overflow-x: hidden;
-  max-width: 100vw;
 }
 body main article#hero p:first-child img.bg {
   position: absolute;
@@ -83,6 +81,17 @@ body main article#hero p:first-child img.fg {
   filter: brightness(0) invert(1);
   height: 60vh;
 }
+@media screen and (max-width: 1024px) {
+  body main article#hero p:first-child img.bg {
+    top: 50%;
+    height: 90vh;
+  }
+  body main article#hero p:first-child img.fg {
+    top: 44%;
+    left: 52%;
+    height: 26vh;
+  }
+}
 body main article#hero h1, body main article#hero #h1-sub {
   position: absolute;
   text-align: right;
@@ -99,6 +108,30 @@ body main article#hero #h1-sub {
   top: calc(50% + 26vh);
   transform: translateX(calc(-50% + 10vh));
   font-size: 2.2vh;
+  min-width: inherit;
+}
+@media screen and (max-width: 1024px) {
+  body main article#hero h1, body main article#hero #h1-sub {
+    transform: translateX(0);
+    text-align: center;
+    white-space: break-spaces;
+    width: 90vw;
+    display: block;
+  }
+  body main article#hero h1 {
+    top: calc(50% + 10vh);
+  }
+  body main article#hero #h1-sub {
+    top: calc(50% + 20vh);
+  }
+}
+@media screen and (max-width: 375px) {
+  body main article#hero h1 {
+    font-size: 2.2vh;
+  }
+  body main article#hero #h1-sub {
+    font-size: 2vh;
+  }
 }
 body main article#hero > div {
   position: relative;
@@ -115,6 +148,7 @@ body main article#hero > div {
 @media screen and (max-width: 1024px) {
   body main article#hero > div {
     max-width: 950px;
+    top: 38vh;
   }
 }
 body main article#hero button.CTA {
