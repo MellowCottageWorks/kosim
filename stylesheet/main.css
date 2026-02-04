@@ -1,6 +1,7 @@
 html, body {
   box-sizing: border-box;
   font-size: 16px;
+  width: 100%;
 }
 @media screen and (max-width: 1024px) {
   html, body {
@@ -63,6 +64,11 @@ body main article#hero {
   align-items: center;
   width: 100%;
   height: 100vh;
+}
+@media screen and (max-width: 1024px) {
+  body main article#hero {
+    overflow-x: hidden;
+  }
 }
 body main article#hero p:first-child img.bg {
   position: absolute;
@@ -177,6 +183,14 @@ body main article#why-we-started > p:nth-of-type(2) {
   top: 8vh;
   left: 12vw;
 }
+@media screen and (max-width: 768px) {
+  body main article#why-we-started > p:first-of-type {
+    top: 54vh;
+  }
+  body main article#why-we-started > p:nth-of-type(2) {
+    top: 20vh;
+  }
+}
 body main article#why-we-started > p img {
   display: block;
 }
@@ -186,11 +200,6 @@ body main article#why-we-started > p img.right {
 }
 body main article#why-we-started > p img.left {
   width: 36vw;
-}
-@media screen and (max-width: 768px) {
-  body main article#why-we-started > p {
-    display: none;
-  }
 }
 body main article#why-we-started div {
   width: 47vw;
