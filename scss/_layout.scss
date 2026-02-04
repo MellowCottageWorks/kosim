@@ -211,7 +211,12 @@ body {
 
         h2 {
           position: relative;
+          top: 33vh;
           z-index: 1;
+
+          @include for-laptop {
+            top: 25vh;
+          }
         }
 
         .strengths {
@@ -320,6 +325,7 @@ body {
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
+        justify-content: center;
 
         h2 {
           white-space: nowrap;
@@ -421,10 +427,13 @@ body {
       &#process {
         $shift: 4rem;
         overflow: visible;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
 
         div#process-steps {
           position: relative;
-          top: $shift;
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -438,7 +447,6 @@ body {
             align-items: stretch;
             width: 80%;
             height: 50vh;
-            top: 0;
             padding: 0;
             margin: auto;
           }
@@ -580,13 +588,8 @@ body {
 
         // Last paragraph (HACCP note)
         > p:last-of-type {
-          position: relative;
-          top: $shift;
           text-align: center;
           opacity: 0;
-
-          @include for-tablet {
-          }
         }
       }
 
@@ -708,6 +711,7 @@ body {
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
+        justify-content: center;
         box-sizing: border-box;
 
         h2 {

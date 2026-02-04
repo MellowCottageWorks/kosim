@@ -186,7 +186,13 @@ body main article#why-we-started div p:last-of-type {
 }
 body main article#core-strengths h2 {
   position: relative;
+  top: 33vh;
   z-index: 1;
+}
+@media screen and (max-width: 1024px) {
+  body main article#core-strengths h2 {
+    top: 25vh;
+  }
 }
 body main article#core-strengths .strengths {
   position: absolute;
@@ -293,6 +299,7 @@ body main article#core-strengths-cont {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  justify-content: center;
 }
 body main article#core-strengths-cont h2 {
   white-space: nowrap;
@@ -384,10 +391,13 @@ body main article#core-strengths-cont ul li div span {
 }
 body main article#process {
   overflow: visible;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
 }
 body main article#process div#process-steps {
   position: relative;
-  top: 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -402,7 +412,6 @@ body main article#process div#process-steps {
     align-items: stretch;
     width: 80%;
     height: 50vh;
-    top: 0;
     padding: 0;
     margin: auto;
   }
@@ -535,8 +544,6 @@ body main article#process div#process-steps .process-step p {
   }
 }
 body main article#process > p:last-of-type {
-  position: relative;
-  top: 4rem;
   text-align: center;
   opacity: 0;
 }
@@ -639,6 +646,7 @@ body main article#values-and-direction {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  justify-content: center;
   box-sizing: border-box;
 }
 body main article#values-and-direction h2 {
