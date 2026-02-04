@@ -186,7 +186,7 @@ body main article#why-we-started div p:last-of-type {
 }
 body main article#core-strengths h2 {
   position: relative;
-  top: 33vh;
+  top: 20vh;
   z-index: 1;
 }
 @media screen and (max-width: 1024px) {
