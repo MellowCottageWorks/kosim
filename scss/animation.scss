@@ -1,3 +1,5 @@
+@use 'media' as *;
+
 // Hero section animations
 article#hero {
   img.bg {
@@ -340,6 +342,11 @@ article#process {
     // Initial state: line is hidden (width 0)
     &::before {
       transform: translateY(-50%) scaleX(0);
+
+      @include for-tablet {
+        transform: scaleY(0);
+        transform-origin: top;
+      }
     }
 
     .process-step {
@@ -347,12 +354,20 @@ article#process {
       .icon {
         opacity: 0;
         transform: translateX(-50%) translateY(20px);
+
+        @include for-tablet {
+          transform: translateX(-20px);
+        }
       }
 
       // Initial state: labels are hidden
       p {
         opacity: 0;
         transform: translateX(-50%) translateY(-20px);
+
+        @include for-tablet {
+          transform: translateX(-20px);
+        }
       }
     }
   }
@@ -360,76 +375,39 @@ article#process {
   // Animations triggered when .animate class is added
   &.animate {
     div#process-steps {
-      // Line extends from left to right
+      // Line extends from left to right (or top to bottom on tablet)
       &::before {
         animation: line-extend 1s ease-out 0s forwards;
+
+        @include for-tablet {
+          animation: line-extend-vertical 1s ease-out 0s forwards;
+        }
       }
 
       .process-step {
-        // Step 1: starts at 1s (after line finishes)
-        &:nth-child(1) {
-          .icon {
-            animation: icon-slide-down 0.5s ease-out 1s forwards;
-          }
-          p {
-            animation: label-slide-up 0.5s ease-out 1.15s forwards;
-          }
-          // Looping dot highlight - starts after all intro animations complete (3s delay)
-          // Each dot is lit for 1s out of 5s total cycle
-          &::before {
-            animation: dot-highlight 5s ease-in-out 3s infinite;
-          }
-        }
+        @for $i from 1 through 5 {
+          $base: 1s + ($i - 1) * 0.3s;
+          $label-delay: $base + 0.15s;
+          $dot-delay: 3s + ($i - 1) * 1s;
 
-        // Step 2: starts at 1.3s
-        &:nth-child(2) {
-          .icon {
-            animation: icon-slide-down 0.5s ease-out 1.3s forwards;
-          }
-          p {
-            animation: label-slide-up 0.5s ease-out 1.45s forwards;
-          }
-          &::before {
-            animation: dot-highlight 5s ease-in-out 4s infinite;
-          }
-        }
+          &:nth-child(#{$i}) {
+            .icon {
+              animation: icon-slide-down 0.5s ease-out #{$base} forwards;
 
-        // Step 3: starts at 1.6s
-        &:nth-child(3) {
-          .icon {
-            animation: icon-slide-down 0.5s ease-out 1.6s forwards;
-          }
-          p {
-            animation: label-slide-up 0.5s ease-out 1.75s forwards;
-          }
-          &::before {
-            animation: dot-highlight 5s ease-in-out 5s infinite;
-          }
-        }
+              @include for-tablet {
+                animation: slide-right-fade 0.5s ease-out #{$base} forwards;
+              }
+            }
+            p {
+              animation: label-slide-up 0.5s ease-out #{$label-delay} forwards;
 
-        // Step 4: starts at 1.9s
-        &:nth-child(4) {
-          .icon {
-            animation: icon-slide-down 0.5s ease-out 1.9s forwards;
-          }
-          p {
-            animation: label-slide-up 0.5s ease-out 2.05s forwards;
-          }
-          &::before {
-            animation: dot-highlight 5s ease-in-out 6s infinite;
-          }
-        }
-
-        // Step 5: starts at 2.2s
-        &:nth-child(5) {
-          .icon {
-            animation: icon-slide-down 0.5s ease-out 2.2s forwards;
-          }
-          p {
-            animation: label-slide-up 0.5s ease-out 2.35s forwards;
-          }
-          &::before {
-            animation: dot-highlight 5s ease-in-out 7s infinite;
+              @include for-tablet {
+                animation: slide-right-fade 0.5s ease-out #{$label-delay} forwards;
+              }
+            }
+            &::before {
+              animation: dot-highlight 5s ease-in-out #{$dot-delay} infinite;
+            }
           }
         }
       }
@@ -485,6 +463,26 @@ article#process {
   }
   to {
     transform: translateY(-50%) scaleX(1);
+  }
+}
+
+@keyframes slide-right-fade {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes line-extend-vertical {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
   }
 }
 

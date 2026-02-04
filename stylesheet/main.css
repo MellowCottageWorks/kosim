@@ -44,6 +44,12 @@ body main article[id]:last-of-type {
   height: calc(100vh - 7rem);
   padding-bottom: 0;
 }
+@media screen and (max-width: 768px) {
+  body main article[id]:last-of-type {
+    height: auto;
+    min-height: calc(100vh - 7rem);
+  }
+}
 body main article h2 {
   text-align: center;
   padding: 4rem;
@@ -57,6 +63,8 @@ body main article#hero {
   align-items: center;
   width: 100%;
   height: 100vh;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 body main article#hero p:first-child img.bg {
   position: absolute;
@@ -145,6 +153,11 @@ body main article#why-we-started > p img.right {
 body main article#why-we-started > p img.left {
   width: 36vw;
 }
+@media screen and (max-width: 768px) {
+  body main article#why-we-started > p {
+    display: none;
+  }
+}
 body main article#why-we-started div {
   width: 47vw;
   z-index: 2;
@@ -152,6 +165,18 @@ body main article#why-we-started div {
   text-align: center;
   font-size: 1.1em;
   padding: 2.5rem 0;
+}
+@media screen and (max-width: 768px) {
+  body main article#why-we-started div {
+    width: 80vw;
+  }
+}
+@media screen and (max-width: 576px) {
+  body main article#why-we-started div {
+    width: 90vw;
+    line-height: 2rem;
+    font-size: 1em;
+  }
 }
 body main article#why-we-started div p {
   margin-bottom: 2em;
@@ -179,6 +204,13 @@ body main article#core-strengths .strengths {
     gap: 1.5rem;
   }
 }
+@media screen and (max-width: 768px) {
+  body main article#core-strengths .strengths {
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 1rem;
+  }
+}
 @media screen and (max-width: 375px) {
   body main article#core-strengths .strengths {
     gap: 0.75rem;
@@ -190,6 +222,19 @@ body main article#core-strengths .strengths div.strength-card {
   flex: 0 0 15rem;
   height: 15rem;
   position: relative;
+}
+@media screen and (max-width: 768px) {
+  body main article#core-strengths .strengths div.strength-card {
+    flex: 0 0 auto;
+    height: auto;
+    width: 90vw;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    text-align: left;
+    padding: 1rem;
+    gap: 1rem;
+  }
 }
 body main article#core-strengths .strengths div.strength-card .material-cover {
   position: absolute;
@@ -204,8 +249,25 @@ body main article#core-strengths .strengths div.strength-card .material-cover {
   width: 5em;
   height: 5em;
 }
+@media screen and (max-width: 768px) {
+  body main article#core-strengths .strengths div.strength-card .material-cover {
+    position: static;
+    transform: none;
+    flex-shrink: 0;
+    width: 3.5em;
+    height: 3.5em;
+  }
+}
 body main article#core-strengths .strengths div.strength-card h3 {
   margin-top: 8rem;
+}
+@media screen and (max-width: 768px) {
+  body main article#core-strengths .strengths div.strength-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+    width: 10rem;
+    flex-shrink: 0;
+  }
 }
 body main article#core-strengths .strengths div.strength-card img {
   max-height: 6rem;
@@ -780,7 +842,7 @@ body main article#vision .vision-split .vision-content button.CTA {
   font-weight: bold;
 }
 body main article#contact {
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
   box-sizing: border-box;
   display: flex;
   flex-flow: column nowrap;
@@ -918,7 +980,7 @@ body main article#contact .contact-grid .contact-form-wrap form button.CTA {
 body footer {
   position: relative;
   z-index: 1;
-  padding: 3rem 2rem;
+  padding: 0.5rem 2rem;
 }
 body footer .footer-content {
   display: flex;
@@ -1261,22 +1323,53 @@ article#core-strengths-cont.animate ul li:nth-child(3) div:nth-child(2) span {
 article#process div#process-steps::before {
   transform: translateY(-50%) scaleX(0);
 }
+@media screen and (max-width: 768px) {
+  article#process div#process-steps::before {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+}
 article#process div#process-steps .process-step .icon {
   opacity: 0;
   transform: translateX(-50%) translateY(20px);
+}
+@media screen and (max-width: 768px) {
+  article#process div#process-steps .process-step .icon {
+    transform: translateX(-20px);
+  }
 }
 article#process div#process-steps .process-step p {
   opacity: 0;
   transform: translateX(-50%) translateY(-20px);
 }
+@media screen and (max-width: 768px) {
+  article#process div#process-steps .process-step p {
+    transform: translateX(-20px);
+  }
+}
 article#process.animate div#process-steps::before {
   animation: line-extend 1s ease-out 0s forwards;
+}
+@media screen and (max-width: 768px) {
+  article#process.animate div#process-steps::before {
+    animation: line-extend-vertical 1s ease-out 0s forwards;
+  }
 }
 article#process.animate div#process-steps .process-step:nth-child(1) .icon {
   animation: icon-slide-down 0.5s ease-out 1s forwards;
 }
+@media screen and (max-width: 768px) {
+  article#process.animate div#process-steps .process-step:nth-child(1) .icon {
+    animation: slide-right-fade 0.5s ease-out 1s forwards;
+  }
+}
 article#process.animate div#process-steps .process-step:nth-child(1) p {
   animation: label-slide-up 0.5s ease-out 1.15s forwards;
+}
+@media screen and (max-width: 768px) {
+  article#process.animate div#process-steps .process-step:nth-child(1) p {
+    animation: slide-right-fade 0.5s ease-out 1.15s forwards;
+  }
 }
 article#process.animate div#process-steps .process-step:nth-child(1)::before {
   animation: dot-highlight 5s ease-in-out 3s infinite;
@@ -1284,8 +1377,18 @@ article#process.animate div#process-steps .process-step:nth-child(1)::before {
 article#process.animate div#process-steps .process-step:nth-child(2) .icon {
   animation: icon-slide-down 0.5s ease-out 1.3s forwards;
 }
+@media screen and (max-width: 768px) {
+  article#process.animate div#process-steps .process-step:nth-child(2) .icon {
+    animation: slide-right-fade 0.5s ease-out 1.3s forwards;
+  }
+}
 article#process.animate div#process-steps .process-step:nth-child(2) p {
   animation: label-slide-up 0.5s ease-out 1.45s forwards;
+}
+@media screen and (max-width: 768px) {
+  article#process.animate div#process-steps .process-step:nth-child(2) p {
+    animation: slide-right-fade 0.5s ease-out 1.45s forwards;
+  }
 }
 article#process.animate div#process-steps .process-step:nth-child(2)::before {
   animation: dot-highlight 5s ease-in-out 4s infinite;
@@ -1293,8 +1396,18 @@ article#process.animate div#process-steps .process-step:nth-child(2)::before {
 article#process.animate div#process-steps .process-step:nth-child(3) .icon {
   animation: icon-slide-down 0.5s ease-out 1.6s forwards;
 }
+@media screen and (max-width: 768px) {
+  article#process.animate div#process-steps .process-step:nth-child(3) .icon {
+    animation: slide-right-fade 0.5s ease-out 1.6s forwards;
+  }
+}
 article#process.animate div#process-steps .process-step:nth-child(3) p {
   animation: label-slide-up 0.5s ease-out 1.75s forwards;
+}
+@media screen and (max-width: 768px) {
+  article#process.animate div#process-steps .process-step:nth-child(3) p {
+    animation: slide-right-fade 0.5s ease-out 1.75s forwards;
+  }
 }
 article#process.animate div#process-steps .process-step:nth-child(3)::before {
   animation: dot-highlight 5s ease-in-out 5s infinite;
@@ -1302,8 +1415,18 @@ article#process.animate div#process-steps .process-step:nth-child(3)::before {
 article#process.animate div#process-steps .process-step:nth-child(4) .icon {
   animation: icon-slide-down 0.5s ease-out 1.9s forwards;
 }
+@media screen and (max-width: 768px) {
+  article#process.animate div#process-steps .process-step:nth-child(4) .icon {
+    animation: slide-right-fade 0.5s ease-out 1.9s forwards;
+  }
+}
 article#process.animate div#process-steps .process-step:nth-child(4) p {
   animation: label-slide-up 0.5s ease-out 2.05s forwards;
+}
+@media screen and (max-width: 768px) {
+  article#process.animate div#process-steps .process-step:nth-child(4) p {
+    animation: slide-right-fade 0.5s ease-out 2.05s forwards;
+  }
 }
 article#process.animate div#process-steps .process-step:nth-child(4)::before {
   animation: dot-highlight 5s ease-in-out 6s infinite;
@@ -1311,8 +1434,18 @@ article#process.animate div#process-steps .process-step:nth-child(4)::before {
 article#process.animate div#process-steps .process-step:nth-child(5) .icon {
   animation: icon-slide-down 0.5s ease-out 2.2s forwards;
 }
+@media screen and (max-width: 768px) {
+  article#process.animate div#process-steps .process-step:nth-child(5) .icon {
+    animation: slide-right-fade 0.5s ease-out 2.2s forwards;
+  }
+}
 article#process.animate div#process-steps .process-step:nth-child(5) p {
   animation: label-slide-up 0.5s ease-out 2.35s forwards;
+}
+@media screen and (max-width: 768px) {
+  article#process.animate div#process-steps .process-step:nth-child(5) p {
+    animation: slide-right-fade 0.5s ease-out 2.35s forwards;
+  }
 }
 article#process.animate div#process-steps .process-step:nth-child(5)::before {
   animation: dot-highlight 5s ease-in-out 7s infinite;
@@ -1357,6 +1490,24 @@ article#process.animate > p:last-of-type {
   }
   to {
     transform: translateY(-50%) scaleX(1);
+  }
+}
+@keyframes slide-right-fade {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes line-extend-vertical {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
   }
 }
 @keyframes fade-out {

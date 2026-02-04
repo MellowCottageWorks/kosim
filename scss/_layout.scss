@@ -44,6 +44,11 @@ body {
         &:last-of-type {
           height: calc(100vh - 7rem);
           padding-bottom: 0;
+
+          @include for-tablet {
+            height: auto;
+            min-height: calc(100vh - 7rem);
+          }
         }
       }
 
@@ -61,6 +66,9 @@ body {
         align-items: center;
         width: 100%;
         height: 100vh;
+        // TODO: remove when hero responsive design is decided
+        overflow-x: hidden;
+        max-width: 100vw;
 
         p:first-child {
           img.bg {
@@ -166,6 +174,10 @@ body {
           img.left {
             width: 36vw;
           }
+
+          @include for-tablet {
+            display: none;
+          }
         }
 
         div {
@@ -175,6 +187,16 @@ body {
           text-align: center;
           font-size: 1.1em;
           padding: 2.5rem 0;
+
+          @include for-tablet {
+            width: 80vw;
+          }
+
+          @include for-mobile {
+            width: 90vw;
+            line-height: 2rem;
+            font-size: 1em;
+          }
 
           p {
             margin-bottom: 2em;
@@ -207,6 +229,12 @@ body {
             gap: 1.5rem;
           }
 
+          @include for-tablet {
+            flex-flow: column nowrap;
+            align-items: center;
+            gap: 1rem;
+          }
+
           @include for-mobile-sm {
             gap: 0.75rem;
           }
@@ -217,6 +245,18 @@ body {
             flex: 0 0 15rem;
             height: 15rem;
             position: relative;
+
+            @include for-tablet {
+              flex: 0 0 auto;
+              height: auto;
+              width: 90vw;
+              display: flex;
+              flex-flow: row nowrap;
+              align-items: center;
+              text-align: left;
+              padding: 1rem;
+              gap: 1rem;
+            }
 
             .material-cover {
               position: absolute;
@@ -231,10 +271,25 @@ body {
               border-radius: 1rem;
               width: 5em;
               height: 5em;
+
+              @include for-tablet {
+                position: static;
+                transform: none;
+                flex-shrink: 0;
+                width: 3.5em;
+                height: 3.5em;
+              }
             }
 
             h3 {
               margin-top: 8rem;
+
+              @include for-tablet {
+                margin-top: 0;
+                margin-bottom: 0.25rem;
+                width: 10rem;
+                flex-shrink: 0;
+              }
             }
 
             img {
@@ -882,7 +937,7 @@ body {
       }
 
       &#contact {
-        padding: 4rem 2rem;
+        padding: 2rem 2rem;
         box-sizing: border-box;
         display: flex;
         flex-flow: column nowrap;
@@ -1046,7 +1101,7 @@ body {
   footer {
     position: relative;
     z-index: 1;
-    padding: 3rem 2rem;
+    padding: 0.5rem 2rem;
 
     .footer-content {
       display: flex;
