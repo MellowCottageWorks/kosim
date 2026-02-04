@@ -790,6 +790,7 @@ body {
 
           .journey, .certifications {
             flex: 1 1 50%;
+            padding-left: 4rem;
 
             @include for-tablet {
               flex: 1 1 auto;
