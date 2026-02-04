@@ -8,7 +8,10 @@ document.addEventListener('DOMContentLoaded', function () {
     var saved = window.scrollY
     window.scrollTo({ top: 0 })
 
-    targets = stackArticles.map(function (el) {
+    targets = stackArticles.map(function (el, i) {
+      if (i === stackArticles.length - 1) {
+        return document.documentElement.scrollHeight - window.innerHeight
+      }
       return el.offsetTop - offsetOffset
     })
 
