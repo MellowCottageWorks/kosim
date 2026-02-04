@@ -839,7 +839,7 @@ body main article#vision .vision-split .vision-content {
 @media screen and (max-width: 768px) {
   body main article#vision .vision-split .vision-content {
     flex: 0 0 auto;
-    padding: 3rem 2rem;
+    padding: 0 2rem 3rem;
   }
 }
 body main article#vision .vision-split .vision-content .tag {
