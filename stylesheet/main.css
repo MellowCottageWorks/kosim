@@ -177,19 +177,23 @@ body main article#why-we-started > p {
   z-index: 1;
 }
 body main article#why-we-started > p:first-of-type {
-  top: 24vh;
+  top: 50%;
   left: 57vw;
+  transform: translateY(-50%);
 }
 body main article#why-we-started > p:nth-of-type(2) {
-  top: 8vh;
+  top: 50%;
   left: 12vw;
+  transform: translateY(-50%);
 }
 @media screen and (max-width: 768px) {
   body main article#why-we-started > p:first-of-type {
     top: 54vh;
+    transform: none;
   }
   body main article#why-we-started > p:nth-of-type(2) {
     top: 20vh;
+    transform: none;
   }
 }
 body main article#why-we-started > p img {
