@@ -283,6 +283,14 @@ article#process div#process-steps .process-step p {
     transform: translateX(-20px);
   }
 }
+@media screen and (max-width: 768px) {
+  article#process div#process-steps .process-step:nth-child(even) .icon {
+    transform: translateX(20px);
+  }
+  article#process div#process-steps .process-step:nth-child(even) p {
+    transform: translateX(20px);
+  }
+}
 article#process.animate div#process-steps::before {
   animation: line-extend 1s ease-out 0s forwards;
 }
@@ -315,7 +323,7 @@ article#process.animate div#process-steps .process-step:nth-child(2) .icon {
 }
 @media screen and (max-width: 768px) {
   article#process.animate div#process-steps .process-step:nth-child(2) .icon {
-    animation: slide-right-fade 0.5s ease-out 1.3s forwards;
+    animation: slide-left-fade 0.5s ease-out 1.3s forwards;
   }
 }
 article#process.animate div#process-steps .process-step:nth-child(2) p {
@@ -323,7 +331,7 @@ article#process.animate div#process-steps .process-step:nth-child(2) p {
 }
 @media screen and (max-width: 768px) {
   article#process.animate div#process-steps .process-step:nth-child(2) p {
-    animation: slide-right-fade 0.5s ease-out 1.45s forwards;
+    animation: slide-left-fade 0.5s ease-out 1.45s forwards;
   }
 }
 article#process.animate div#process-steps .process-step:nth-child(2)::before {
@@ -353,7 +361,7 @@ article#process.animate div#process-steps .process-step:nth-child(4) .icon {
 }
 @media screen and (max-width: 768px) {
   article#process.animate div#process-steps .process-step:nth-child(4) .icon {
-    animation: slide-right-fade 0.5s ease-out 1.9s forwards;
+    animation: slide-left-fade 0.5s ease-out 1.9s forwards;
   }
 }
 article#process.animate div#process-steps .process-step:nth-child(4) p {
@@ -361,7 +369,7 @@ article#process.animate div#process-steps .process-step:nth-child(4) p {
 }
 @media screen and (max-width: 768px) {
   article#process.animate div#process-steps .process-step:nth-child(4) p {
-    animation: slide-right-fade 0.5s ease-out 2.05s forwards;
+    animation: slide-left-fade 0.5s ease-out 2.05s forwards;
   }
 }
 article#process.animate div#process-steps .process-step:nth-child(4)::before {
@@ -432,6 +440,16 @@ article#process.animate > p:last-of-type {
   from {
     opacity: 0;
     transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slide-left-fade {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
   }
   to {
     opacity: 1;

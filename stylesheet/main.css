@@ -397,13 +397,19 @@ body main article#process div#process-steps {
 }
 @media screen and (max-width: 768px) {
   body main article#process div#process-steps {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
     width: 80%;
+    height: 50vh;
+    top: 0;
+    padding: 0;
+    margin: auto;
   }
 }
 @media screen and (max-width: 576px) {
   body main article#process div#process-steps {
     width: 90%;
-    padding: 6rem 0;
   }
 }
 body main article#process div#process-steps::before {
@@ -418,6 +424,18 @@ body main article#process div#process-steps::before {
   transform-origin: left;
   z-index: 1;
 }
+@media screen and (max-width: 768px) {
+  body main article#process div#process-steps::before {
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    right: auto;
+    width: 2px;
+    height: 100%;
+    transform: translateX(-50%);
+    transform-origin: top;
+  }
+}
 body main article#process div#process-steps .process-step {
   position: relative;
   flex: 0 0 auto;
@@ -425,6 +443,13 @@ body main article#process div#process-steps .process-step {
   flex-direction: column;
   align-items: center;
   z-index: 2;
+}
+@media screen and (max-width: 768px) {
+  body main article#process div#process-steps .process-step {
+    flex-direction: row;
+    width: 100%;
+    min-height: 3rem;
+  }
 }
 body main article#process div#process-steps .process-step::before {
   content: "";
@@ -450,8 +475,14 @@ body main article#process div#process-steps .process-step .icon {
   justify-content: center;
   border-radius: 1rem;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   body main article#process div#process-steps .process-step .icon {
+    position: absolute;
+    bottom: auto;
+    top: inherit;
+    left: auto;
+    right: calc(50% + 1.5rem);
+    transform: translateY(-50%);
     width: 3rem;
     height: 3rem;
   }
@@ -459,7 +490,7 @@ body main article#process div#process-steps .process-step .icon {
 body main article#process div#process-steps .process-step .icon .material-icons {
   font-size: 2rem;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   body main article#process div#process-steps .process-step .icon .material-icons {
     font-size: 1.5rem;
   }
@@ -475,11 +506,32 @@ body main article#process div#process-steps .process-step p {
   white-space: nowrap;
   font-size: 0.9rem;
 }
+@media screen and (max-width: 768px) {
+  body main article#process div#process-steps .process-step p {
+    position: absolute;
+    top: 24%;
+    left: calc(50% + 1.5rem);
+    right: auto;
+    transform: translateY(-50%);
+    padding: 0;
+    min-width: auto;
+    text-align: left;
+  }
+}
 @media screen and (max-width: 576px) {
   body main article#process div#process-steps .process-step p {
-    padding: 0.5rem 0.75rem;
-    min-width: 4rem;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  body main article#process div#process-steps .process-step:nth-child(even) .icon {
+    right: auto;
+    left: calc(50% + 1.5rem);
+  }
+  body main article#process div#process-steps .process-step:nth-child(even) p {
+    left: auto;
+    right: calc(50% + 1.5rem);
+    text-align: right;
   }
 }
 body main article#process > p:last-of-type {
@@ -1347,6 +1399,14 @@ article#process div#process-steps .process-step p {
     transform: translateX(-20px);
   }
 }
+@media screen and (max-width: 768px) {
+  article#process div#process-steps .process-step:nth-child(even) .icon {
+    transform: translateX(20px);
+  }
+  article#process div#process-steps .process-step:nth-child(even) p {
+    transform: translateX(20px);
+  }
+}
 article#process.animate div#process-steps::before {
   animation: line-extend 1s ease-out 0s forwards;
 }
@@ -1379,7 +1439,7 @@ article#process.animate div#process-steps .process-step:nth-child(2) .icon {
 }
 @media screen and (max-width: 768px) {
   article#process.animate div#process-steps .process-step:nth-child(2) .icon {
-    animation: slide-right-fade 0.5s ease-out 1.3s forwards;
+    animation: slide-left-fade 0.5s ease-out 1.3s forwards;
   }
 }
 article#process.animate div#process-steps .process-step:nth-child(2) p {
@@ -1387,7 +1447,7 @@ article#process.animate div#process-steps .process-step:nth-child(2) p {
 }
 @media screen and (max-width: 768px) {
   article#process.animate div#process-steps .process-step:nth-child(2) p {
-    animation: slide-right-fade 0.5s ease-out 1.45s forwards;
+    animation: slide-left-fade 0.5s ease-out 1.45s forwards;
   }
 }
 article#process.animate div#process-steps .process-step:nth-child(2)::before {
@@ -1417,7 +1477,7 @@ article#process.animate div#process-steps .process-step:nth-child(4) .icon {
 }
 @media screen and (max-width: 768px) {
   article#process.animate div#process-steps .process-step:nth-child(4) .icon {
-    animation: slide-right-fade 0.5s ease-out 1.9s forwards;
+    animation: slide-left-fade 0.5s ease-out 1.9s forwards;
   }
 }
 article#process.animate div#process-steps .process-step:nth-child(4) p {
@@ -1425,7 +1485,7 @@ article#process.animate div#process-steps .process-step:nth-child(4) p {
 }
 @media screen and (max-width: 768px) {
   article#process.animate div#process-steps .process-step:nth-child(4) p {
-    animation: slide-right-fade 0.5s ease-out 2.05s forwards;
+    animation: slide-left-fade 0.5s ease-out 2.05s forwards;
   }
 }
 article#process.animate div#process-steps .process-step:nth-child(4)::before {
@@ -1496,6 +1556,16 @@ article#process.animate > p:last-of-type {
   from {
     opacity: 0;
     transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slide-left-fade {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
   }
   to {
     opacity: 1;

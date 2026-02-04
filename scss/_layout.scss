@@ -433,12 +433,18 @@ body {
           padding: 8rem 0;
 
           @include for-tablet {
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: stretch;
             width: 80%;
+            height: 50vh;
+            top: 0;
+            padding: 0;
+            margin: auto;
           }
 
           @include for-mobile {
             width: 90%;
-            padding: 6rem 0;
           }
 
           // Horizontal timeline line (spans full container width)
@@ -453,6 +459,17 @@ body {
             transform: translateY(-50%);
             transform-origin: left;
             z-index: 1;
+
+            @include for-tablet {
+              top: 0;
+              bottom: 0;
+              left: 50%;
+              right: auto;
+              width: 2px;
+              height: 100%;
+              transform: translateX(-50%);
+              transform-origin: top;
+            }
           }
 
           .process-step {
@@ -462,6 +479,12 @@ body {
             flex-direction: column;
             align-items: center;
             z-index: 2;
+
+            @include for-tablet {
+              flex-direction: row;
+              width: 100%;
+              min-height: 3rem;
+            }
 
             // Dot on the line
             &::before {
@@ -477,7 +500,7 @@ body {
               z-index: 3;
             }
 
-            // Icon container - always above the line
+            // Icon container - above the line on desktop
             .icon {
               position: absolute;
               bottom: calc(50% + 1.5rem);
@@ -490,7 +513,13 @@ body {
               justify-content: center;
               border-radius: 1rem;
 
-              @include for-mobile {
+              @include for-tablet {
+                position: absolute;
+                bottom: auto;
+                top: inherit;
+                left: auto;
+                right: calc(50% + 1.5rem);
+                transform: translateY(-50%);
                 width: 3rem;
                 height: 3rem;
               }
@@ -498,13 +527,13 @@ body {
               .material-icons {
                 font-size: 2rem;
 
-                @include for-mobile {
+                @include for-tablet {
                   font-size: 1.5rem;
                 }
               }
             }
 
-            // Label box - always below the line
+            // Label box - below the line on desktop
             p {
               position: absolute;
               top: calc(50% + 1.5rem);
@@ -516,10 +545,34 @@ body {
               white-space: nowrap;
               font-size: 0.9rem;
 
+              @include for-tablet {
+                position: absolute;
+                top: 24%;
+                left: calc(50% + 1.5rem);
+                right: auto;
+                transform: translateY(-50%);
+                padding: 0;
+                min-width: auto;
+                text-align: left;
+              }
+
               @include for-mobile {
-                padding: 0.5rem 0.75rem;
-                min-width: 4rem;
-                font-size: 0.75rem;
+                font-size: 0.85rem;
+              }
+            }
+
+            // Even steps (2, 4): flip icon to right, label to left
+            @include for-tablet {
+              &:nth-child(even) {
+                .icon {
+                  right: auto;
+                  left: calc(50% + 1.5rem);
+                }
+                p {
+                  left: auto;
+                  right: calc(50% + 1.5rem);
+                  text-align: right;
+                }
               }
             }
           }
@@ -531,6 +584,9 @@ body {
           top: $shift;
           text-align: center;
           opacity: 0;
+
+          @include for-tablet {
+          }
         }
       }
 
