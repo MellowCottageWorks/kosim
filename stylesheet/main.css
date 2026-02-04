@@ -167,6 +167,7 @@ body main article#why-we-started {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-x: hidden;
 }
 body main article#why-we-started h2 {
   display: none;

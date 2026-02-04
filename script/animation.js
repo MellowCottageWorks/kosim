@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
   dots.forEach(function (dot) {
     dot.addEventListener('click', function (e) {
       e.preventDefault()
+      if (typeof pageScrollLocked !== 'undefined' && pageScrollLocked) return
       var id = dot.getAttribute('href').substring(1)
       if (id in scrollTargets) {
         window.scrollTo({ top: scrollTargets[id], behavior: 'smooth' })
