@@ -262,8 +262,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var values = document.getElementById('values-and-direction')
   if (values) {
-    var counters = values.querySelectorAll('strong[data-count-to]')
+    var counters = values.querySelectorAll('strong[data-count-up]')
     var counted = false
+
+    // Parse each counter's text to extract number and suffix
+    var counterData = []
+    counters.forEach(function (el) {
+      var text = el.textContent.trim()
+      // Match number (with optional commas) and everything after
+      var match = text.match(/^([\d,]+)(.*)$/)
+      if (match) {
+        var numStr = match[1]
+        var suffix = match[2]
+        var useComma = numStr.indexOf(',') !== -1
+        var target = parseInt(numStr.replace(/,/g, ''), 10)
+        counterData.push({ el: el, target: target, suffix: suffix, useComma: useComma })
+      }
+    })
 
     function formatNumber (n, useComma) {
       if (!useComma) return String(n)
@@ -274,10 +289,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (counted) return
       counted = true
 
-      counters.forEach(function (el) {
-        var target = parseInt(el.getAttribute('data-count-to'), 10)
-        var suffix = el.getAttribute('data-count-suffix') || ''
-        var useComma = el.getAttribute('data-count-comma') === 'true'
+      counterData.forEach(function (data) {
         var duration = 2700
         var start = performance.now()
 
@@ -286,9 +298,9 @@ document.addEventListener('DOMContentLoaded', function () {
           var progress = Math.min(elapsed / duration, 1)
           // ease-out quad
           var eased = 1 - (1 - progress) * (1 - progress)
-          var current = Math.round(eased * target)
+          var current = Math.round(eased * data.target)
 
-          el.textContent = formatNumber(current, useComma) + suffix
+          data.el.textContent = formatNumber(current, data.useComma) + data.suffix
 
           if (progress < 1) {
             requestAnimationFrame(step)

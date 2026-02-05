@@ -4,15 +4,15 @@
 
 <div class="stats">
     <div class="stat">
-        <strong data-count-to="10" data-count-suffix=" 톤">0</strong>
+        <strong data-count-up>10 톤</strong>
         <span>누적 생산량</span>
     </div>
     <div class="stat">
-        <strong data-count-to="2" data-count-suffix="년+">0</strong>
+        <strong data-count-up>2년+</strong>
         <span>운영 경력</span>
     </div>
     <div class="stat">
-        <strong data-count-to="50000" data-count-suffix="+" data-count-comma="true">0</strong>
+        <strong data-count-up>50,000+</strong>
         <span>공급 수량</span>
     </div>
 </div>
