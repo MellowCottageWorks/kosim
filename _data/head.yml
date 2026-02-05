@@ -1,4 +1,4 @@
-favicon: '/image/logo.svg'
+favicon: './image/logo.svg'
 color: '#b10000'
 site-name: '고심'
 author: 'admin'
