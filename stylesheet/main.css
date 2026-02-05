@@ -15,12 +15,12 @@ html, body {
 }
 @media screen and (max-width: 576px) {
   html, body {
-    font-size: 13px;
+    font-size: 16px;
   }
 }
 @media screen and (max-width: 375px) {
   html, body {
-    font-size: 12px;
+    font-size: 15px;
   }
 }
 
@@ -49,6 +49,11 @@ body main article[id]:last-of-type {
   body main article[id]:last-of-type {
     height: auto;
     min-height: calc(100vh - 2rem);
+  }
+}
+@media screen and (max-width: 576px) {
+  body main article[id]:last-of-type {
+    min-height: auto;
   }
 }
 body main article h2 {
@@ -169,6 +174,11 @@ body main article#why-we-started {
   justify-content: center;
   overflow-x: hidden;
 }
+@media screen and (max-width: 576px) {
+  body main article#why-we-started {
+    padding-bottom: 0vh;
+  }
+}
 body main article#why-we-started h2 {
   display: none;
 }
@@ -196,6 +206,11 @@ body main article#why-we-started > p:nth-of-type(2) {
     transform: none;
   }
 }
+@media screen and (max-width: 576px) {
+  body main article#why-we-started > p:first-of-type {
+    top: 72vh;
+  }
+}
 body main article#why-we-started > p img {
   display: block;
 }
@@ -221,9 +236,11 @@ body main article#why-we-started div {
 }
 @media screen and (max-width: 576px) {
   body main article#why-we-started div {
-    width: 90vw;
+    width: 100%;
+    padding: 2.5rem 1rem;
     line-height: 2rem;
     font-size: 1em;
+    box-sizing: border-box;
   }
 }
 body main article#why-we-started div p {
@@ -240,6 +257,11 @@ body main article#core-strengths h2 {
 @media screen and (max-width: 1024px) {
   body main article#core-strengths h2 {
     top: 25vh;
+  }
+}
+@media screen and (max-width: 576px) {
+  body main article#core-strengths h2 {
+    top: 20vh;
   }
 }
 body main article#core-strengths .strengths {
@@ -288,6 +310,11 @@ body main article#core-strengths .strengths div.strength-card {
     text-align: left;
     padding: 1rem;
     gap: 1rem;
+  }
+}
+@media screen and (max-width: 576px) {
+  body main article#core-strengths .strengths div.strength-card {
+    width: 100%;
   }
 }
 body main article#core-strengths .strengths div.strength-card .material-cover {
@@ -384,6 +411,12 @@ body main article#core-strengths-cont ul li {
     max-height: 250px;
   }
 }
+@media screen and (max-width: 576px) {
+  body main article#core-strengths-cont ul li {
+    max-width: 100%;
+    padding: 0.5rem 1rem;
+  }
+}
 body main article#core-strengths-cont ul li div:first-child {
   justify-self: flex-end;
   width: 5rem;
@@ -400,6 +433,11 @@ body main article#core-strengths-cont ul li div:first-child {
 @media screen and (max-width: 768px) {
   body main article#core-strengths-cont ul li div:nth-child(2) {
     width: 65vw;
+  }
+}
+@media screen and (max-width: 576px) {
+  body main article#core-strengths-cont ul li div:nth-child(2) {
+    width: 100%;
   }
 }
 body main article#core-strengths-cont ul li div:nth-last-child(2) {
@@ -470,6 +508,8 @@ body main article#process div#process-steps {
 @media screen and (max-width: 576px) {
   body main article#process div#process-steps {
     width: 90%;
+    height: 40vh;
+    margin: 5rem;
   }
 }
 body main article#process div#process-steps::before {
@@ -716,6 +756,11 @@ body main article#values-and-direction .subtitle {
   margin-bottom: 2rem;
   line-height: 1.6;
 }
+@media screen and (max-width: 576px) {
+  body main article#values-and-direction .subtitle {
+    margin-bottom: 1rem;
+  }
+}
 body main article#values-and-direction .stats {
   display: flex;
   flex-flow: row wrap;
@@ -726,6 +771,11 @@ body main article#values-and-direction .stats {
 @media screen and (max-width: 768px) {
   body main article#values-and-direction .stats {
     gap: 1rem;
+  }
+}
+@media screen and (max-width: 576px) {
+  body main article#values-and-direction .stats {
+    margin-bottom: 1rem;
   }
 }
 body main article#values-and-direction .stats .stat {
@@ -739,6 +789,15 @@ body main article#values-and-direction .stats .stat {
 @media screen and (max-width: 768px) {
   body main article#values-and-direction .stats .stat {
     padding: 1.5rem 2rem;
+  }
+}
+@media screen and (max-width: 576px) {
+  body main article#values-and-direction .stats .stat {
+    padding: 0.2rem 1.5rem;
+    flex-flow: row nowrap;
+    gap: 0.2rem;
+    flex-basis: 100%;
+    justify-content: center;
   }
 }
 body main article#values-and-direction .stats .stat strong {
@@ -767,6 +826,11 @@ body main article#values-and-direction .two-columns {
     flex-flow: column nowrap;
     gap: 3rem;
     align-items: center;
+  }
+}
+@media screen and (max-width: 576px) {
+  body main article#values-and-direction .two-columns {
+    gap: 0rem;
   }
 }
 body main article#values-and-direction .two-columns .journey, body main article#values-and-direction .two-columns .certifications {
@@ -852,7 +916,7 @@ body main article#vision .vision-split .vision-image {
 @media screen and (max-width: 768px) {
   body main article#vision .vision-split .vision-image {
     flex: 0 0 auto;
-    min-height: 300px;
+    min-height: 40vh;
   }
 }
 body main article#vision .vision-split .vision-image img {
@@ -955,7 +1019,7 @@ body main article#vision .vision-split .vision-content button.CTA {
   font-weight: bold;
 }
 body main article#contact {
-  padding: 2rem 2rem;
+  padding: 2rem;
   box-sizing: border-box;
   display: flex;
   flex-flow: column nowrap;
@@ -977,6 +1041,11 @@ body main article#contact .contact-grid {
     gap: 3rem;
   }
 }
+@media screen and (max-width: 576px) {
+  body main article#contact .contact-grid {
+    gap: 1.5rem;
+  }
+}
 body main article#contact .contact-grid .contact-info h3 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
@@ -990,6 +1059,11 @@ body main article#contact .contact-grid .contact-info h3 {
 body main article#contact .contact-grid .contact-info > p {
   line-height: 1.6;
   margin-bottom: 2rem;
+}
+@media screen and (max-width: 576px) {
+  body main article#contact .contact-grid .contact-info > p {
+    margin-bottom: 1rem;
+  }
 }
 body main article#contact .contact-grid .contact-info .contact-methods {
   display: flex;
@@ -1025,6 +1099,11 @@ body main article#contact .contact-grid .contact-form-wrap {
   padding: 2rem;
   border-radius: 1.5rem;
 }
+@media screen and (max-width: 576px) {
+  body main article#contact .contact-grid .contact-form-wrap {
+    padding: 1rem;
+  }
+}
 body main article#contact .contact-grid .contact-form-wrap form {
   display: flex;
   flex-flow: column nowrap;
@@ -1045,17 +1124,42 @@ body main article#contact .contact-grid .contact-form-wrap form .form-group {
   flex-flow: column nowrap;
   gap: 0.5rem;
 }
+@media screen and (max-width: 576px) {
+  body main article#contact .contact-grid .contact-form-wrap form .form-group {
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+}
 body main article#contact .contact-grid .contact-form-wrap form .form-group label {
   font-size: 0.9rem;
   font-weight: bold;
+}
+@media screen and (max-width: 576px) {
+  body main article#contact .contact-grid .contact-form-wrap form .form-group label {
+    flex-shrink: 0;
+    min-width: 4.5rem;
+  }
 }
 body main article#contact .contact-grid .contact-form-wrap form .form-group input, body main article#contact .contact-grid .contact-form-wrap form .form-group textarea {
   padding: 0.75rem;
   border-radius: 0.5rem;
   font-size: 1rem;
 }
+@media screen and (max-width: 576px) {
+  body main article#contact .contact-grid .contact-form-wrap form .form-group input, body main article#contact .contact-grid .contact-form-wrap form .form-group textarea {
+    flex: 1;
+    min-width: 0;
+  }
+}
 body main article#contact .contact-grid .contact-form-wrap form .form-group textarea {
   resize: vertical;
+}
+@media screen and (max-width: 576px) {
+  body main article#contact .contact-grid .contact-form-wrap form .form-group:has(textarea), body main article#contact .contact-grid .contact-form-wrap form .form-group:has(.file-upload) {
+    flex-flow: column nowrap;
+    align-items: stretch;
+  }
 }
 body main article#contact .contact-grid .contact-form-wrap form .form-group .file-upload {
   border: 2px dashed;
@@ -1064,6 +1168,11 @@ body main article#contact .contact-grid .contact-form-wrap form .form-group .fil
   text-align: center;
   cursor: pointer;
   position: relative;
+}
+@media screen and (max-width: 576px) {
+  body main article#contact .contact-grid .contact-form-wrap form .form-group .file-upload {
+    padding: 0.75rem;
+  }
 }
 body main article#contact .contact-grid .contact-form-wrap form .form-group .file-upload .material-icons {
   font-size: 1.5rem;
@@ -1116,6 +1225,11 @@ body footer .footer-content .logo {
   align-items: center;
   gap: 0.5rem;
 }
+@media screen and (max-width: 576px) {
+  body footer .footer-content .logo {
+    display: none;
+  }
+}
 body footer .footer-content .logo img {
   width: 1.5rem;
   height: auto;
@@ -1131,6 +1245,11 @@ body footer .footer-content p {
 body footer .footer-content .social {
   display: flex;
   gap: 1rem;
+}
+@media screen and (max-width: 576px) {
+  body footer .footer-content .social {
+    display: none;
+  }
 }
 body footer .footer-content .social a {
   display: flex;

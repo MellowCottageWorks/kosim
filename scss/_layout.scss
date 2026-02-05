@@ -12,10 +12,10 @@ html, body {
     font-size: 14px;
   }
   @include for-mobile {
-    font-size: 13px;
+    font-size: 16px;
   }
   @include for-mobile-sm {
-    font-size: 12px;
+    font-size: 15px;
   }
 }
 html, body, p {
@@ -49,6 +49,10 @@ body {
           @include for-tablet {
             height: auto;
             min-height: calc(100vh - 2rem);
+          }
+
+          @include for-mobile {
+            min-height: auto;
           }
         }
       }
@@ -189,6 +193,10 @@ body {
         justify-content: center;
         overflow-x: hidden;
 
+        @include for-mobile {
+          padding-bottom: 0vh;
+        }
+
         h2 {
           display: none;
         }
@@ -219,6 +227,12 @@ body {
             }
           }
 
+          @include for-mobile {
+            &:first-of-type {
+              top: 72vh;
+            }
+          }
+
           img {
             display: block;
           }
@@ -246,9 +260,11 @@ body {
           }
 
           @include for-mobile {
-            width: 90vw;
+            width: 100%;
+            padding: 2.5rem 1rem;
             line-height: 2rem;
             font-size: 1em;
+            box-sizing: border-box;
           }
 
           p {
@@ -269,6 +285,10 @@ body {
 
           @include for-laptop {
             top: 25vh;
+          }
+
+          @include for-mobile {
+            top: 20vh;
           }
         }
 
@@ -314,6 +334,10 @@ body {
               text-align: left;
               padding: 1rem;
               gap: 1rem;
+            }
+
+            @include for-mobile {
+              width: 100%;
             }
 
             .material-cover {
@@ -417,6 +441,11 @@ body {
               max-height: 250px;
             }
 
+            @include for-mobile {
+              max-width: 100%;
+              padding: .5rem 1rem;
+            }
+
             div {
               &:first-child {
                 justify-self: flex-end;
@@ -435,6 +464,10 @@ body {
 
                 @include for-tablet {
                   width: 65vw;
+                }
+
+                @include for-mobile {
+                  width: 100%;
                 }
               }
 
@@ -510,6 +543,8 @@ body {
 
           @include for-mobile {
             width: 90%;
+            height: 40vh;
+            margin: 5rem;
           }
 
           // Horizontal timeline line (spans full container width)
@@ -786,6 +821,10 @@ body {
           max-width: 600px;
           margin-bottom: 2rem;
           line-height: 1.6;
+
+          @include for-mobile {
+            margin-bottom: 1rem;
+          }
         }
 
         .stats {
@@ -799,6 +838,10 @@ body {
             gap: 1rem;
           }
 
+          @include for-mobile {
+            margin-bottom: 1rem;
+          }
+
           .stat {
             display: flex;
             flex-flow: column nowrap;
@@ -809,6 +852,14 @@ body {
 
             @include for-tablet {
               padding: 1.5rem 2rem;
+            }
+
+            @include for-mobile {
+              padding: .2rem 1.5rem;
+              flex-flow: row nowrap;
+              gap: 0.2rem;
+              flex-basis: 100%;
+              justify-content: center;
             }
 
             strong {
@@ -839,6 +890,10 @@ body {
             flex-flow: column nowrap;
             gap: 3rem;
             align-items: center;
+          }
+
+          @include for-mobile {
+            gap: 0rem;
           }
 
           .journey, .certifications {
@@ -940,7 +995,7 @@ body {
 
             @include for-tablet {
               flex: 0 0 auto;
-              min-height: 300px;
+              min-height: 40vh;
             }
 
             img {
@@ -1056,7 +1111,7 @@ body {
       }
 
       &#contact {
-        padding: 2rem 2rem;
+        padding: 2rem;
         box-sizing: border-box;
         display: flex;
         flex-flow: column nowrap;
@@ -1078,6 +1133,10 @@ body {
             gap: 3rem;
           }
 
+          @include for-mobile {
+            gap: 1.5rem;
+          }
+
           .contact-info {
             h3 {
               font-size: 2.5rem;
@@ -1092,6 +1151,10 @@ body {
             & > p {
               line-height: 1.6;
               margin-bottom: 2rem;
+
+              @include for-mobile {
+                margin-bottom: 1rem;
+              }
             }
 
             .contact-methods {
@@ -1137,6 +1200,10 @@ body {
             padding: 2rem;
             border-radius: 1.5rem;
 
+            @include for-mobile {
+              padding: 1rem;
+            }
+
             form {
               display: flex;
               flex-flow: column nowrap;
@@ -1157,19 +1224,42 @@ body {
                 flex-flow: column nowrap;
                 gap: 0.5rem;
 
+                @include for-mobile {
+                  flex-flow: row nowrap;
+                  align-items: center;
+                  gap: 0.75rem;
+                }
+
                 label {
                   font-size: 0.9rem;
                   font-weight: bold;
+
+                  @include for-mobile {
+                    flex-shrink: 0;
+                    min-width: 4.5rem;
+                  }
                 }
 
                 input, textarea {
                   padding: 0.75rem;
                   border-radius: 0.5rem;
                   font-size: 1rem;
+
+                  @include for-mobile {
+                    flex: 1;
+                    min-width: 0;
+                  }
                 }
 
                 textarea {
                   resize: vertical;
+                }
+
+                &:has(textarea), &:has(.file-upload) {
+                  @include for-mobile {
+                    flex-flow: column nowrap;
+                    align-items: stretch;
+                  }
                 }
 
                 .file-upload {
@@ -1179,6 +1269,10 @@ body {
                   text-align: center;
                   cursor: pointer;
                   position: relative;
+
+                  @include for-mobile {
+                    padding: 0.75rem;
+                  }
 
                   .material-icons {
                     font-size: 1.5rem;
@@ -1242,6 +1336,10 @@ body {
         align-items: center;
         gap: 0.5rem;
 
+        @include for-mobile {
+          display: none;
+        }
+
         img {
           width: 1.5rem;
           height: auto;
@@ -1261,6 +1359,10 @@ body {
       .social {
         display: flex;
         gap: 1rem;
+
+        @include for-mobile {
+          display: none;
+        }
 
         a {
           display: flex;
