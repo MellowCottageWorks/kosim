@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var duration = 500
   var targets = []
   var touchStartY = null
+  var touchStartIndex = null
 
   function cacheTargets () {
     targets = articleOffsets.slice()
@@ -77,25 +78,54 @@ document.addEventListener('DOMContentLoaded', function () {
     snapTo(e.deltaY)
   }, { passive: false })
 
-  // Touch events
+  // Touch events — let browser scroll freely, snap on release
   document.addEventListener('touchstart', function (e) {
     if (pageScrollLocked) return
     touchStartY = e.touches[0].clientY
+    touchStartIndex = getCurrentIndex()
   }, { passive: true })
 
   document.addEventListener('touchmove', function (e) {
-    if (touchStartY !== null || pageScrollLocked) e.preventDefault()
-  }, { passive: false })
+    if (pageScrollLocked) return
+  })
 
   document.addEventListener('touchend', function (e) {
-    if (pageScrollLocked || touchStartY === null) return
+    if (pageScrollLocked || touchStartY === null || touchStartIndex === null) return
 
     var touchEndY = e.changedTouches[0].clientY
     var deltaY = touchStartY - touchEndY
     touchStartY = null
 
-    if (Math.abs(deltaY) < 30) return
+    if (Math.abs(deltaY) < 30) {
+      // undo small native scroll: snap back to where the gesture started
+      var from = window.scrollY
+      var to = targets[touchStartIndex]
 
-    snapTo(deltaY)
+      if (Math.abs(from - to) >= 2) {
+        updateCurrentLi(stackArticles[touchStartIndex])
+        animateScroll(from, to)
+      }
+
+      touchStartIndex = null
+      return
+    }
+
+    // Determine target based on swipe direction from current scroll position
+    var currentIndex = touchStartIndex
+    var nextIndex
+
+    if (deltaY > 0) {
+      nextIndex = Math.min(currentIndex + 1, targets.length - 1)
+    } else {
+      nextIndex = Math.max(currentIndex - 1, 0)
+    }
+
+    var from = window.scrollY
+    var to = targets[nextIndex]
+
+    if (Math.abs(from - to) < 2) return
+
+    updateCurrentLi(stackArticles[nextIndex])
+    animateScroll(from, to)
   }, { passive: true })
 })

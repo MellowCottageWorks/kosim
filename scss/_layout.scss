@@ -413,6 +413,10 @@ body {
 
         h3 {
           margin: 1rem 0 3rem;
+
+          @include for-mobile {
+            text-align: center;
+          }
         }
 
         ul {
@@ -444,6 +448,9 @@ body {
             @include for-mobile {
               max-width: 100%;
               padding: .5rem 1rem;
+              overflow: hidden;
+              box-sizing: border-box;
+              flex-wrap: wrap;
             }
 
             div {
@@ -467,13 +474,16 @@ body {
                 }
 
                 @include for-mobile {
-                  width: 100%;
+                  width: auto;
+                  min-width: 0;
+                  flex-shrink: 1;
                 }
               }
 
               &:nth-last-child(2) {
                 margin-top: auto;
                 padding-bottom: 1rem;
+                min-width: 0;
 
                 @include for-laptop {
                   margin: auto 0;
@@ -488,6 +498,11 @@ body {
                   flex-flow: column nowrap;
                   justify-content: center;
                   padding-bottom: 0;
+                }
+
+                @include for-mobile {
+                  flex-flow: row wrap;
+                  gap: 0.25rem;
                 }
               }
 
@@ -506,6 +521,10 @@ body {
                 @include for-laptop {
                   display: inline-block;
                   margin-bottom: .2rem;
+                }
+
+                @include for-mobile {
+                  margin: .2rem .2rem 0 0;
                 }
               }
             }
