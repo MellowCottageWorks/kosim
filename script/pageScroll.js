@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }, { passive: true })
 
   document.addEventListener('touchmove', function (e) {
-    if (pageScrollLocked) e.preventDefault()
+    if (touchStartY !== null || pageScrollLocked) e.preventDefault()
   }, { passive: false })
 
   document.addEventListener('touchend', function (e) {
