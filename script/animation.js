@@ -27,6 +27,25 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   })
 
+  // --- Hero CTA: scroll to bottom of page ---
+  var heroCta = document.getElementById('hero-cta')
+  if (heroCta) {
+    heroCta.addEventListener('click', function (e) {
+      e.preventDefault()
+      if (typeof pageScrollLocked !== 'undefined' && pageScrollLocked) return
+      var lastArticle = stackArticles[stackArticles.length - 1]
+      if (lastArticle) {
+        updateCurrentLi(lastArticle)
+      }
+      var bottom = document.documentElement.scrollHeight - window.innerHeight
+      if (typeof window.animateScrollTo === 'function') {
+        window.animateScrollTo(bottom)
+      } else {
+        window.scrollTo({ top: bottom, behavior: 'smooth' })
+      }
+    })
+  }
+
   // --- Shared helpers ---
 
   // One-shot observer: adds 'animate' class once, then stops observing

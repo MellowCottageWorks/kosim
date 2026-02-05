@@ -31,6 +31,12 @@ document.addEventListener('DOMContentLoaded', function () {
     return 1 - Math.pow(1 - t, 3)
   }
 
+  // Expose globally for use by other scripts
+  window.animateScrollTo = function (to) {
+    if (pageScrollLocked) return
+    animateScroll(window.scrollY, to)
+  }
+
   function animateScroll (from, to) {
     pageScrollLocked = true
     var start = performance.now()

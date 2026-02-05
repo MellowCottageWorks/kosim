@@ -1,1 +1,1 @@
-<button type="{{ include.type }}" class="CTA">제품 구매 / OEM 및 기타 문의</button>
+<button type="{{ include.type | default: 'button' }}" class="CTA"{% if include.id %} id="{{ include.id }}"{% endif %}>제품 구매 / OEM 및 기타 문의</button>
