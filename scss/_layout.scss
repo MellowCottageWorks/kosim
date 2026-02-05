@@ -574,12 +574,8 @@ body {
 
 
               strong {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
                 line-height: 1.5rem;
-
-                @include for-mobile-sm {
-                  font-size: 1.2rem;
-                }
               }
               p {
                 font-size: .8rem;

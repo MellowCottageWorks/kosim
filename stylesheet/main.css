@@ -558,13 +558,8 @@ body main article#core-strengths-cont ul li div:last-child {
   }
 }
 body main article#core-strengths-cont ul li div strong {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   line-height: 1.5rem;
-}
-@media screen and (max-width: 375px) {
-  body main article#core-strengths-cont ul li div strong {
-    font-size: 1.2rem;
-  }
 }
 body main article#core-strengths-cont ul li div p {
   font-size: 0.8rem;
