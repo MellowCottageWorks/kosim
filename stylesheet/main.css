@@ -42,19 +42,9 @@ body main article[id] {
   box-sizing: border-box;
 }
 body main article[id]:last-of-type {
-  height: calc(100vh - 2rem);
+  height: auto;
+  min-height: calc(100vh - 2rem);
   padding-bottom: 0;
-}
-@media screen and (max-width: 768px) {
-  body main article[id]:last-of-type {
-    height: auto;
-    min-height: calc(100vh - 2rem);
-  }
-}
-@media screen and (max-width: 576px) {
-  body main article[id]:last-of-type {
-    min-height: auto;
-  }
 }
 body main article h2 {
   text-align: center;
@@ -1066,6 +1056,11 @@ body main article#contact {
   flex-flow: column nowrap;
   justify-content: center;
 }
+@media screen and (max-width: 576px) {
+  body main article#contact {
+    padding: 2rem 2rem 1rem;
+  }
+}
 body main article#contact h2 {
   display: none;
 }
@@ -1103,13 +1098,18 @@ body main article#contact .contact-grid .contact-info > p {
 }
 @media screen and (max-width: 576px) {
   body main article#contact .contact-grid .contact-info > p {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
 }
 body main article#contact .contact-grid .contact-info .contact-methods {
   display: flex;
   flex-flow: column nowrap;
   gap: 1.5rem;
+}
+@media screen and (max-width: 576px) {
+  body main article#contact .contact-grid .contact-info .contact-methods {
+    gap: 0.5rem;
+  }
 }
 body main article#contact .contact-grid .contact-info .contact-methods .method {
   display: flex;
@@ -1244,6 +1244,8 @@ body footer {
   position: relative;
   z-index: 1;
   padding: 0.5rem 2rem;
+  height: 2rem;
+  box-sizing: border-box;
 }
 body footer .footer-content {
   display: flex;

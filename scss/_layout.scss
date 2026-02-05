@@ -43,17 +43,9 @@ body {
         box-sizing: border-box;
 
         &:last-of-type {
-          height: calc(100vh - 2rem);
+          height: auto;
+          min-height: calc(100vh - 2rem);
           padding-bottom: 0;
-
-          @include for-tablet {
-            height: auto;
-            min-height: calc(100vh - 2rem);
-          }
-
-          @include for-mobile {
-            min-height: auto;
-          }
         }
       }
 
@@ -1151,6 +1143,10 @@ body {
         flex-flow: column nowrap;
         justify-content: center;
 
+        @include for-mobile {
+          padding: 2rem 2rem 1rem;
+        }
+
         h2 {
           display: none;
         }
@@ -1187,7 +1183,7 @@ body {
               margin-bottom: 2rem;
 
               @include for-mobile {
-                margin-bottom: 1rem;
+                margin-bottom: .5rem;
               }
             }
 
@@ -1195,6 +1191,10 @@ body {
               display: flex;
               flex-flow: column nowrap;
               gap: 1.5rem;
+
+              @include for-mobile {
+                gap: .5rem;
+              }
 
               .method {
                 display: flex;
@@ -1349,6 +1349,8 @@ body {
     position: relative;
     z-index: 1;
     padding: 0.5rem 2rem;
+    height: 2rem;
+    box-sizing: border-box;
 
     .footer-content {
       display: flex;
