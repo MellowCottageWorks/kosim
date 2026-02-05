@@ -197,7 +197,7 @@ body main article#why-we-started {
 }
 @media screen and (max-width: 576px) {
   body main article#why-we-started {
-    padding-bottom: 0vh;
+    padding-bottom: 0;
   }
 }
 body main article#why-we-started h2 {
@@ -992,7 +992,7 @@ body main article#values-and-direction .two-columns {
 }
 @media screen and (max-width: 576px) {
   body main article#values-and-direction .two-columns {
-    gap: 0rem;
+    gap: 0;
   }
 }
 body main article#values-and-direction .two-columns .journey, body main article#values-and-direction .two-columns .certifications {
@@ -1023,7 +1023,6 @@ body main article#values-and-direction .two-columns .journey h3, body main artic
 }
 body main article#values-and-direction .two-columns .journey .timeline {
   list-style: none;
-  padding-left: 0;
   margin: 0;
   border-left: 2px solid currentColor;
   padding-left: 1.5rem;
@@ -1095,12 +1094,8 @@ body main article#values-and-direction .two-columns .certifications .badges .bad
   font-size: 0.9rem;
 }
 body main article#vision {
-  padding: 0 0 8vh;
-}
-@media screen and (max-width: 375px) {
-  body main article#vision {
-    padding: 0;
-  }
+  padding: 0;
+  height: 100vh;
 }
 body main article#vision h2 {
   display: none;
@@ -1108,16 +1103,11 @@ body main article#vision h2 {
 body main article#vision .vision-split {
   display: flex;
   flex-flow: row nowrap;
-  min-height: 100vh;
+  height: 100%;
 }
 @media screen and (max-width: 768px) {
   body main article#vision .vision-split {
     flex-flow: column nowrap;
-  }
-}
-@media screen and (max-width: 375px) {
-  body main article#vision .vision-split {
-    min-height: 100vh;
   }
 }
 body main article#vision .vision-split .vision-image {

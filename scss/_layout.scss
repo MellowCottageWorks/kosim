@@ -209,7 +209,7 @@ body {
         overflow-x: hidden;
 
         @include for-mobile {
-          padding-bottom: 0vh;
+          padding-bottom: 0;
         }
 
         h2 {
@@ -1028,7 +1028,7 @@ body {
           }
 
           @include for-mobile {
-            gap: 0rem;
+            gap: 0;
           }
 
           .journey, .certifications {
@@ -1059,7 +1059,6 @@ body {
           .journey {
             .timeline {
               list-style: none;
-              padding-left: 0;
               margin: 0;
               border-left: 2px solid currentColor;
               padding-left: 1.5rem;
@@ -1140,11 +1139,8 @@ body {
       }
 
       &#vision {
-        padding: 0 0 8vh;
-
-        @include for-mobile-sm {
-          padding: 0;
-        }
+        padding: 0;
+        height: 100vh;
 
         h2 {
           display: none;
@@ -1153,14 +1149,10 @@ body {
         .vision-split {
           display: flex;
           flex-flow: row nowrap;
-          min-height: 100vh;
+          height: 100%;
 
           @include for-tablet {
             flex-flow: column nowrap;
-          }
-
-          @include for-mobile-sm {
-            min-height: 100vh;
           }
 
           .vision-image {
