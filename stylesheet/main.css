@@ -427,6 +427,11 @@ body main article#core-strengths-cont ul li div:first-child {
   line-height: 4rem;
   padding-bottom: 0.5rem;
 }
+@media screen and (max-width: 576px) {
+  body main article#core-strengths-cont ul li div:first-child {
+    width: 3.8rem;
+  }
+}
 @media screen and (max-width: 1024px) {
   body main article#core-strengths-cont ul li div:nth-child(2) {
     width: 35vw;
@@ -492,7 +497,7 @@ body main article#core-strengths-cont ul li div span {
 }
 @media screen and (max-width: 576px) {
   body main article#core-strengths-cont ul li div span {
-    margin: 0.2rem 0.2rem 0 0;
+    margin: 0.5rem 0.2rem 0 0;
   }
 }
 body main article#process {

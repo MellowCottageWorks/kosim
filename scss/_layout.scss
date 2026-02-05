@@ -456,6 +456,10 @@ body {
                 font-size: 3em;
                 line-height: 4rem;
                 padding-bottom: .5rem;
+
+                @include for-mobile {
+                  width: 3.8rem;
+                }
               }
 
               &:nth-child(2) {
@@ -520,7 +524,7 @@ body {
                 }
 
                 @include for-mobile {
-                  margin: .2rem .2rem 0 0;
+                  margin: .5rem .2rem 0 0;
                 }
               }
             }
