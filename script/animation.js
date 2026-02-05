@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
     observer.observe(el)
   }
 
-  // --- Why-we-started: slide images in from sides (replayable) ---
+  // --- Why-we-started: slide images in from sides (replayable) + text scramble ---
 
   var whyWeStarted = document.getElementById('why-we-started')
   if (whyWeStarted) {
@@ -76,6 +76,118 @@ document.addEventListener('DOMContentLoaded', function () {
     if (leftImage) leftImage.style.transition = easing
     if (rightImage) rightImage.style.transition = easing
 
+    // Text scramble setup
+    var scrambleChars =
+      [...Array(26)].map((_,i)=>String.fromCharCode(i+97))
+        .concat(
+      [...Array(26)].map((_,i)=>String.fromCharCode(i+65))
+      )//.concat('1234567890!@#$%^&*()-_=+[]{}|;:\'",./<>?'.split('')
+    var textContainer = whyWeStarted.querySelector('div')
+    var textElements = textContainer ? textContainer.querySelectorAll('p') : []
+    var originalTexts = []
+    var scrambleStarted = false
+
+    // Store original HTML and hide text initially
+    textElements.forEach(function (el) {
+      originalTexts.push(el.innerHTML)
+      el.style.opacity = '0'
+    })
+
+    function scrambleText (el, finalHtml, delay) {
+      setTimeout(function () {
+        el.style.opacity = '1'
+
+        // Extract text nodes while preserving HTML structure
+        var temp = document.createElement('div')
+        temp.innerHTML = finalHtml
+
+        // Get all text content positions
+        var textContent = temp.textContent
+        var chars = textContent.split('')
+        var duration = 800
+        var stagger = duration / chars.length
+        var start = performance.now()
+
+        function step (now) {
+          var elapsed = now - start
+          var revealed = Math.floor(elapsed / stagger)
+
+          // Build scrambled version
+          var result = ''
+          var charIndex = 0
+
+          var punctuationChars = '·:;\'`¨˙'
+
+          function processNode (node) {
+            if (node.nodeType === 3) { // Text node
+              var text = node.textContent
+              for (var i = 0; i < text.length; i++) {
+                var c = text[i]
+                if (charIndex < revealed) {
+                  result += c
+                } else if (c === ' ' || c === '\n') {
+                  // Preserve whitespace
+                  result += c
+                } else if (c === ',' || c === '.') {
+                  // Scramble punctuation with similar-width characters
+                  result += punctuationChars[Math.floor(Math.random() * punctuationChars.length)]
+                } else {
+                  result += scrambleChars[Math.floor(Math.random() * scrambleChars.length)]
+                }
+                charIndex++
+              }
+            } else if (node.nodeType === 1) { // Element node
+              var tagName = node.tagName.toLowerCase()
+              var selfClosing = ['br', 'hr', 'img', 'input', 'meta', 'link']
+              result += '<' + tagName
+              for (var j = 0; j < node.attributes.length; j++) {
+                result += ' ' + node.attributes[j].name + '="' + node.attributes[j].value + '"'
+              }
+              if (selfClosing.indexOf(tagName) !== -1) {
+                result += '>'
+              } else {
+                result += '>'
+                for (var k = 0; k < node.childNodes.length; k++) {
+                  processNode(node.childNodes[k])
+                }
+                result += '</' + tagName + '>'
+              }
+            }
+          }
+
+          for (var i = 0; i < temp.childNodes.length; i++) {
+            processNode(temp.childNodes[i])
+          }
+
+          el.innerHTML = result
+
+          if (revealed < chars.length) {
+            requestAnimationFrame(step)
+          } else {
+            el.innerHTML = finalHtml
+          }
+        }
+
+        requestAnimationFrame(step)
+      }, delay)
+    }
+
+    function startScramble () {
+      if (scrambleStarted) return
+      scrambleStarted = true
+
+      textElements.forEach(function (el, i) {
+        scrambleText(el, originalTexts[i], i * 300)
+      })
+    }
+
+    function resetScramble () {
+      scrambleStarted = false
+      textElements.forEach(function (el) {
+        el.style.opacity = '0'
+      })
+    }
+
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -87,6 +199,7 @@ document.addEventListener('DOMContentLoaded', function () {
             rightImage.style.transform = 'translate(0, 0)'
             rightImage.style.opacity = '0.5'
           }
+          startScramble()
         } else {
           if (leftImage) {
             leftImage.style.transform = 'translateX(-150px)'
@@ -96,6 +209,7 @@ document.addEventListener('DOMContentLoaded', function () {
             rightImage.style.transform = 'translate(' + dx + 'px, ' + dy + 'px)'
             rightImage.style.opacity = '0'
           }
+          resetScramble()
         }
       })
     }, { threshold: 0.3 })
