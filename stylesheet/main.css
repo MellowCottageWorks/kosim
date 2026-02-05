@@ -29,6 +29,19 @@ html, body, p {
   padding: 0;
 }
 
+body {
+  --footer-height: 2rem;
+}
+@media screen and (max-width: 768px) {
+  body {
+    --footer-height: 5rem;
+  }
+}
+@media screen and (max-width: 576px) {
+  body {
+    --footer-height: 1.5rem;
+  }
+}
 @media screen and (max-width: 375px) {
   body header nav {
     right: 0.5rem;
@@ -47,14 +60,9 @@ body main article[id] {
   }
 }
 body main article[id]:last-of-type {
-  height: auto;
-  min-height: calc(100vh - 2rem);
+  height: calc(100vh - var(--footer-height, 2rem));
+  min-height: calc(100vh - var(--footer-height, 2rem));
   padding-bottom: 0;
-}
-@media screen and (max-width: 375px) {
-  body main article[id]:last-of-type {
-    min-height: 100vh;
-  }
 }
 body main article h2 {
   text-align: center;
@@ -1268,25 +1276,15 @@ body main article#vision .vision-split .vision-content button.CTA {
   font-weight: bold;
 }
 body main article#contact {
-  padding: 1rem 0 33vh;
   box-sizing: border-box;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-}
-@media screen and (max-width: 768px) {
-  body main article#contact {
-    padding: 2rem 2rem 33vh;
-  }
-}
-@media screen and (max-width: 576px) {
-  body main article#contact {
-    padding: 2rem 2rem 8vh;
-  }
+  padding: 2rem;
 }
 @media screen and (max-width: 375px) {
   body main article#contact {
-    padding: 1.5rem 1rem 8vh;
+    padding: 1.5rem 1rem;
   }
 }
 body main article#contact h2 {
@@ -1574,12 +1572,11 @@ body footer {
   position: relative;
   z-index: 1;
   padding: 0.5rem 2rem;
-  height: 2rem;
+  height: var(--footer-height, 2rem);
   box-sizing: border-box;
 }
 @media screen and (max-width: 576px) {
   body footer {
-    height: auto;
     padding: 0.5rem 1rem;
   }
 }
