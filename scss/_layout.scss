@@ -731,7 +731,7 @@ body {
 
             @include for-tablet {
               flex: 0 0 auto;
-              max-height: 50vh;
+              max-height: 45vh;
             }
           }
 
@@ -1014,7 +1014,7 @@ body {
 
             @include for-tablet {
               flex: 0 0 auto;
-              min-height: 40vh;
+              min-height: 30vh;
             }
 
             img {

@@ -688,7 +688,7 @@ body main article#featured-product div.product > img {
 @media screen and (max-width: 768px) {
   body main article#featured-product div.product > img {
     flex: 0 0 auto;
-    max-height: 50vh;
+    max-height: 45vh;
   }
 }
 body main article#featured-product div.product > div:first-of-type {
@@ -938,7 +938,7 @@ body main article#vision .vision-split .vision-image {
 @media screen and (max-width: 768px) {
   body main article#vision .vision-split .vision-image {
     flex: 0 0 auto;
-    min-height: 40vh;
+    min-height: 30vh;
   }
 }
 body main article#vision .vision-split .vision-image img {
