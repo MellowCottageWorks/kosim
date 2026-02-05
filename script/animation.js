@@ -48,17 +48,75 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // --- Shared helpers ---
 
-  // One-shot observer: adds 'animate' class once, then stops observing
-  function observeOnce (el, threshold) {
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting && !el.classList.contains('animate')) {
-          el.classList.add('animate')
-          observer.unobserve(el)
-        }
+  // Track current page index for replayable animations
+  var currentPageIndex = -1
+  var animationCallbacks = [] // { el, index, onEnter, onLeave }
+
+  function registerAnimation (el, onEnter, onLeave) {
+    // Find which page this element belongs to
+    var index = -1
+    for (var i = 0; i < stackArticles.length; i++) {
+      if (stackArticles[i].contains(el) || stackArticles[i] === el) {
+        index = i
+        break
+      }
+    }
+    if (index >= 0) {
+      animationCallbacks.push({ el: el, index: index, onEnter: onEnter, onLeave: onLeave })
+    }
+  }
+
+  function updateAnimations (newIndex) {
+    if (newIndex === currentPageIndex) return
+    var oldIndex = currentPageIndex
+    currentPageIndex = newIndex
+
+    animationCallbacks.forEach(function (cb) {
+      if (cb.index === newIndex && cb.index !== oldIndex) {
+        // Entering this page
+        if (cb.onEnter) cb.onEnter()
+      } else if (cb.index === oldIndex && cb.index !== newIndex) {
+        // Leaving this page
+        if (cb.onLeave) cb.onLeave()
+      }
+    })
+  }
+
+  // Listen to scroll and determine current page
+  function getCurrentPageIndex () {
+    var scrollY = window.scrollY
+    for (var i = articleOffsets.length - 1; i >= 0; i--) {
+      if (scrollY >= articleOffsets[i] - 10) {
+        return i
+      }
+    }
+    return 0
+  }
+
+  var animTicking = false
+  window.addEventListener('scroll', function () {
+    if (!animTicking) {
+      requestAnimationFrame(function () {
+        updateAnimations(getCurrentPageIndex())
+        animTicking = false
       })
-    }, { threshold: threshold })
-    observer.observe(el)
+      animTicking = true
+    }
+  })
+
+  // Initial check
+  setTimeout(function () {
+    updateAnimations(getCurrentPageIndex())
+  }, 100)
+
+  // --- Hero section: replayable entrance animations ---
+
+  var hero = document.getElementById('hero')
+  if (hero) {
+    registerAnimation(hero,
+      function () { hero.classList.add('animate') },
+      function () { hero.classList.remove('animate') }
+    )
   }
 
   // --- Why-we-started: slide images in from sides (replayable) + text scramble ---
@@ -188,48 +246,62 @@ document.addEventListener('DOMContentLoaded', function () {
       })
     }
 
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          if (leftImage) {
-            leftImage.style.transform = 'translateX(0)'
-            leftImage.style.opacity = '1'
-          }
-          if (rightImage) {
-            rightImage.style.transform = 'translate(0, 0)'
-            rightImage.style.opacity = '0.5'
-          }
-          startScramble()
-        } else {
-          if (leftImage) {
-            leftImage.style.transform = 'translateX(-150px)'
-            leftImage.style.opacity = '0'
-          }
-          if (rightImage) {
-            rightImage.style.transform = 'translate(' + dx + 'px, ' + dy + 'px)'
-            rightImage.style.opacity = '0'
-          }
-          resetScramble()
-        }
-      })
-    }, { threshold: 0.3 })
+    function animateIn () {
+      if (leftImage) {
+        leftImage.style.transform = 'translateX(0)'
+        leftImage.style.opacity = '1'
+      }
+      if (rightImage) {
+        rightImage.style.transform = 'translate(0, 0)'
+        rightImage.style.opacity = '0.5'
+      }
+      startScramble()
+    }
 
-    observer.observe(whyWeStarted)
+    function animateOut () {
+      if (leftImage) {
+        leftImage.style.transform = 'translateX(-150px)'
+        leftImage.style.opacity = '0'
+      }
+      if (rightImage) {
+        rightImage.style.transform = 'translate(' + dx + 'px, ' + dy + 'px)'
+        rightImage.style.opacity = '0'
+      }
+      resetScramble()
+    }
+
+    // Initial state
+    animateOut()
+
+    registerAnimation(whyWeStarted, animateIn, animateOut)
   }
 
-  // --- One-shot section animations ---
+  // --- Replayable section animations ---
 
   var coreStrengths = document.getElementById('core-strengths')
-  if (coreStrengths) observeOnce(coreStrengths, 0.2)
+  if (coreStrengths) {
+    registerAnimation(coreStrengths,
+      function () { coreStrengths.classList.add('animate') },
+      function () { coreStrengths.classList.remove('animate') }
+    )
+  }
 
   var coreStrengthsCont = document.getElementById('core-strengths-cont')
-  if (coreStrengthsCont) observeOnce(coreStrengthsCont, 0.2)
+  if (coreStrengthsCont) {
+    registerAnimation(coreStrengthsCont,
+      function () { coreStrengthsCont.classList.add('animate') },
+      function () { coreStrengthsCont.classList.remove('animate') }
+    )
+  }
 
   // --- Process section: animation + tomato parallax ---
 
   var process = document.getElementById('process')
   if (process) {
-    observeOnce(process, 0.2)
+    registerAnimation(process,
+      function () { process.classList.add('animate') },
+      function () { process.classList.remove('animate') }
+    )
 
     var tomatoImg = process.querySelector('p:last-of-type img')
     if (tomatoImg) {
@@ -277,6 +349,8 @@ document.addEventListener('DOMContentLoaded', function () {
         var useComma = numStr.indexOf(',') !== -1
         var target = parseInt(numStr.replace(/,/g, ''), 10)
         counterData.push({ el: el, target: target, suffix: suffix, useComma: useComma })
+        // Initialize to 0 immediately (SEO values are preserved in HTML source)
+        el.textContent = '0' + suffix
       }
     })
 
@@ -290,7 +364,7 @@ document.addEventListener('DOMContentLoaded', function () {
       counted = true
 
       counterData.forEach(function (data) {
-        var duration = 2700
+        var duration = 2000
         var start = performance.now()
 
         function step (now) {
@@ -311,16 +385,14 @@ document.addEventListener('DOMContentLoaded', function () {
       })
     }
 
-    var valuesObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          animateCounters()
-          valuesObserver.unobserve(values)
-        }
+    function resetCounters () {
+      counted = false
+      counterData.forEach(function (data) {
+        data.el.textContent = '0' + data.suffix
       })
-    }, { threshold: 0.32 })
+    }
 
-    valuesObserver.observe(values)
+    registerAnimation(values, animateCounters, resetCounters)
   }
 
   // --- Featured product: mouse-following tilt ---
