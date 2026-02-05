@@ -261,7 +261,7 @@ body main article#core-strengths h2 {
 }
 @media screen and (max-width: 576px) {
   body main article#core-strengths h2 {
-    top: 20vh;
+    top: 4vh;
   }
 }
 body main article#core-strengths .strengths {
@@ -282,9 +282,13 @@ body main article#core-strengths .strengths {
 }
 @media screen and (max-width: 768px) {
   body main article#core-strengths .strengths {
-    flex-flow: column nowrap;
     align-items: center;
     gap: 1rem;
+  }
+}
+@media screen and (max-width: 576px) {
+  body main article#core-strengths .strengths {
+    flex-flow: row wrap;
   }
 }
 @media screen and (max-width: 375px) {
@@ -315,6 +319,7 @@ body main article#core-strengths .strengths div.strength-card {
 @media screen and (max-width: 576px) {
   body main article#core-strengths .strengths div.strength-card {
     width: 100%;
+    flex-flow: row wrap;
   }
 }
 body main article#core-strengths .strengths div.strength-card .material-cover {
@@ -688,7 +693,13 @@ body main article#featured-product div.product > img {
 @media screen and (max-width: 768px) {
   body main article#featured-product div.product > img {
     flex: 0 0 auto;
-    max-height: 45vh;
+    max-height: 40vh;
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 576px) {
+  body main article#featured-product div.product > img {
+    max-height: 30vh;
   }
 }
 body main article#featured-product div.product > div:first-of-type {
@@ -911,6 +922,11 @@ body main article#values-and-direction .two-columns .certifications .badges .bad
   flex-flow: column nowrap;
   align-items: center;
   gap: 0.5rem;
+}
+@media screen and (max-width: 576px) {
+  body main article#values-and-direction .two-columns .certifications .badges .badge {
+    flex-flow: row nowrap;
+  }
 }
 body main article#values-and-direction .two-columns .certifications .badges .badge .material-icons {
   font-size: 3rem;
