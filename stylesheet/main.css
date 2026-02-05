@@ -38,7 +38,7 @@ body main article[id] {
   position: sticky;
   top: 0;
   height: 108vh;
-  padding-bottom: 8vh;
+  padding: 0 1.5rem 8vh;
   box-sizing: border-box;
 }
 body main article[id]:last-of-type {
@@ -917,6 +917,9 @@ body main article#values-and-direction .two-columns .certifications .badges .bad
 }
 body main article#values-and-direction .two-columns .certifications .badges .badge .label {
   font-size: 0.9rem;
+}
+body main article#vision {
+  padding: 0 0 8vh;
 }
 body main article#vision h2 {
   display: none;

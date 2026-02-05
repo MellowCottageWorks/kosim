@@ -39,7 +39,7 @@ body {
         position: sticky;
         top: 0;
         height: 108vh;
-        padding-bottom: 8vh;
+        padding: 0 1.5rem 8vh;
         box-sizing: border-box;
 
         &:last-of-type {
@@ -995,6 +995,8 @@ body {
       }
 
       &#vision {
+        padding: 0 0 8vh;
+
         h2 {
           display: none;
         }
