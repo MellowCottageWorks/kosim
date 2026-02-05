@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var targets = []
   var touchStartY = null
   var touchStartIndex = null
+  var touchStartScroll = null
 
   function cacheTargets () {
     targets = articleOffsets.slice()
@@ -82,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('touchstart', function (e) {
     if (pageScrollLocked) return
     touchStartY = e.touches[0].clientY
+    touchStartScroll = window.scrollY
     touchStartIndex = getCurrentIndex()
   }, { passive: true })
 
@@ -94,36 +96,41 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var touchEndY = e.changedTouches[0].clientY
     var deltaY = touchStartY - touchEndY
+    var savedIndex = touchStartIndex
+    var savedScroll = touchStartScroll
     touchStartY = null
+    touchStartIndex = null
+    touchStartScroll = null
 
     if (Math.abs(deltaY) < 30) {
       // undo small native scroll: snap back to where the gesture started
       var from = window.scrollY
-      var to = targets[touchStartIndex]
+      var to = targets[savedIndex]
 
       if (Math.abs(from - to) >= 2) {
-        updateCurrentLi(stackArticles[touchStartIndex])
+        updateCurrentLi(stackArticles[savedIndex])
         animateScroll(from, to)
       }
-
-      touchStartIndex = null
       return
     }
 
-    // Determine target based on swipe direction from current scroll position
-    var currentIndex = touchStartIndex
+    // Use the saved index from touchstart, not current scroll position
     var nextIndex
 
     if (deltaY > 0) {
-      nextIndex = Math.min(currentIndex + 1, targets.length - 1)
+      nextIndex = Math.min(savedIndex + 1, targets.length - 1)
     } else {
-      nextIndex = Math.max(currentIndex - 1, 0)
+      nextIndex = Math.max(savedIndex - 1, 0)
     }
 
-    var from = window.scrollY
+    // Animate from where we started, not where native scroll took us
+    var from = savedScroll
     var to = targets[nextIndex]
 
     if (Math.abs(from - to) < 2) return
+
+    // Immediately jump back to start position to prevent visual jump
+    window.scrollTo(0, from)
 
     updateCurrentLi(stackArticles[nextIndex])
     animateScroll(from, to)
