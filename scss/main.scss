@@ -130,6 +130,8 @@ body {
 
           @for $i from 1 through 3 {
             li:nth-child(#{$i}) {
+              // do not merge this with `background-position`: css will be broken
+              //noinspection CssReplaceWithShorthandSafely
               background:
                 linear-gradient(
                     to bottom,
@@ -138,6 +140,7 @@ body {
                 ),
                 url('../image/strcont#{$i}.png');
               background-size: cover;
+              //noinspection CssReplaceWithShorthandSafely
               background-position: center;
             }
           }
@@ -235,7 +238,7 @@ body {
 
                 &:before {
                   content: 'check_circle';
-                  font-family: 'Material Icons';
+                  font-family: 'Material Icons', sans-serif;
                   color: $red-2;
                   font-variation-settings: 'FILL' 1;
                 }

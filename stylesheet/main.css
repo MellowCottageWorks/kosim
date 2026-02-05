@@ -2279,7 +2279,7 @@ body main article#featured-product div.product > div:first-of-type ul li {
 }
 body main article#featured-product div.product > div:first-of-type ul li:before {
   content: "check_circle";
-  font-family: "Material Icons";
+  font-family: "Material Icons", sans-serif;
   color: #b10000;
   font-variation-settings: "FILL" 1;
 }
