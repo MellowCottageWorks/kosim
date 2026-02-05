@@ -3,6 +3,7 @@ var pageScrollLocked = false
 document.addEventListener('DOMContentLoaded', function () {
   var duration = 500
   var targets = []
+  var touchStartY = null
 
   function cacheTargets () {
     targets = articleOffsets.slice()
@@ -49,18 +50,13 @@ document.addEventListener('DOMContentLoaded', function () {
     requestAnimationFrame(step)
   }
 
-  document.addEventListener('wheel', function (e) {
-    if (pageScrollLocked) {
-      e.preventDefault()
-      return
-    }
-
-    e.preventDefault()
+  function snapTo (direction) {
+    if (pageScrollLocked) return
 
     var currentIndex = getCurrentIndex()
     var nextIndex
 
-    if (e.deltaY > 0) {
+    if (direction > 0) {
       nextIndex = Math.min(currentIndex + 1, targets.length - 1)
     } else {
       nextIndex = Math.max(currentIndex - 1, 0)
@@ -73,5 +69,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
     updateCurrentLi(stackArticles[nextIndex])
     animateScroll(from, to)
+  }
+
+  // Wheel events
+  document.addEventListener('wheel', function (e) {
+    e.preventDefault()
+    snapTo(e.deltaY)
   }, { passive: false })
+
+  // Touch events
+  document.addEventListener('touchstart', function (e) {
+    if (pageScrollLocked) return
+    touchStartY = e.touches[0].clientY
+  }, { passive: true })
+
+  document.addEventListener('touchmove', function (e) {
+    if (pageScrollLocked) e.preventDefault()
+  }, { passive: false })
+
+  document.addEventListener('touchend', function (e) {
+    if (pageScrollLocked || touchStartY === null) return
+
+    var touchEndY = e.changedTouches[0].clientY
+    var deltaY = touchStartY - touchEndY
+    touchStartY = null
+
+    if (Math.abs(deltaY) < 30) return
+
+    snapTo(deltaY)
+  }, { passive: true })
 })
