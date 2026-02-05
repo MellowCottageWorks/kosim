@@ -1268,20 +1268,25 @@ body main article#vision .vision-split .vision-content button.CTA {
   font-weight: bold;
 }
 body main article#contact {
-  padding: 2rem;
+  padding: 1rem 0 33vh;
   box-sizing: border-box;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
 }
+@media screen and (max-width: 768px) {
+  body main article#contact {
+    padding: 2rem 2rem 33vh;
+  }
+}
 @media screen and (max-width: 576px) {
   body main article#contact {
-    padding: 2rem 2rem 0rem;
+    padding: 2rem 2rem 8vh;
   }
 }
 @media screen and (max-width: 375px) {
   body main article#contact {
-    padding: 1.5rem 1rem 0rem;
+    padding: 1.5rem 1rem 8vh;
   }
 }
 body main article#contact h2 {

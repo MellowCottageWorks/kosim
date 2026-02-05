@@ -1318,18 +1318,21 @@ body {
       }
 
       &#contact {
-        padding: 2rem;
+        padding: 1rem 0 33vh;
         box-sizing: border-box;
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
 
+        @include for-tablet {
+          padding: 2rem 2rem 33vh;
+        }
         @include for-mobile {
-          padding: 2rem 2rem 0rem;
+          padding: 2rem 2rem 8vh;
         }
 
         @include for-mobile-sm {
-          padding: 1.5rem 1rem 0rem;
+          padding: 1.5rem 1rem 8vh;
         }
 
         h2 {
