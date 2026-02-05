@@ -198,48 +198,48 @@ article#core-strengths {
         // Card 1: starts at 0s
         &:nth-child(1) {
           .material-cover {
-            animation: fade-in 0.5s ease-out 0s forwards;
+            animation: fade-in 0.4s ease-out 0s forwards;
           }
           .material-icons {
-            animation: slide-up-fade 0.5s ease-out 0s forwards;
+            animation: slide-up-fade 0.4s ease-out 0s forwards;
           }
           h3 {
-            animation: slide-up-fade 0.3s ease-out 0.5s forwards;
+            animation: slide-up-fade 0.25s ease-out 0.3s forwards;
           }
           span {
-            animation: slide-up-fade 0.3s ease-out 0.7s forwards;
+            animation: slide-up-fade 0.25s ease-out 0.45s forwards;
           }
         }
 
-        // Card 2: starts at 0.6s
+        // Card 2: starts at 0.35s
         &:nth-child(2) {
           .material-cover {
-            animation: fade-in 0.5s ease-out 0.6s forwards;
+            animation: fade-in 0.4s ease-out 0.35s forwards;
           }
           .material-icons {
-            animation: slide-up-fade 0.5s ease-out 0.6s forwards;
+            animation: slide-up-fade 0.4s ease-out 0.35s forwards;
           }
           h3 {
-            animation: slide-up-fade 0.3s ease-out 1.1s forwards;
+            animation: slide-up-fade 0.25s ease-out 0.65s forwards;
           }
           span {
-            animation: slide-up-fade 0.3s ease-out 1.3s forwards;
+            animation: slide-up-fade 0.25s ease-out 0.8s forwards;
           }
         }
 
-        // Card 3: starts at 1.2s
+        // Card 3: starts at 0.7s
         &:nth-child(3) {
           .material-cover {
-            animation: fade-in 0.5s ease-out 1.2s forwards;
+            animation: fade-in 0.4s ease-out 0.7s forwards;
           }
           .material-icons {
-            animation: slide-up-fade 0.5s ease-out 1.2s forwards;
+            animation: slide-up-fade 0.4s ease-out 0.7s forwards;
           }
           h3 {
-            animation: slide-up-fade 0.3s ease-out 1.7s forwards;
+            animation: slide-up-fade 0.25s ease-out 1s forwards;
           }
           span {
-            animation: slide-up-fade 0.3s ease-out 1.9s forwards;
+            animation: slide-up-fade 0.25s ease-out 1.15s forwards;
           }
         }
       }
