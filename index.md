@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 고심
-description: 지역 농가와 함께 정직하게 가공하는 토마토 전문 제조사
+description: HACCP 기반 토마토 전문 제조사. OEM 및 도매 문의 환영.
 ---
 <div id="stack">
 {% for c in site.data.navigation %}
