@@ -1,0 +1,11 @@
+[build]
+  command = "bundle exec jekyll build"
+  publish = "_site"
+
+[build.environment]
+  JEKYLL_ENV = "production"
+  RUBY_VERSION = "3.2.2"
+
+# Form notifications
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
