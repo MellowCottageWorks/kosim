@@ -46,6 +46,10 @@ body {
     }
   }
 
+  .hidden {
+    display: none;
+  }
+
   main {
     button.CTA {
       background-color: $red-1;

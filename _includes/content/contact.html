@@ -28,7 +28,20 @@
     </div>
 
     <div class="contact-form-wrap">
-        <form id="contact-form" name="contact" method="POST" enctype="multipart/form-data" data-netlify="true">
+        <!--suppress HtmlUnknownAttribute -->
+        <form
+          id="contact-form"
+          name="contact"
+          method="POST"
+          enctype="multipart/form-data"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+            <p class="hidden">
+                <label>
+                    Don’t fill this out if you’re human: <input name="bot-field" type="text" />
+                </label>
+            </p>
             <div class="form-row">
                 <div class="form-group">
                     <label for="fcompany">업체명</label>

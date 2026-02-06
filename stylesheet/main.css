@@ -2190,6 +2190,9 @@ body .material-cover:has(.material-icons.red) {
 body .material-cover:has(.material-icons.tomato) {
   background-color: rgba(177, 0, 0, 0.2);
 }
+body .hidden {
+  display: none;
+}
 body main button.CTA {
   background-color: #d85252;
   color: white;
